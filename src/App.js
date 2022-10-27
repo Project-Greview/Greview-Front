@@ -1,10 +1,11 @@
-
+import { Routes, Route } from "react-router-dom";
+import Login from "./components/login/view/Login";
 
 const App = () => {
   return (
-    <>
-      <div>지리뷰 프론트</div>
-    </>
+    <Routes>
+      <Route path="/" element={<Login/>}/>
+    </Routes>
   );
 }
 
