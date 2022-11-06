@@ -20,3 +20,7 @@ React_Project
 - "react-router-dom": "^6.4.2",
 - "react-scripts": "5.0.1",
 - "web-vitals": "^2.1.0"
+
+# Front Source 간단 보는법!!!
+- View Component : .jsx의 경우 실제 보여지는 부분
+- styledComponent : **pagename** > style > **pagename**Style.js 의 경우 해당 페이지 전용 styled Components
