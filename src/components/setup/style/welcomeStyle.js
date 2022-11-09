@@ -2,11 +2,11 @@ import styled from "styled-components";
 // color:#6656ff;
 export const WelcomeSection = {
   WelcomeFrame:styled.div`
-    display:flex; justify-content:center; align-items: center;
-    button {background:#6656ff; color:#ffffff;}
+    display:flex; flex-direction:column; justify-content:center; align-items: center;
+    button {max-width:33.5rem; width:33.5rem; height:5rem; background:#6656ff; border-radius:0.5rem; color:#ffffff;}
     .has_acc {
-    	p {
-    		div {color:#6656ff;}
+    	.txt {font-size:1.2rem; font-weight:300; color:#959292;
+    		div {margin-left:0.5rem; font-size:1.2rem; font-weight:400; color:#6656ff;}
     	}
     }
   `
