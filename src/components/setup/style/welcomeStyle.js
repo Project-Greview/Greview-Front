@@ -9,5 +9,9 @@ export const WelcomeSection = {
     		div {margin-left:0.5rem; font-size:1.2rem; font-weight:400; color:#6656ff;}
     	}
     }
+    
+    .login_form {
+      button {margin-bottom:2.5rem;}
+    }
   `
 }
