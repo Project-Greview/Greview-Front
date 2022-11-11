@@ -9,8 +9,10 @@ export const WelcomeSection = {
     		div,a {margin-left:0.5rem; font-size:1.2rem; font-weight:400; color:#6656ff;}
     	}
     }
-    
-    .login_form {
+    .first_form {
+      button {margin:8.5rem 0 2.5rem 0;}
+    }
+    .login_form {margin-top:5rem;
       button {margin-bottom:2.5rem;}
     }
   `
