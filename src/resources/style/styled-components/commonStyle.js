@@ -7,6 +7,10 @@ export const Common = {
   @media screen and (max-width:550px) {
     border:0.1rem solid blue;
   }
+
+  @media screen and (max-width:414px) {
+    border:0.1rem solid blue;
+  }
   `,
   Input:styled.div`
     width:100%;
@@ -17,9 +21,9 @@ export const Common = {
       }
   `,
   ButtonDiv:styled.div`
-    display:flex; justify-content:center; align-items:center; max-width:33.5rem; width:33.5rem; height:5rem; background:#6656ff; border-radius:0.5rem; color:#ffffff;
+    display:flex; justify-content:center; align-items:center; max-width:86%; width:33.5rem; height:5rem; background:#6656ff; border-radius:0.5rem; color:#ffffff;
   `,
   Button:styled.button`
-    display:flex; justify-content:center; align-items:center; max-width:33.5rem; width:33.5rem; height:5rem; background:#6656ff; border-radius:0.5rem; color:#ffffff;
+    display:flex; justify-content:center; align-items:center; max-width:86%; width:33.5rem; height:5rem; background:#6656ff; border-radius:0.5rem; color:#ffffff;
   `
 }

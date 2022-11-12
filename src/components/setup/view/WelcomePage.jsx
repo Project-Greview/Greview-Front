@@ -4,6 +4,8 @@ import { WelcomeSection } from "../style/welcomeStyle";
 import { Common } from "../../../resources/style/styled-components/commonStyle";
 
 import { hasAccountState } from "../../../states/recoilCounterState";
+
+import Login from "../../login/view/Login";
 import {useRecoilState, useSetRecoilState} from "recoil";
 
 const WelcomePage = () => {
@@ -34,20 +36,7 @@ const WelcomePage = () => {
           </div> */}
         </div>
       :
-        <div className="login_form flex flex_dir_c">
-          <Common.Input className="login_id">
-            <input type="text" placeholder="아이디"/>
-            <label htmlFor=""></label>
-          </Common.Input>
-          <Common.Input className="login_pw">
-            <input type="password" placeholder="비밀번호"/>
-            <label htmlFor=""></label>
-          </Common.Input>
-          <Common.Button>로그인</Common.Button>
-          <div className="has_acc flex flex_jc_c">
-            <div className="txt flex">처음이신가요?<div onClick={onPushRegist} className="cursor_p">회원가입</div></div>
-          </div>
-        </div>
+        <Login/>
       }
       
     </WelcomeSection.WelcomeFrame>
