@@ -5,7 +5,7 @@ export const Common = {
 
   // responsive 
   @media screen and (max-width:550px) {
-    border:0.1rem solid blue; padding:2rem;
+    border:0.1rem solid blue;
   }
   @media screen and (max-width:414px) {
     border:0.1rem solid blue;
