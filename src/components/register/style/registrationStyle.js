@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const RegistSection = {
   LocationFrame:styled.div`
     position:relative; display:flex; margin-bottom:2rem;
-    ::after {content:""; position:absolute; width:100%; height:0.2rem; top:100%; left:0; background:#222222; }
+    ::after {content:""; position:absolute; width:100%; height:0.2rem; top:100%; left:0; background:rgba(101, 86, 255, 0.1); }
   `,
   RegistFrame:styled.div`
     .regsit_header {padding:1rem 2rem; box-shadow:0 0.5rem 1rem #eeeeee;
@@ -24,6 +24,6 @@ export const RegistSection = {
         ::after {content:"8~16자의 영문과 숫자, 특수문자 조합"; position:absolute; top:0.4rem; right:0; font-size:1.2rem; font-weight:400; color:#2F2F33;}
       }
     }
-    button {position:static; align-self:center; height:4.7rem; margin:0.4rem 0 2rem 0;}
+    button {position:static; align-self:center; height:4.7rem; margin:0.4rem 0 2rem 0; font-size:1.4rem; font-weight:400;}
   `
 }

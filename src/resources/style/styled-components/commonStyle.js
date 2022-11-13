@@ -23,6 +23,12 @@ export const Common = {
         ::placeholder {color:#a9a9a9;}
       }
   `,
+  SearchInput:styled.div`
+    display:flex; align-items:center; flex-basis:80%; border-radius:3rem; border:0.2rem solid #f4f4f4;
+    input[type="text"] {width:${props=>props.width}; padding:0.5rem 0rem; font-size:1.6rem; border-radius:3rem 0 0 3rem; border:none; outline:none;
+    ::placeholder {color:#eae9e9;}
+  }
+  `,
   ButtonDiv:styled.div`
     display:flex; justify-content:center; align-items:center; max-width:${props => props.width}; width:${props => props.width}; height:5rem; background:#6656ff; border-radius:0.5rem; color:#ffffff;
     // width:33.5rem;

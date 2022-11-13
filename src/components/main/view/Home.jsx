@@ -1,8 +1,11 @@
+import { HomeSection } from "../style/home";
+import SearchBar from "./searchBar/SearchBark";
+
 const Home = () => {
   return(
-    <>
-      aadsadasd
-    </>
+    <HomeSection.HomeFrame>
+      <SearchBar/>
+    </HomeSection.HomeFrame>
   )
 }
 
