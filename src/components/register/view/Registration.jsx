@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { RegistSection } from "../style/registrationStyle";
 import { Common } from "../../../resources/style/styled-components/commonStyle";
-import images from "../../../resources/img/img";
+
+import HistoryBack from "../../../resources/style/styled-components/Historyback";
+import LocationSetting from "./LocationSetting";
 
 const Registration = () => {
 
@@ -33,39 +36,42 @@ const Registration = () => {
     setNickname(e.target.value);
   }
 
+  const checkVal = (email && password && passwordCK && telNum && name && nickname).length;
+
   return(
     <RegistSection.RegistFrame>
       <div className="regsit_header flex flex_ai_c">
-        <div onClick={() => {navigate(-1)}} className="cursor_p"><img src={images.arrow_left} alt="뒤로가기"/></div>
-        <div className="tit">회원가입</div>
+        <HistoryBack/>
+        <div className="tit flex flex_jc_c">회원가입</div>
       </div>
       <RegistSection.RegistForm>
+        <LocationSetting/>
         <Common.Input>
           <label htmlFor="user_email">이메일</label>
-          <input type="text" name="user_email" value={email} onChange={onChangeEmail}/>
+          <input type="text" name="user_email" value={email} onChange={onChangeEmail} style={{width:"100%"}}/>
         </Common.Input>
         <Common.Input>
           <label htmlFor="pw">비밀번호</label>
-          <input type="password" name="pw" value={password} onChange={onChangePassword}/>
+          <input type="password" name="pw" value={password} onChange={onChangePassword} style={{width:"100%"}}/>
         </Common.Input>
         <Common.Input>
           <label htmlFor="pwck">비밀번호 확인</label>
-          <input type="password" name="pwck" value={passwordCK} onChange={onChangePasswordCK}/>
+          <input type="password" name="pwck" value={passwordCK} onChange={onChangePasswordCK} style={{width:"100%"}}/>
         </Common.Input>
         <Common.Input>
           <label htmlFor="user_tel">핸드폰 번호</label>
-          <input type="tel" name="user_tel" value={telNum} onChange={onChangeTelNum}/>
+          <input type="tel" name="user_tel" value={telNum} onChange={onChangeTelNum} style={{width:"100%"}}/>
         </Common.Input>
         <Common.Input>
           <label htmlFor="user_name">이름</label>
-          <input type="text" name="user_name" value={name} onChange={onChangeName}/>
+          <input type="text" name="user_name" value={name} onChange={onChangeName} style={{width:"100%"}}/>
         </Common.Input>
         <Common.Input>
           <label htmlFor="user_nickname">닉네임</label>
-          <input type="text" name="user_nickname" value={nickname} onChange={onChangeNickName}/>
+          <input type="text" name="user_nickname" value={nickname} onChange={onChangeNickName} style={{width:"100%"}}/>
         </Common.Input>
       </RegistSection.RegistForm>
-      <Common.Button>가입하기</Common.Button>
+      <Common.Button className={checkVal !== 0 ? "active" : ""} style={{width:"86%"}}>가입하기</Common.Button>
     </RegistSection.RegistFrame>
   )
 }
