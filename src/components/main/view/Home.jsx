@@ -1,6 +1,6 @@
 import { HomeSection } from "../style/home";
 import KakaoMapAPI from "./map/Map";
-import SearchBar from "./searchBar/SearchBark";
+import SearchBar from "./searchBar/SearchBar";
 
 const Home = () => {
   return(

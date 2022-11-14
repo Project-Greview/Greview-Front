@@ -13,7 +13,11 @@ export const SearchBarSection = {
     div {
       label {margin:0 1.5rem;}
       input {font-size:1.4rem;}
-      button {height:auto; padding:0 1.5rem; background:none;}
+      button {height:auto; padding:0 1.5rem; background:none;
+        &.tag {
+          path {fill:#6656ff;}
+        }
+      }
     }
   `
 }

@@ -24,9 +24,9 @@ export const Common = {
       }
   `,
   SearchInput:styled.div`
-    display:flex; align-items:center; flex-basis:80%; border-radius:3rem; border:0.2rem solid #f4f4f4;
+    display:flex; align-items:center; flex-basis:85%; border-radius:3rem; border:0.2rem solid #f4f4f4;
     input[type="text"] {width:${props=>props.width}; padding:0.5rem 0rem; font-size:1.6rem; border-radius:3rem 0 0 3rem; border:none; outline:none;
-    ::placeholder {color:#eae9e9;}
+    ::placeholder {font-weight:lighter; color:#eae9e9;}
   }
   `,
   ButtonDiv:styled.div`
