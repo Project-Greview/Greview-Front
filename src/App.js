@@ -12,7 +12,8 @@ const App = () => {
         <Route path="/" element={<WelcomePage/>}/>
         <Route path="/" element={<Login/>}/>
         <Route path="/regist" element={<Registration/>}/>
-        <Route path="/main/*" element={<PageFrame/>}/> 
+        <Route path="/main/*" element={<PageFrame/>}/>
+        <Route path="/review/*" element={<PageFrame/>}/> 
       </Routes>
   );
 }
