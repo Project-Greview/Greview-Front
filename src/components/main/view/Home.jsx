@@ -5,8 +5,9 @@ import SearchBar from "./searchBar/SearchBar";
 const Home = () => {
   return(
     <HomeSection.HomeFrame>
-      <SearchBar/>
+      {/* <SearchBar/> */}
       <KakaoMapAPI/>
+
     </HomeSection.HomeFrame>
   )
 }
