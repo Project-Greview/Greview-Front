@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import { LoginSection } from "../style/loginStyle";
-import { Common } from "../../../resources/style/styled-components/commonStyle";
+import { Common } from "../../../resources/style/common/commonStyle";
 import { useState } from "react";
 const Login = () => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const Login = () => {
           </div>
         </div>
     </LoginSection.LoginForm>
-  )
-}
+  );
+};
 
 export default Login;

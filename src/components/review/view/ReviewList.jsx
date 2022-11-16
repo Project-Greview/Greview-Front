@@ -3,9 +3,9 @@ import testImages from "../../../resources/img/review.jpg";
 import { useNavigate } from "react-router-dom";
 import images from "../../../resources/img/img";
 import { ReivewListSection } from "../style/reviewStyle";
-import { Common } from "../../../resources/style/styled-components/commonStyle";
+import { Common } from "../../../resources/style/common/commonStyle";
 
-import HistoryBack from "../../../resources/style/styled-components/Historyback";
+import HistoryBack from "../../../resources/style/common/Historyback";
 
 const ReivewList = () => {
   const navigate = useNavigate();
