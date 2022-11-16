@@ -14,7 +14,7 @@ const PageFrame = () => {
         <Route path="/reviewlist" element={<ReviewList />} />
         <Route path="/reviewdetail" element={<ReviewDetail />} />
       </Routes>
-      <BottomMenu />
+      {/* <BottomMenu /> */}
     </Common.Frame>
   );
 };
