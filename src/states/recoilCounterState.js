@@ -13,6 +13,7 @@ const hasAccountState = atom({
 const onToggleSearchType = atom({
   key: "searchTypeState",
   default: "tag",
-})
+});
+
 
 export{ recoilCountState,hasAccountState,onToggleSearchType };

@@ -1,21 +1,22 @@
 import testImages from "../../../resources/img/review.jpg";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import images from "../../../resources/img/img";
-import { ReivewListSection } from "../style/reviewStyle";
+import { ReviewListSection } from "../style/reviewStyle";
 import { Common } from "../../../resources/style/common/commonStyle";
 
 import HistoryBack from "../../../resources/style/common/Historyback";
 
-const ReivewList = () => {
+const ReviewList = () => {
   const navigate = useNavigate();
   const onPushDetail = () => {
-    navigate("/review/reviewdetail")
-  }
-    
-
+    navigate("/review/reviewdetail", {state:"review"})
+  };
+  
+  const location = useLocation();
+  console.log(location)
   return(
-    <ReivewListSection.ListFrame>
+    <ReviewListSection.ListFrame>
       <div className="review_header flex flex_ai_c">
         <HistoryBack/>
         <div className="tit flex flex_jc_c">리뷰목록</div>
@@ -83,8 +84,8 @@ const ReivewList = () => {
           </div>
         </div>
       </Common.Reveiw>
-    </ReivewListSection.ListFrame>
+    </ReviewListSection.ListFrame>
   )
 }
 
-export default ReivewList;
+export default ReviewList;

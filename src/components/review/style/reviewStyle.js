@@ -4,7 +4,7 @@ import images from "../../../resources/img/img";
 import icoThumb from "../../../resources/img/icons/thumb_ico.svg";
 import icoComment from "../../../resources/img/icons/comment_ico.svg";
 import icoMore from "../../../resources/img/icons/more_ico.svg";
-export const ReivewListSection = {
+export const ReviewListSection = {
   ListFrame:styled.div`
     .review_header {padding:1rem 2rem; width:100%;position: fixed;top:0;background:#fff;
       .history_back {flex-basis:2.4rem;}

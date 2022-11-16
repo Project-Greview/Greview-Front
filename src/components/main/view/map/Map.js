@@ -90,7 +90,7 @@ const KakaoMapAPI = () => {
       };
 
       let goDdetailPage = () => {
-        navigate("/regist");
+        navigate("/review/reviewlist", {state:"review"});
       };
       window.kakao.maps.event.addListener(
         custom_marker,
