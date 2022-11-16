@@ -1,7 +1,13 @@
 import { BottomMenuSection } from "../style/bottommenuStyle";
 import images from "../../../resources/img/img";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const BottomMenu = () => {
+  const navigate = useNavigate();
+  const onReviewWrite = () => {
+    navigate("/review/reviewrite", {state:"review"})
+  };
+
   return(
     <BottomMenuSection.BottomMenuFrame>
       <ul className="flex flex_jc_sa flex_ai_c">
@@ -19,7 +25,7 @@ const BottomMenu = () => {
         </li>
         <li>
           <div className="img_box">
-            <img src={images.menu_icon3} alt=""/>
+            <img src={images.menu_icon3} alt="" onClick={onReviewWrite}/>
           </div>
           <div>리뷰쓰기</div>
         </li>

@@ -28,7 +28,7 @@ const ReviewList = () => {
               <img src={testImages} alt="" />
             </div>
             <div className="userInfo">
-              <p className="name">춤추는제이지</p>
+              <p className="name">춤추는제이지1</p>
               <p className="date">2022년 11월 5일</p>
             </div>
             <div className="more"></div>
@@ -79,8 +79,8 @@ const ReviewList = () => {
             </div>
           </div>
           <div className="cmt_wrap">
-            <span className="thumb">10</span>
-            <span className="cmt">2</span>
+            <button className="thumb" type="button">10</button>
+            <button className="cmt" type="button">2</button>
           </div>
         </div>
       </Common.Reveiw>
