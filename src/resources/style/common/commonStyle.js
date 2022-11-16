@@ -38,6 +38,7 @@ export const Common = {
     display:flex; justify-content:center; align-items:center; max-width:${props => props.width}; width:${props => props.width}; height:5rem; background:#6656ff; border-radius:0.5rem; color:#ffffff;
     // width:33.5rem; 
     // max-width:86%; width:86%;
+    :disabled{background:#959292;}
   `,
   Reveiw:styled.div`
   padding:1.6rem 2rem;

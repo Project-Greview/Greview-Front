@@ -134,29 +134,41 @@ export const ReviewDetailSection = {
   `,
   writeForm:styled.form`
     .write_wrap{background:#ffffff;padding:1.4rem 2.1rem;margin:4.9rem 0 5.8rem;
-      .place_sel{width:100%;color:#959292;
-        p{margin:0 0 1rem 1rem;font-size:1.4rem;}
-        button{padding:0.5rem 3.6rem;border: 1px solid #959292;border-radius: 30px;
+      p{margin:0 0 1rem 1rem;font-size:1.4rem;color:#959292;}
+      .line{display:inline-block;width:100%;margin:1rem 0 1rem;height:0.2rem; background:rgba(237, 237, 237, 0.5);}
+      .place_sel{width:100%;
+        
+        button.select{padding:0.5rem 3.4rem;border: 1px solid #959292;border-radius: 30px;
           margin-right: 0.6rem;
           color: #959292;
           font-size: 1.6rem;
           &.active {border-color:#6556FF;color:#6556FF;}
         }
+        .mg{margin:1.8rem 0 1.8rem;}
       }
-      input[type="text"],input[type="password"],input[type="tel"] {width:100%;
-      padding:1rem 1.4rem; font-size:1.4rem; border-radius:0.5rem; border:0.1rem solid #EBEBEB; outline:none;
+      input {width:100%;
+      padding:0.8rem 1.4rem; font-size:1.4rem; border-radius:0.5rem; border:0.1rem solid #EBEBEB; outline:none;
         ::placeholder {color:#a9a9a9;}
       }
-      
-      .star_wrap{
-        margin:1.5rem 0 0.9rem;
-        width: 100%;
-        height: 3rem;
+      .search{background: rgba(237, 237, 237, 0.5); border:none;
+        ::placeholder{color:#959292;}
       }
-      .info{font-size: 14px;color: #959292;}
+      .star_wrap{
+        margin:1.5rem 0 0.7rem;
+        width: 100%;
+        .star{margin-right:0.88rem;}
+        .mt{margin-top:1.3rem;}
+        p{margin:0}
+      }
+      /* .info{font-size: 14px;color: #959292;} */
       
-      .review_input{min-height:13.8rem;margin:3rem 0 2.2rem;}
-      .tag_input{}
+      .review_txt{min-height:13.8rem;margin:0.8rem 0 1.5rem; width:100%;resize:none;
+        padding:1rem 1.4rem; font-size:1.4rem; border-radius:0.5rem; border:0.1rem solid #EBEBEB; outline:none;
+        ::placeholder{color:#D0CFCF;}
+      }
+      .tag_input{
+        ::placeholder{color:#D0CFCF;}
+      }
     }
   `,
 }
