@@ -9,6 +9,8 @@ import menu_icon2 from "./icons/menu_2.svg";
 import menu_icon3 from "./icons/menu_3.svg";
 import menu_icon4 from "./icons/menu_4.svg";
 import menu_icon5 from "./icons/menu_5.svg";
+import star_on from "./icons/star_on.svg";
+import star_off from "./icons/star_off.svg";
 const images = {
   welcomeLogo,
   arrow_left,
@@ -20,7 +22,9 @@ const images = {
   menu_icon2,
   menu_icon3,
   menu_icon4,
-  menu_icon5
+  menu_icon5,
+  star_on,
+  star_off
 };
 
 export default images;
