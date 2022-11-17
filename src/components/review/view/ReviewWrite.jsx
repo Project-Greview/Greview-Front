@@ -1,6 +1,6 @@
 import testImages from "../../../resources/img/review.jpg";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import images from "../../../resources/img/img";
 import { ReviewDetailSection } from "../style/reviewStyle";
 import HistoryBack from "../../../resources/style/common/Historyback";
@@ -8,20 +8,32 @@ import { Common } from "../../../resources/style/common/commonStyle";
 
 const ReviewDetail = () => {
 
-  const popOpen = () => {
-    console.log('ddd');
-  }
-
   const [text, setText] = useState('');
 
+  const onPopup = (e) => {
+    var state = e.target.classList;
+    console.log(e.target.classList);
+    if(!state.contains('disabled')){
+      const popup = document.querySelector('.pop_wrap');
+      popup.classList.remove('dn');
+    }else{
+      console.log('disabled');
+    }
+    
+  };
+
   const onChange = (e) => {
+    const selBtn = document.querySelector('#selBtn');
     setText(e.target.value);
+    
+    if(e.target.value == ''){
+      selBtn.classList.add('disabled');
+    }else{
+      selBtn.classList.remove('disabled');
+    }
   };
 
-  const onReset = () => {
-    setText('kkkkkk');
-  };
-
+  
   return(
     <ReviewDetailSection.ListFrame>
       <div className="review_header flex flex_ai_c">
@@ -40,8 +52,8 @@ const ReviewDetail = () => {
               onChange={onChange} value={text}
                 style={{ width: "74%" }}
               />
-              <Common.Button style={{ width: "24%",height:"3.3rem" }} type="button" id="#selBtn"
-                onClick={onReset}>확인</Common.Button>
+              <Common.Button style={{ width: "24%",height:"3.3rem" }} type="button" className="disabled" id="selBtn"
+                onClick={onPopup}>확인</Common.Button>
             </div>
           </div>
           <div className="line"></div>

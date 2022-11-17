@@ -39,6 +39,7 @@ export const Common = {
     // width:33.5rem; 
     // max-width:86%; width:86%;
     :disabled{background:#959292;}
+    &.disabled{background:#959292;}
   `,
   Reveiw:styled.div`
   padding:1.6rem 2rem;
