@@ -1,17 +1,9 @@
-import { useEffect, useState } from "react";
-import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { useState,useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Map,useMap,MapMarker } from "react-kakao-maps-sdk";
 import images from "../../../../resources/img/img";
-
-const ReactkakaoMap = () => {
-  const current = function success({ coords, timestamp }) {
-    const latitude = coords.latitude; // 위도
-    const longitude = coords.longitude; // 경도
-
-    alert(
-      `위도: ${latitude}, 경도: ${longitude}, 위치 반환 시간: ${timestamp}`
-    );
-  };
-  console.log(current);
+const ReactKakaoMap = () => {
+  const navigate = useNavigate();
   const [state, setState] = useState({
     center: {
       lat: 33.450701,
@@ -50,20 +42,60 @@ const ReactkakaoMap = () => {
         errMsg: "geolocation을 사용할수 없어요..",
         isLoading: false,
       }));
-    }
+    };
+
+    
   }, []);
 
+  const data = [
+    {
+      latlng: { lat: 37.365264512305174, lng: 127.10676860117488 },
+    },
+    {
+      latlng: { lat: 33.450936, lng: 126.569477 },
+    },
+    {
+      latlng: { lat: 33.450879, lng: 126.56994 },
+    },
+    {
+      latlng: { lat: 33.451393, lng: 126.570738 },
+    },
+  ]
+
+  const EventMarkerContainer = ({ position }) => {
+    const map = useMap()
+    const [isVisible, setIsVisible] = useState(false)
+
+    return (
+      <MapMarker
+      // 마커를 표시할 위치
+        position={position} 
+        // 마커이미지의 주소
+        image={{
+          src: images.map_maker, 
+          // 마커이미지의 크기
+          size: {
+            width: 40,
+            height: 59
+          }, 
+        }}
+        // 마커 클릭 시 페이지 이동 이벤트
+        onClick={() => {navigate("/review/reviewlist", { state: "review" })}}
+      >
+      </MapMarker>
+    )
+  }
+
   return (
-    <Map
+    <Map // 지도를 표시할 Container
       center={state.center}
       style={{
         // 지도의 크기
         width: "100%",
         height: "100vh",
       }}
-      level={4}
+      level={4} // 지도의 확대 레벨
     >
-      {/* {!state.isLoading && ( */}
       <MapMarker
         position={state.center}
         image={{
@@ -72,9 +104,14 @@ const ReactkakaoMap = () => {
           option: { offset: { x: 20, y: 20 } },
         }}
       ></MapMarker>
-      {/* )} */}
+      {data.map((value) => (
+        <EventMarkerContainer
+          key={`EventMarkerContainer-${value.latlng.lat}-${value.latlng.lng}`}
+          position={value.latlng}
+        />
+      ))}
     </Map>
-  );
-};
+  )
+}
 
-export default ReactkakaoMap;
+export default ReactKakaoMap;
