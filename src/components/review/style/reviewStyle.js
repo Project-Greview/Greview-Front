@@ -25,8 +25,8 @@ export const ReviewListSection = {
         img:first-child{margin-right:0.6rem}
       }
       .review_txt{font-size:1.4rem;color:#959292;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
-      .hashtag_wrap{width:100%; height: 2.7rem;margin:1.4rem 0 2rem; overflow: hidden;
-        .overBox{width:100%;height:2.5rem;overflow:hidden}
+      .hashtag_wrap{width:100%; height: 2.7rem;margin:1.4rem 0 2rem; overflow-x: scroll;
+        .overBox{width:max-content;height:2.5rem;}
         .hashtag{position: relative;font-size:1.4rem;margin:0 0.8rem 0.1rem 0;display:inline-block; padding:0.3rem 1rem 0.3rem 3.3rem;border-radius:5rem;border:1px solid #EDEDED; background:#fff;color:#959292;}
         .hashtag::before{
           position: absolute;
@@ -81,8 +81,8 @@ export const ReviewDetailSection = {
         img{object-fit:cover;width:100%;}
       }
       .review_txt{font-size:1.4rem;color:#3D3D3D;}
-      .hashtag_wrap{width:100%; height: 2.7rem;margin:1.4rem 0 2rem; overflow: hidden;
-        .overBox{width:100%;height:2.5rem;overflow:hidden}
+      .hashtag_wrap{width:100%; height: 2.7rem;margin:1.4rem 0 2rem; overflow-x: scroll;
+        .overBox{width:max-content;height:2.5rem;}
         .hashtag{position: relative;font-size:1.4rem;margin:0 0.8rem 0.1rem 0;display:inline-block; padding:0.3rem 1rem 0.3rem 3.3rem;border-radius:5rem;border:1px solid #EDEDED; background:#fff;color:#959292;}
         .hashtag::before{
           position: absolute;
@@ -133,11 +133,10 @@ export const ReviewDetailSection = {
     
   `,
   writeForm:styled.form`
-    .write_wrap{background:#ffffff;padding:1.4rem 2.1rem;margin:4.9rem 0 5.8rem;
+    .write_wrap{background:#ffffff;padding:1.4rem 2.1rem;margin:4.9rem 0 0rem;
       p{margin:0 0 1rem 1rem;font-size:1.4rem;color:#959292;}
       .line{display:inline-block;width:100%;margin:1rem 0 1rem;height:0.2rem; background:rgba(237, 237, 237, 0.5);}
       .place_sel{width:100%;
-        
         button.select{padding:0.5rem 3.4rem;border: 1px solid #959292;border-radius: 30px;
           margin-right: 0.6rem;
           color: #959292;
@@ -160,15 +159,33 @@ export const ReviewDetailSection = {
         .mt{margin-top:1.3rem;}
         p{margin:0}
       }
-      /* .info{font-size: 14px;color: #959292;} */
       
       .review_txt{min-height:13.8rem;margin:0.8rem 0 1.5rem; width:100%;resize:none;
         padding:1rem 1.4rem; font-size:1.4rem; border-radius:0.5rem; border:0.1rem solid #EBEBEB; outline:none;
         ::placeholder{color:#D0CFCF;}
       }
-      .tag_input{
-        ::placeholder{color:#D0CFCF;}
+      .tag_wrap{display:flex;
+        .input_box{padding-left:1.4rem;display:flex; align-items:center; flex-basis:85%; border-radius:0.5rem; border:0.1rem solid #EBEBEB;margin-right:0.6rem;
+        input[type="text"] {width:${props=>props.width}; padding:0 0 0 1rem; margin-top:-0.1rem;font-size:1.4rem; border-radius:3rem 0 0 3rem; border:none; outline:none;
+        ::placeholder {font-weight:lighter; color:#D0CFCF;}
+        }}
+      }
+      .hashtag_wrap{width:100%; height: 2.7rem;margin:1.4rem 0 2rem; overflow-x: scroll;
+        .overBox{width:max-content;height:2.5rem;}
+        .hashtag{position: relative;font-size:1.4rem;margin:0 0.8rem 0.1rem 0;display:inline-block; padding:0.3rem 0.8rem 0.3rem 3rem;border-radius:5rem;border:1px solid #EDEDED; background:#fff;color:#959292;}
+        .hashtag::before{
+          position: absolute;
+          left: 0.8rem;
+          top: 0.5rem;
+          display: inline-block;
+          content:""; width:1.6rem; height:1.6rem; background:url("${images.welcomeLogo}");background-size:1.6rem;
+        }
+      }
+      .pic_wrap{height:7.5rem;margin-bottom:4.6rem;
+        .pic_add{width:7.5rem;height:7.5rem;border-radius:0.5rem;border:1px solid #D0CFCF;}
+        p{font-size:1.2rem;margin:0.2rem 0 0 0;color:#D0CFCF;}
       }
     }
   `,
+  
 }

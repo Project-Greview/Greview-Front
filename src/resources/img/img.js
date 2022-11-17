@@ -12,6 +12,7 @@ import menu_icon5 from "./icons/menu_5.svg";
 import current_user from "./icons/current_user.svg";
 import star_on from "./icons/star_on.svg";
 import star_off from "./icons/star_off.svg";
+import camera from "./icons/camera_ico.svg";
 const images = {
   welcomeLogo,
   arrow_left,
@@ -26,7 +27,8 @@ const images = {
   menu_icon5,
   current_user,
   star_on,
-  star_off
+  star_off,
+  camera
 };
 
 export default images;
