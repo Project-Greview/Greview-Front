@@ -9,6 +9,12 @@ export const BottomMenuSection = {
         div {font-size:1rem; font-weight:500;
           &.img_box {margin-bottom:10px;}
         }
+        &.active {
+          div {color:#6556FF;}
+          .img_box {
+            path {fill:#6556FF;}
+          }
+        }
       }
     }
   `

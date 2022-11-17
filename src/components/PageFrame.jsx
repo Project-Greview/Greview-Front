@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Common } from "../resources/style/common/commonStyle";
-import BottomMenu from "./include/view/BottomMennu";
+import Navigater from "./include/view/Navigater";
 import Home from "./main/view/Home";
 import ReviewList from "./review/view/ReviewList";
 import ReviewDetail from "./review/view/ReviewDetail";
@@ -19,7 +19,7 @@ const PageFrame = () => {
         <Route path="/reviewdetail" element={<ReviewDetail/>}/>
         <Route path="/reviewrite" element={<ReviewWrite/>}/>
       </Routes>
-      {location.state === "review" ? "" : <BottomMenu /> }
+      {location.state === "review" ? "" : <Navigater /> }
     </Common.Frame>
   );
 };
