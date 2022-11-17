@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Map,useMap,MapMarker } from "react-kakao-maps-sdk";
+import { Map,useMap,MapMarker,Circle } from "react-kakao-maps-sdk";
 import images from "../../../../resources/img/img";
 const ReactKakaoMap = () => {
   const navigate = useNavigate();
@@ -96,6 +96,19 @@ const ReactKakaoMap = () => {
       }}
       level={4} // 지도의 확대 레벨
     >
+      <Circle
+        center={{
+          lat: state.center.lat,
+          lng: state.center.lng,
+        }}
+        radius={3000}
+        strokeWeight={1} // 선의 두께
+        strokeColor={"#6556FF"} // 선의 색깔
+        strokeOpacity={0.2} // 선의 불투명도
+        strokeStyle={"solid"} // 선의 스타일
+        fillColor={"#6556FF"} // 채우기 색깔
+        fillOpacity={0.05} // 채우기 불투명도
+      />
       <MapMarker
         position={state.center}
         image={{
@@ -103,7 +116,7 @@ const ReactKakaoMap = () => {
           size: { width: 20, height: 20 },
           option: { offset: { x: 20, y: 20 } },
         }}
-      ></MapMarker>
+      />
       {data.map((value) => (
         <EventMarkerContainer
           key={`EventMarkerContainer-${value.latlng.lat}-${value.latlng.lng}`}
