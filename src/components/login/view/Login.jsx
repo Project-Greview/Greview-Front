@@ -29,7 +29,7 @@ const Login = () => {
             <input type="password" value={loginPW} placeholder="비밀번호" onChagne={onChangeLoginPW} style={{width:"100%"}}/>
             <label htmlFor=""></label>
           </Common.Input>
-          <Common.Button onClick={() => navigate("/main/home")}>로그인</Common.Button>
+          <Common.Button onClick={() => navigate("/main/home",{state: { value: 0 }})}>로그인</Common.Button>
           <div className="has_acc flex flex_jc_c">
             <div className="txt flex">처음이신가요?<div onClick={onPushRegist} className="cursor_p">회원가입</div></div>
           </div>

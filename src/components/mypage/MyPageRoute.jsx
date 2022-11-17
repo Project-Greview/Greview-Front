@@ -4,7 +4,7 @@ import MyPageMain from "./view/MyPageMain";
 const MyPageRoute = () => {
   return(
     <Routes>
-      <Route path="/mypage/main" element={<MyPageMain/>}/>
+      <Route path="/main" element={<MyPageMain/>}/>
     </Routes>
   )
 }

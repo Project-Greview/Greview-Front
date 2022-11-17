@@ -9,7 +9,6 @@ const Navigater = () => {
   const onReviewWrite = () => {
     navigate("/review/reviewrite", {state:{value:3}})
   };
-
   return(
     <BottomMenuSection.BottomMenuFrame>
       <ul className="flex flex_jc_sa flex_ai_c">
@@ -82,7 +81,7 @@ const Navigater = () => {
           className={location.state.value === 4 ? "active" : ""}
           onClick={
           () => {navigate(
-            "/main/home", 
+            "/mypage/main", 
             {state: { value: 4 }}
             )
           }

@@ -6,7 +6,7 @@ import { ReviewDetailSection } from "../style/reviewStyle";
 import HistoryBack from "../../../resources/style/common/Historyback";
 import { Common } from "../../../resources/style/common/commonStyle";
 
-const ReviewDetail = () => {
+const ReviewWrite = () => {
 
   const [text, setText] = useState('');
 
@@ -108,4 +108,4 @@ const ReviewDetail = () => {
   )
 }
 
-export default ReviewDetail;
+export default ReviewWrite;

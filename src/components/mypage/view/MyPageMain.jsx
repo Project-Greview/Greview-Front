@@ -1,7 +1,7 @@
 const MyPageMain = () => {
   return(
     <>
-    
+      <div>asdsadasdd</div>
     </>
   )
 }

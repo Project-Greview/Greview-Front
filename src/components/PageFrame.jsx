@@ -6,6 +6,8 @@ import ReviewList from "./review/view/ReviewList";
 import ReviewDetail from "./review/view/ReviewDetail";
 import ReviewWrite from "./review/view/ReviewWrite";
 import SearchBar from "./main/view/searchBar/SearchBar";
+import ReviewRoute from "./review/ReviewRoute";
+import MyPageRoute from "./mypage/MyPageRoute";
 
 const PageFrame = () => {
   const location = useLocation();
@@ -15,9 +17,11 @@ const PageFrame = () => {
       {location.state === "review" ? "" : <SearchBar /> }
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/reviewlist" element={<ReviewList/>}/>
+        <Route path="/review/*" element={<ReviewRoute/>}/>
+        <Route path="/mypage/*" element={<MyPageRoute/>}/>
+        {/* <Route path="/reviewlist" element={<ReviewList/>}/>
         <Route path="/reviewdetail" element={<ReviewDetail/>}/>
-        <Route path="/reviewrite" element={<ReviewWrite/>}/>
+        <Route path="/reviewrite" element={<ReviewWrite/>}/> */}
       </Routes>
       {location.state === "review" ? "" : <Navigater /> }
     </Common.Frame>
