@@ -10,11 +10,11 @@ import PageFrame from "./components/PageFrame";
 import { setPageTitleState } from "./states/recoilCounterState";
 import { useEffect } from "react";
 const App = () => {
-  const location = useLocation();
-  const setPageTitle = useSetRecoilState(setPageTitleState);
-  useEffect(() => {
-    setPageTitle(location.state);
-  }, [location.state.tit]);
+  // const location = useLocation();
+  // const setPageTitle = useSetRecoilState(setPageTitleState);
+  // useEffect(() => {
+  //   setPageTitle(location.state);
+  // }, [location.state.tit]);
   return (
     <Routes>
       <Route path="/" element={<WelcomePage />} />

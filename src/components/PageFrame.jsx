@@ -1,5 +1,6 @@
-import { Routes, Route } from "react-router-dom";
-import { useRecoilValue } from "recoil";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
 
 import { setPageTitleState } from "../states/recoilCounterState";
 
@@ -10,7 +11,13 @@ import SearchBar from "./main/view/searchBar/SearchBar";
 import ReviewRoute from "./review/ReviewRoute";
 import MyPageRoute from "./mypage/MyPageRoute";
 
-const PageFrame = () => {
+const PageFrame = () => {  
+  const location = useLocation();
+  const setPageTitle = useSetRecoilState(setPageTitleState);
+  useEffect(() => {
+    setPageTitle(location.state);
+  }, [location.state.tit]);
+  
   const pageInfo = useRecoilValue(setPageTitleState);
 
   return (
