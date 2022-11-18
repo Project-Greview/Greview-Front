@@ -1,4 +1,5 @@
 import { useRecoilValue } from "recoil";
+import { useNavigate } from "react-router-dom";
 import { HistoryBackSection } from "../style/historybackheaderStyle";
 import HistoryBack from "../../../resources/style/common/Historyback";
 
@@ -7,15 +8,22 @@ import { setPageTitleState } from "../../../states/recoilCounterState";
 import images from "../../../resources/img/img";
 
 const HistoryBackHeader = () => {
+  const navigate = useNavigate();
   const pageInfo = useRecoilValue(setPageTitleState);
   return (
     <HistoryBackSection.HistoryBackFrame>
       <div className="history_back cursor_p">
         <HistoryBack />
       </div>
-      <div className="tit flex flex_jc_c">{pageInfo.tit}</div>
+      <div
+        className={`${
+          pageInfo.value === 4 ? "has_btn" : ""
+        } tit flex flex_jc_c`}
+      >
+        {pageInfo.tit}
+      </div>
       {pageInfo.value === 4 ? (
-        <div className="flex_as_c">
+        <div className="setting_btn flex_as_c" onClick={() => {navigate("/mypage/setting", {state:{tit:"설정",value:4}})}}>
           <img src={images.gear} alt="설정" />
         </div>
       ) : (
