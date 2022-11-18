@@ -11,7 +11,7 @@ const HistoryBackHeader = () => {
       <div className="history_back cursor_p">
         <HistoryBack />
       </div>
-      <div class="tit flex flex_jc_c">{pageTitle}</div>
+      <div className="tit flex flex_jc_c">{pageTitle}</div>
     </HistoryBackSection.HistoryBackFrame>
   );
 };
