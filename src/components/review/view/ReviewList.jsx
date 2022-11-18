@@ -5,8 +5,6 @@ import images from "../../../resources/img/img";
 import { ReviewListSection } from "../style/reviewStyle";
 import { Common } from "../../../resources/style/common/commonStyle";
 
-import HistoryBack from "../../../resources/style/common/Historyback";
-
 const ReviewList = () => {
   const navigate = useNavigate();
   const onPushDetail = () => {
@@ -14,13 +12,9 @@ const ReviewList = () => {
   };
   
   const location = useLocation();
-  console.log(location)
+  console.log(location);
   return(
     <ReviewListSection.ListFrame>
-      <div className="review_header flex flex_ai_c">
-        <HistoryBack/>
-        <div className="tit flex flex_jc_c">리뷰목록</div>
-      </div>
       <Common.Reveiw>
         <div className="review_wrap">
           <div className="profile flex" onClick={onPushDetail}>

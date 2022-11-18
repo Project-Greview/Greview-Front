@@ -132,7 +132,7 @@ export const ReviewDetailSection = {
     }
     
   `,
-  writeForm:styled.form`
+  WriteForm:styled.form`
     .write_wrap{background:#ffffff;padding:1.4rem 2.1rem;margin:4.9rem 0 0rem;
       p{margin:0 0 1rem 1rem;font-size:1.4rem;color:#959292;}
       .line{display:inline-block;width:100%;margin:1rem 0 1rem;height:0.2rem; background:rgba(237, 237, 237, 0.5);}

@@ -5,15 +5,27 @@ const recoilCountState = atom({
   default: false,
 });
 
+// Splash
 const hasAccountState = atom({
   key: "hasAccountState",
   default: false,
 });
 
+// 검색타입
 const onToggleSearchType = atom({
   key: "searchTypeState",
   default: "tag",
 });
 
+// Header Title
+const setPageTitleState = atom({
+  key: "setTitleState",
+  default: "",
+});
 
-export{ recoilCountState,hasAccountState,onToggleSearchType };
+export {
+  recoilCountState,
+  hasAccountState,
+  onToggleSearchType,
+  setPageTitleState,
+};

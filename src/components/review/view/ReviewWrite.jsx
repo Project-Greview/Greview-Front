@@ -3,8 +3,8 @@ import testImages from "../../../resources/img/review.jpg";
 import { useState, useEffect } from "react";
 import images from "../../../resources/img/img";
 import { ReviewDetailSection } from "../style/reviewStyle";
-import HistoryBack from "../../../resources/style/common/Historyback";
 import { Common } from "../../../resources/style/common/commonStyle";
+
 
 const ReviewWrite = () => {
 
@@ -36,12 +36,7 @@ const ReviewWrite = () => {
   
   return(
     <ReviewDetailSection.ListFrame>
-      <div className="review_header flex flex_ai_c">
-        <HistoryBack/>
-        <div className="tit flex flex_jc_c">리뷰쓰기</div>
-      </div>
-      
-      <ReviewDetailSection.writeForm>
+      <ReviewDetailSection.WriteForm>
         <div className="write_wrap">
           <div className="place_sel">
             <p>장소명 선택</p>
@@ -96,7 +91,7 @@ const ReviewWrite = () => {
           </div>
           <Common.Button style={{ width: "100%"}}>등록하기</Common.Button>
         </div>
-      </ReviewDetailSection.writeForm>
+      </ReviewDetailSection.WriteForm>
       <Common.PopSlideFull>
         <div className="pop_wrap dn">
           <div className="pop_cnt">

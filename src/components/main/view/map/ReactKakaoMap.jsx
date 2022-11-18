@@ -1,6 +1,6 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Map,useMap,MapMarker,Circle } from "react-kakao-maps-sdk";
+import { Map, useMap, MapMarker, Circle } from "react-kakao-maps-sdk";
 
 import images from "../../../../resources/img/img";
 
@@ -44,9 +44,7 @@ const ReactKakaoMap = () => {
         errMsg: "geolocation을 사용할수 없어요..",
         isLoading: false,
       }));
-    };
-
-    
+    }
   }, []);
 
   const data = [
@@ -62,31 +60,37 @@ const ReactKakaoMap = () => {
     {
       latlng: { lat: 33.451393, lng: 126.570738 },
     },
-  ]
+  ];
 
   const EventMarkerContainer = ({ position }) => {
-    const map = useMap()
-    const [isVisible, setIsVisible] = useState(false)
+    const map = useMap();
+    const [isVisible, setIsVisible] = useState(false);
 
     return (
       <MapMarker
-      // 마커를 표시할 위치
-        position={position} 
+        // 마커를 표시할 위치
+        position={position}
         // 마커이미지의 주소
         image={{
-          src: images.map_maker, 
+          src: images.map_maker,
           // 마커이미지의 크기
           size: {
             width: 40,
-            height: 59
-          }, 
+            height: 59,
+          },
         }}
         // 마커 클릭 시 페이지 이동 이벤트
-        onClick={() => {navigate("/review/reviewlist", { state: "review" })}}
-      >
-      </MapMarker>
-    )
-  }
+        onClick={() => {
+          navigate("/review/reviewlist", {
+            state: {
+              value: 5,
+              tit: "리뷰목록",
+            },
+          });
+        }}
+      ></MapMarker>
+    );
+  };
   return (
     <Map // 지도를 표시할 Container
       center={state.center}
@@ -125,7 +129,7 @@ const ReactKakaoMap = () => {
         />
       ))}
     </Map>
-  )
-}
+  );
+};
 
 export default ReactKakaoMap;

@@ -33,9 +33,6 @@ const WelcomePage = () => {
           <div className="has_acc flex flex_jc_c">
             <div className="txt flex">처음이신가요?<div onClick={onPushRegist} className="cursor_p">회원가입</div></div>
           </div>
-          {/* <div className="has_acc flex flex_jc_c">
-            <div className="txt flex">이미 계정이 있나요?<div className="cursor_p" onClick={moveLoginpage}>로그인</div></div>
-          </div> */}
         </div>
       :
         <Login/>

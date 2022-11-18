@@ -17,7 +17,10 @@ const Navigater = () => {
         onClick={
           () => {navigate(
             "/main/home", 
-            {state: { value: 0 }}
+            {state: { 
+              value: 0,
+              tit: "지도" 
+            }}
             )
           }
         }>
@@ -33,7 +36,10 @@ const Navigater = () => {
           onClick={
           () => {navigate(
             "/main/home", 
-            {state: { value: 1 }}
+            {state: { 
+              value: 1,
+              tit: "동네탐색"
+            }}
             )
           }
         }>
@@ -49,7 +55,10 @@ const Navigater = () => {
           onClick={
           () => {navigate(
             "/review/reviewrite", 
-            {state: { value: 2 }}
+            {state: { 
+              value: 2,
+              tit: "리뷰쓰기"
+            }}
             )
           }
         }>
@@ -66,7 +75,10 @@ const Navigater = () => {
           onClick={
           () => {navigate(
             "/main/home", 
-            {state: { value: 3 }}
+            {state: { 
+              value: 3,
+              tit: "저장목록"
+            }}
             )
           }
         }>
@@ -82,7 +94,10 @@ const Navigater = () => {
           onClick={
           () => {navigate(
             "/mypage/main", 
-            {state: { value: 4 }}
+            {state: { 
+              value: 4,
+              tit: "마이페이지"
+            }}
             )
           }
         }>
