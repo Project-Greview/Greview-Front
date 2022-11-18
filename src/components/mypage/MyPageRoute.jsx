@@ -3,6 +3,7 @@ import MyPageMain from "./view/MyPageMain";
 import HistoryBackHeader from "../include/view/HistoryBackHeader";
 import MyPageSetting from "./view/MyPageSetting";
 import { MyPageSerction } from "./style/mypageStyle";
+import MyPageModify from "./view/MyProfileModify";
 
 const MyPageRoute = () => {
   return(
@@ -11,6 +12,7 @@ const MyPageRoute = () => {
       <Routes>
         <Route path="/main" element={<MyPageMain/>}/>
         <Route path="/setting" element={<MyPageSetting/>}/>
+        <Route path="/modify"element={<MyPageModify/>}/>
       </Routes>
     </MyPageSerction.MyPageFrame>
   )
