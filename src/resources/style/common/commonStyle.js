@@ -43,12 +43,18 @@ export const Common = {
   background-color:#F8F8F8;
   `,
   PopSlideFull:styled.div`
-    .pop_wrap{position: fixed;top: 0;bottom: 0;left: 0;right: 0;z-index: 99;overflow: hidden;background: rgba(0, 0, 0, 0.6);
+    .pop_wrap{position: fixed;top: 0;bottom: 0;left: 0;right: 0;z-index: 99;overflow: hidden;background: rgba(0, 0, 0, 0.6);transition: all 0.4s ease-in-out;
+      transform-origin: 0 100%;
       .pop_cnt{width: 100%;height: 100%;margin-top: 6.6rem;background: #fff;border-radius: 30px 30px 0px 0px;text-align: center;
+        top:100%;
         .line{display: inline-block;width: 6.9rem;height: 0.4rem;margin: 1.1rem auto;background: #959292;border-radius: 3rem;
         }
       }
     }
-    .dn{display:none}
+    .hide{transform:translateY(100%)}
+    @keyframes slideDown {
+      0%{transform:translateY(100%)}
+      100%{transform:translateY(0)}
+    }
   `,
 }

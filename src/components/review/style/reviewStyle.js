@@ -7,11 +7,11 @@ import icoMore from "../../../resources/img/icons/more_ico.svg";
 
 export const ReviewListSection = {
   ListFrame:styled.div`
-    .review_header {padding:1rem 2rem; width:100%;position: fixed;top:0;background:#fff;
+    /* .review_header {padding:1rem 2rem; width:100%;position: fixed;top:0;background:#fff;
       .history_back {flex-basis:2.4rem;}
       .tit {flex-basis:calc(100% - 2.4rem); margin-left:-1.2rem;}
-    }
-    .review_wrap{background:#ffffff; padding:1.7rem 1.9rem;margin:4.9rem 0 2.3rem;
+    } */
+    .review_wrap{background:#ffffff; padding:1.7rem 1.9rem;margin:4.7rem 0 2.3rem;
       .profile{width:100%;
         .picture{width:3.5rem;height:3.5rem;border-radius:50%;background:#D9D9D9;margin-right:0.9rem;
           img{width:3.5rem;height:3.5rem;border-radius:50%;object-fit: cover;}
@@ -64,11 +64,7 @@ export const ReviewListSection = {
 
 export const ReviewDetailSection = {
   ListFrame:styled.div`
-    .review_header {padding:1rem 2rem; width:100%;position: fixed;top:0;background:#fff;
-      .history_back {flex-basis:2.4rem;}
-      .tit {flex-basis:calc(100% - 2.4rem); margin-left:-1.2rem;}
-    }
-    .review_wrap{background:#ffffff; padding:1.2rem 2.3rem;margin:4.9rem 0 5.8rem;
+    .review_wrap{background:#ffffff; padding:1.2rem 2.3rem;margin:4.7rem 0 5.8rem;
       .profile{width:100%;
         .picture{width:3.5rem;height:3.5rem;border-radius:50%;background:#D9D9D9;margin-right:0.9rem;
           img{width:3.5rem;height:3.5rem;border-radius:50%;object-fit: cover;}
@@ -137,7 +133,7 @@ export const ReviewDetailSection = {
       p{margin:0 0 1rem 1rem;font-size:1.4rem;color:#959292;}
       .line{display:inline-block;width:100%;margin:1rem 0 1rem;height:0.2rem; background:rgba(237, 237, 237, 0.5);}
       .place_sel{width:100%;
-        button.select{padding:0.5rem 3.4rem;border: 1px solid #959292;border-radius: 30px;
+        .select{padding:0.5rem 3.4rem;border: 1px solid #959292;border-radius: 30px;
           margin-right: 0.6rem;
           color: #959292;
           font-size: 1.6rem;
@@ -149,8 +145,23 @@ export const ReviewDetailSection = {
       padding:0.8rem 1.4rem; font-size:1.4rem; border-radius:0.5rem; border:0.1rem solid #EBEBEB; outline:none;
         ::placeholder {color:#a9a9a9;}
       }
-      .search{background: rgba(237, 237, 237, 0.5); border:none;
+      /* .search{background: rgba(237, 237, 237, 0.5); border:none;
         ::placeholder{color:#959292;}
+      } */
+      .search_box{height:3.4rem;margin-right:0.6rem;
+        padding-left: 1.4rem;
+        display: flex;
+        align-items: center;
+        flex-basis: 73%;
+        border-radius: 0.5rem;
+        background: rgba(237, 237, 237, 0.5);
+        input[type="text"] {width:${props=>props.width};background: transparent;
+        padding:0 0 0 1rem; margin-top:-0.1rem;font-size:1.2rem;border:none; outline:none;
+        ::placeholder {font-weight:lighter; color:#959292;}
+        }
+        label{
+          /* img{width:1.42rem;} */
+        }
       }
       .star_wrap{
         margin:1.5rem 0 0.7rem;
@@ -180,10 +191,43 @@ export const ReviewDetailSection = {
           display: inline-block;
           content:""; width:1.6rem; height:1.6rem; background:url("${images.welcomeLogo}");background-size:1.6rem;
         }
+        &::-webkit-scrollbar-thumb{background:transparent;height:0;}
       }
       .pic_wrap{height:7.5rem;margin-bottom:4.6rem;
         .pic_add{width:7.5rem;height:7.5rem;border-radius:0.5rem;border:1px solid #D0CFCF;}
         p{font-size:1.2rem;margin:0.2rem 0 0 0;color:#D0CFCF;}
+      }
+    }
+  `,
+
+  PlaceSearch:styled.div`
+    .search_header{
+      display:flex; align-items:center; width:100%; height:4.7rem;top:0; left:0; padding:1rem 2rem; background:#ffffff;
+      .history_back {flex-basis:2.4rem;margin-top:0.5rem;}
+      .tit {flex-basis:calc(100% - 2.4rem); margin-right:2.4rem;}
+    }
+    .search_box{height:3.4rem;margin: 0.8rem 1.65rem;
+      padding-left: 1.4rem;
+      display: flex;
+      align-items: center;
+      flex-basis: 85%;
+      border-radius: 0.5rem;
+      background: rgba(237, 237, 237, 0.5);
+      input[type="text"] {width:${props=>props.width};background: transparent;
+      padding:0 0 0 1rem; margin-top:-0.1rem;font-size:1.2rem;border:none; outline:none;
+      ::placeholder {font-weight:lighter; color:#959292;}
+      }
+      label{
+        img{width:1.42rem;}
+      }
+      .btn_close{width:3.5rem;}
+    }
+    .search_list{
+      li{height:8.5rem;width:100%;padding:2rem;text-align: left;border-top: 1px solid #EDEDED;
+        :last-child{border-bottom: 1px solid #EDEDED;}
+        &.active{background: rgba(237, 237, 237, 0.5);}
+        .name{font-size:1.6rem;color:#3A3A3A;}
+        .address{margin-top:0.4rem;font-size:1.4rem;color:#959292;}
       }
     }
   `,
