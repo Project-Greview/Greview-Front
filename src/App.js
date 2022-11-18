@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
 
 import WelcomePage from "./components/setup/view/WelcomePage";
 
@@ -11,10 +11,9 @@ import { setPageTitleState } from "./states/recoilCounterState";
 import { useEffect } from "react";
 const App = () => {
   const location = useLocation();
-  const [pageTitle, setPageTitle] = useRecoilState(setPageTitleState);
-
+  const setPageTitle = useSetRecoilState(setPageTitleState);
   useEffect(() => {
-    setPageTitle(location.state.tit);
+    setPageTitle(location.state);
   }, [location.state.tit]);
   return (
     <Routes>

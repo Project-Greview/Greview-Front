@@ -1,5 +1,7 @@
-import { Routes, Route, useLocation } from "react-router-dom";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { Routes, Route } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+
+import { setPageTitleState } from "../states/recoilCounterState";
 
 import { Common } from "../resources/style/common/commonStyle";
 import Navigater from "./include/view/Navigater";
@@ -9,17 +11,17 @@ import ReviewRoute from "./review/ReviewRoute";
 import MyPageRoute from "./mypage/MyPageRoute";
 
 const PageFrame = () => {
-  const location = useLocation();
+  const pageInfo = useRecoilValue(setPageTitleState);
 
   return (
     <Common.Frame>
-      {location.state.value === 0 ? <SearchBar /> : ""}
+      {pageInfo.value === 0 ? <SearchBar /> : ""}
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/review/*" element={<ReviewRoute />} />
         <Route path="/mypage/*" element={<MyPageRoute />} />
       </Routes>
-      {location.state === "review" ? "" : <Navigater />}
+      {pageInfo.value === 0 || 3 ? <Navigater /> : ""}
     </Common.Frame>
   );
 };

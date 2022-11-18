@@ -20,7 +20,10 @@ const onToggleSearchType = atom({
 // Header Title
 const setPageTitleState = atom({
   key: "setTitleState",
-  default: "",
+  default: {
+    tit: "",
+    value: 0,
+  },
 });
 
 export {
