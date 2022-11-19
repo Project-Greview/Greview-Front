@@ -35,7 +35,7 @@ React_Project
 # location state
 
 |tit(페이지이름)|value(페이지 ID)|navi(하단메뉴)|
-|---|---|---}
+|---|---|---|
 |지도|0|true|
 |동네탐색|1|false|
 |리뷰쓰기|2|false|
