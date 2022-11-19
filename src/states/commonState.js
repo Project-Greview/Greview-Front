@@ -1,4 +1,4 @@
-import { atom, useRecoilValue } from "recoil";
+import { atom } from "recoil";
 
 const recoilCountState = atom({
   key: "recoilCounterState",

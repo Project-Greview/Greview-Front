@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { HistoryBackSection } from "../style/historybackheaderStyle";
 import HistoryBack from "./HistorybackButton";
 
-import { setPageTitleState } from "../../../states/recoilCounterState";
+import { setPageTitleState } from "../../../states/commonState";
 
 import images from "../../../resources/img/img";
 

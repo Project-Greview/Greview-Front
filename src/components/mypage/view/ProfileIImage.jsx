@@ -1,5 +1,5 @@
 import { useRecoilValue } from "recoil";
-import { setPageTitleState } from "../../../states/recoilCounterState";
+import { setPageTitleState } from "../../../states/commonState";
 import images from "../../../resources/img/img";
 
 const ProfileImage = () => {

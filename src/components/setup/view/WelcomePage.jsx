@@ -5,7 +5,7 @@ import images from "../../../resources/img/img";
 import { WelcomeSection } from "../style/welcomeStyle";
 import { Common } from "../../../resources/style/common/commonStyle";
 
-import { hasAccountState } from "../../../states/recoilCounterState";
+import { hasAccountState } from "../../../states/commonState";
 
 import Login from "../../../pages/login/Login";
 

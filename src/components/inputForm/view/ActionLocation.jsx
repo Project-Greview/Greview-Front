@@ -1,6 +1,6 @@
 import { useRecoilState } from "recoil";
 import { actionLocationvalue } from "../../../states/inputValueState";
-import { setPageTitleState } from "../../../states/recoilCounterState";
+import { setPageTitleState } from "../../../states/commonState";
 import { loginUserInfoState } from "../../../states/loginState";
 import { Common } from "../../../resources/style/common/commonStyle";
 

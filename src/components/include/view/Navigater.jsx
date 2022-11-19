@@ -1,13 +1,9 @@
 import { BottomMenuSection } from "../style/bottommenuStyle";
-import images from "../../../resources/img/img";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Navigater = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const onReviewWrite = () => {
-    navigate("/review/reviewrite", {state:{value:3}})
-  };
   return(
     <BottomMenuSection.BottomMenuFrame>
       <ul className="flex flex_jc_sa flex_ai_c">

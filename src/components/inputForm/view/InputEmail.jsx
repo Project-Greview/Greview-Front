@@ -1,6 +1,6 @@
 import { useRecoilState } from "recoil";
 import { inputEmailValue } from "../../../states/inputValueState";
-import { setPageTitleState } from "../../../states/recoilCounterState";
+import { setPageTitleState } from "../../../states/commonState";
 import { Common } from "../../../resources/style/common/commonStyle";
 
 const InputEmail = () => {

@@ -7,7 +7,7 @@ import images from "../../../../resources/img/img";
 
 import SearchBtn from "./SearchBtn";
 
-import { onToggleSearchType } from "../../../../states/recoilCounterState";
+import { onToggleSearchType } from "../../../../states/commonState";
 
 const SearchBar = () => {
   const [searchType, setSearchType] = useRecoilState(onToggleSearchType);

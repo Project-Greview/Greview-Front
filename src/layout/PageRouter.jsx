@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
 
-import { setPageTitleState } from "../states/recoilCounterState";
+import { setPageTitleState } from "../states/commonState";
 
 import { Common } from "../resources/style/common/commonStyle";
 import Navigater from "../components/include/view/Navigater";
