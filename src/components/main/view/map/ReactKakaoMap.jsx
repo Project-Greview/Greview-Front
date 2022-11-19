@@ -49,7 +49,7 @@ const ReactKakaoMap = () => {
 
   const data = [
     {
-      latlng: { lat: 37.365264512305174, lng: 127.10676860117488 },
+      latlng: { lat: 37.313674, lng: 126.825522 },
     },
     {
       latlng: { lat: 33.450936, lng: 126.569477 },
