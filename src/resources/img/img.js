@@ -1,5 +1,6 @@
 import welcomeLogo from "./logo/splash_logo.svg";
-import arrow_left from "./icons/arrow-left.svg";
+import arrow_bar_left from "./icons/arrow_bar_left.svg";
+import arrow_right from "./icons/arrow_right.svg";
 import marker_g from "./logo/marker_g.svg";
 import marker_c from "./logo/marker_c.svg";
 import map_maker from "./icons/map_maker.svg";
@@ -20,7 +21,8 @@ import btn_remove from "./icons/remove_ico.svg";
 
 const images = {
   welcomeLogo,
-  arrow_left,
+  arrow_bar_left,
+  arrow_right,
   marker_g,
   marker_c,
   map_maker,

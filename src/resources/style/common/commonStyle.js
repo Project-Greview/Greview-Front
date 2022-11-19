@@ -20,6 +20,7 @@ export const Common = {
         ::placeholder {color:#a9a9a9;}
         &:read-only {padding:10px; margin-top:9px; margin-bottom:21px; background:#f6f6f6; border-radius:5px; border:none; font-weight:600; color:#3a3a3a;}
       }
+      input[type="password"] {font-family: "Roboto";}
       &.has_button {position:relative;
         ::before {content:"수정"; position:absolute; top:0; right:0; font-size:1.4rem; font-weight:500; color:#959292;}
         ::after {content:""; position:absolute; display:flex; justify-content:center; align-items:center; width:62px; height:24px; bottom:calc(25% + 5px); right:8px; background:#d9d6f8; border-radius:5px; font-size:1.2rem; color:#6556FF;}

@@ -26,11 +26,11 @@ const PageRouter = () => {
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/review/*" element={<ReviewRouter />} />
-        <Route path="/mypage/*" element={<MyPageRouter />} />
+        <Route path="/mypage/*" element={<MyPageRouter />}/>
       </Routes>
-      {/* {pageInfo.naviView === true ? <Navigater /> : ""}
-       */}
-       <Navigater />
+      {pageInfo.naviView === true ? <Navigater /> : ""}
+      
+       {/* <Navigater /> */}
     </Common.Frame>
   );
 };

@@ -45,3 +45,4 @@ React_Project
 |리뷰상세|6|false|
 |프로필 수정|7|false|
 |설정|8|false|
+|개인정보 수정|9|false|

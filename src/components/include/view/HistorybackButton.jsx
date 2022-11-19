@@ -5,7 +5,7 @@ const HistoryBack = () => {
   const navigate = useNavigate();
   return(
     <div onClick={() => {navigate(-1)}} className="history_back cursor_p">
-      <img src={images.arrow_left} alt="뒤로가기"/>
+      <img src={images.arrow_bar_left} alt="뒤로가기"/>
     </div>
   )
 }
