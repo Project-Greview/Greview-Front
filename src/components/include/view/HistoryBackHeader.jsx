@@ -23,7 +23,7 @@ const HistoryBackHeader = () => {
         {pageInfo.tit}
       </div>
       {pageInfo.value === 4 ? (
-        <div className="setting_btn flex_as_c" onClick={() => {navigate("/mypage/setting", {state:{tit:"설정",value:5}})}}>
+        <div className="setting_btn flex_as_c" onClick={() => {navigate("/mypage/setting", {state:{value:8, tit:"설정"}})}}>
           <img src={images.gear} alt="설정" />
         </div>
       ) : (

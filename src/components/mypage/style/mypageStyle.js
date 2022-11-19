@@ -1,17 +1,21 @@
 import styled from "styled-components";
 
-export const MyPageSerction = {
+export const MyPageSection = {
   MyPageFrame: styled.div`
     padding:0 2.4rem; margin-top: 5rem;
     .setting_menu {flex-basis:100%; margin:1.2rem -2.4rem;
       li {flex-basis:100%; padding:2rem 2.6rem; border-bottom:1px solid #EDEDED;}
-    } 
+    }
+    .modify {
+      .img_box {margin:2.1rem 0 0 0 !important;}
+      div {
+        label {font-size:1.4rem; font-weight:500; color:#959292;}
+      }
+      button {position:absolute; bottom:calc(100% - 100vh); width:calc(100% - 4.8rem); margin:0 auto 33px auto;}
+    }
   `,
   MyPageHeader: styled.div`
     display: flex; align-items: center; flex-flow: wrap;
-    .profile_img { flex-basis: 8rem; max-width: 8rem; height: 8rem; margin:2.1rem 2.2rem 0 0; border-radius: 50%; border: 1px solid #ededed;
-      img {width: 5.5rem;}
-    }
     .user_info {
       .user_nickname {font-size: 2rem; font-weight: 600; color: #3a3a3a;}
       .act_position {font-size: 1.4rem; font-weight: 500; color: #959292;}

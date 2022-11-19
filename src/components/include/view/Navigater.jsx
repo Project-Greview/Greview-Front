@@ -1,7 +1,6 @@
 import { BottomMenuSection } from "../style/bottommenuStyle";
 import images from "../../../resources/img/img";
 import { useNavigate, useLocation } from "react-router-dom";
-import Menu_icon1 from "../../../resources/img/icons/menu_1.svg";
 
 const Navigater = () => {
   const navigate = useNavigate();
@@ -19,7 +18,8 @@ const Navigater = () => {
             "/main/home", 
             {state: { 
               value: 0,
-              tit: "지도" 
+              tit: "지도",
+              naviView: true
             }}
             )
           }
@@ -38,7 +38,8 @@ const Navigater = () => {
             "/main/home", 
             {state: { 
               value: 1,
-              tit: "동네탐색"
+              tit: "동네탐색",
+              naviView: false
             }}
             )
           }
@@ -57,7 +58,8 @@ const Navigater = () => {
             "/review/reviewrite", 
             {state: { 
               value: 2,
-              tit: "리뷰쓰기"
+              tit: "리뷰쓰기",
+              naviView: false
             }}
             )
           }
@@ -77,7 +79,8 @@ const Navigater = () => {
             "/main/home", 
             {state: { 
               value: 3,
-              tit: "저장목록"
+              tit: "저장목록",
+              naviView: false
             }}
             )
           }
@@ -96,7 +99,8 @@ const Navigater = () => {
             "/mypage/main", 
             {state: { 
               value: 4,
-              tit: "마이페이지"
+              tit: "마이페이지",
+              naviView: true
             }}
             )
           }

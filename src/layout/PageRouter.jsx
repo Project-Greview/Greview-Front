@@ -8,10 +8,10 @@ import { Common } from "../resources/style/common/commonStyle";
 import Navigater from "../components/include/view/Navigater";
 import Home from "../components/main/view/Home";
 import SearchBar from "../components/main/view/searchBar/SearchBar";
-import ReviewRoute from "../components/review/ReviewRoute";
-import MyPageRoute from "../components/mypage/MyPageRoute";
+import ReviewRouter from "./ReviewRouter";
+import MyPageRouter from "./MyPageRouter";
 
-const PageFrame = () => {  
+const PageRouter = () => {  
   const location = useLocation();
   const setPageTitle = useSetRecoilState(setPageTitleState);
   useEffect(() => {
@@ -19,18 +19,20 @@ const PageFrame = () => {
   }, [location.state.tit]);
   
   const pageInfo = useRecoilValue(setPageTitleState);
-
+  console.log("페이지 정보", pageInfo);
   return (
     <Common.Frame>
       {pageInfo.value === 0 ? <SearchBar /> : ""}
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/review/*" element={<ReviewRoute />} />
-        <Route path="/mypage/*" element={<MyPageRoute />} />
+        <Route path="/review/*" element={<ReviewRouter />} />
+        <Route path="/mypage/*" element={<MyPageRouter />} />
       </Routes>
-      {pageInfo.value === 0 || 3 ? <Navigater /> : ""}
+      {/* {pageInfo.naviView === true ? <Navigater /> : ""}
+       */}
+       <Navigater />
     </Common.Frame>
   );
 };
 
-export default PageFrame;
+export default PageRouter;

@@ -4,8 +4,9 @@ import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
 import WelcomePage from "./components/setup/view/WelcomePage";
 
 import Login from "./pages/login/Login";
-import Registration from "./components/register/view/Registration";
-import PageFrame from "./layout/PageFrame";
+import Registration from "./pages/regist/Registration";
+import PageRouter from "./layout/PageRouter";
+
 
 import { setPageTitleState } from "./states/recoilCounterState";
 import { useEffect } from "react";
@@ -20,8 +21,8 @@ const App = () => {
       <Route path="/" element={<WelcomePage />} />
       <Route path="/" element={<Login />} />
       <Route path="/regist" element={<Registration />} />
-      <Route path="/*" element={<PageFrame />} />
-      <Route path="/main/*" element={<PageFrame />} />
+      <Route path="/*" element={<PageRouter />} />
+      <Route path="/main/*" element={<PageRouter />} />
     </Routes>
   );
 };

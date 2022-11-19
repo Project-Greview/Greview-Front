@@ -8,7 +8,7 @@ import { Common } from "../../../resources/style/common/commonStyle";
 const ReviewList = () => {
   const navigate = useNavigate();
   const onPushDetail = () => {
-    navigate("/review/reviewdetail", {state:"review"})
+    navigate("/review/reviewdetail", {state: {value: 6, tit: "리뷰상세"}})
   };
   
   const location = useLocation();

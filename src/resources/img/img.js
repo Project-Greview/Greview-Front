@@ -13,9 +13,11 @@ import current_user from "./icons/current_user.svg";
 import star_on from "./icons/star_on.svg";
 import star_off from "./icons/star_off.svg";
 import camera from "./icons/camera_ico.svg";
+import camera_fill from "./icons/camera_ico_fill.svg";
 import gear from "./icons/gear_ico.svg";
 import btn_close from "./icons/close_ico.svg";
 import btn_remove from "./icons/remove_ico.svg";
+
 const images = {
   welcomeLogo,
   arrow_left,
@@ -32,6 +34,7 @@ const images = {
   star_on,
   star_off,
   camera,
+  camera_fill,
   gear,
   btn_close,
   btn_remove,

@@ -9,11 +9,11 @@ import "./resources/style/css/common.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <RecoilRoot>
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
   </RecoilRoot>
 );
 

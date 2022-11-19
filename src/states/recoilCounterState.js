@@ -23,6 +23,7 @@ const setPageTitleState = atom({
   default: {
     tit: "",
     value: 0,
+    naviView: true
   },
 });
 
