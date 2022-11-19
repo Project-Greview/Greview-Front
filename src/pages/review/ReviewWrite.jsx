@@ -1,12 +1,11 @@
-import testImages from "../../../resources/img/review.jpg";
+import testImages from "../../resources/img/review.jpg";
 
 import { useState, useRef } from "react";
-import images from "../../../resources/img/img";
-import { ReviewDetailSection } from "../style/reviewStyle";
-import { Common } from "../../../resources/style/common/commonStyle";
-import HistoryBack from "../../include/view/HistorybackButton";
-import icoClose from "../../../resources/img/icons/close_ico_2.svg";
-import { createElement } from "react";
+import images from "../../resources/img/img";
+import { ReviewDetailSection } from "../../components/review/style/reviewStyle";
+import { Common } from "../../resources/style/common/commonStyle";
+import HistoryBack from "../../components/include/view/HistorybackButton";
+import icoClose from "../../resources/img/icons/close_ico_2.svg";
 
 const ReviewWrite = () => {
 

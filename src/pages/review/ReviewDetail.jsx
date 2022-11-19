@@ -1,11 +1,8 @@
-import testImages from "../../../resources/img/review.jpg";
+import testImages from "../../resources/img/review.jpg";
 
-import { useNavigate, useLocation } from "react-router-dom";
-import images from "../../../resources/img/img";
-import { ReviewDetailSection } from "../style/reviewStyle";
-import { Common } from "../../../resources/style/common/commonStyle";
-
-import HistoryBack from "../../include/view/HistorybackButton";
+import { useNavigate } from "react-router-dom";
+import { ReviewDetailSection } from "../../components/review/style/reviewStyle";
+import { Common } from "../../resources/style/common/commonStyle";
 
 const ReviewDetail = () => {
 

@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import ReviewDetail from "../components/review/view/ReviewDetail";
-import ReviewList from "../components/review/view/ReviewList";
-import ReviewWrite from "../components/review/view/ReviewWrite";
-import ReviewCmt from "../components/review/view/ReviewCmt";
+import ReviewDetail from "../pages/review/ReviewDetail";
+import ReviewList from "../pages/review/ReviewList";
+import ReviewWrite from "../pages/review/ReviewWrite";
+import ReviewCmt from "../pages/review/ReviewCmt";
 import HistoryBackHeader from "../components/include/view/HistoryBackHeader";
 
 const ReviewRouter = () => {

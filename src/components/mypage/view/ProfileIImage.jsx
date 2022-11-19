@@ -13,7 +13,6 @@ const ProfileImage = () => {
   };
 
   const pageInfo = useRecoilValue(setPageInfoState);
-  console.log(pageInfo.value);
 
   return(
     <>

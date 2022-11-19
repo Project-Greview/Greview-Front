@@ -51,8 +51,8 @@ export const Common = {
     &.disabled{background:#959292;}
   `,
   Reveiw:styled.div`
-  padding:1.6rem 2rem;
-  background-color:#F8F8F8;
+    padding:1.6rem 2rem;
+    background-color:#F8F8F8;
   `,
   PopSlideFull:styled.div`
     .pop_wrap{position: fixed;top: 0;bottom: 0;left: 0;right: 0;z-index: 99;overflow: hidden;background: rgba(0, 0, 0, 0.6);transition: all 0.4s ease-in-out;

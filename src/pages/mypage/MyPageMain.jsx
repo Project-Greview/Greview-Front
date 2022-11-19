@@ -17,11 +17,15 @@ const MyPageMain = () => {
 
   const tabIndex = useRecoilState(setMyPageTabState);
 
+  console.log(tabIndex[0]);
+  const onToggleTabMenu = (e) => {
+    const indexNum = e.currentTarget.getAttribute('data-tabindex');
+    setTabMenuValue(indexNum);
+  };
+  
   useEffect(() => {
-    
-  },[]);
+  },[tabIndex]);
 
-  console.log("탭메뉴 index", tabIndex);
   return (
     <>
       <MyPageSection.MyPageHeader>
@@ -43,9 +47,9 @@ const MyPageMain = () => {
           }
         }>프로필 수정</Common.Button>
         <ul className="tab_menubox flex flex_ai_c">
-          <li className="active">리뷰</li>
-          <li>댓글</li>
-          <li>좋아요</li>
+          <li className={tabIndex[0] === "1" ? "active" : ""} data-tabindex="1" onClick={onToggleTabMenu}>리뷰</li>
+          <li className={tabIndex[0] === "2" ? "active" : ""} data-tabindex="2" onClick={onToggleTabMenu}>댓글</li>
+          <li className={tabIndex[0] === "3" ? "active" : ""} data-tabindex="3" onClick={onToggleTabMenu}>좋아요</li>
         </ul>
       </MyPageSection.MyPageHeader>
 
