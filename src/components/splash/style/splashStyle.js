@@ -1,7 +1,7 @@
 import styled from "styled-components";
 // color:#6656ff;
-export const WelcomeSection = {
-  WelcomeFrame:styled.div`
+export const SpalshSection = {
+  SpalshFrame:styled.div`
     display:flex; flex-direction:column; justify-content:center; align-items: center;
     img {margin-top:50%;}
     button {max-width:33.5rem; width:33.5rem; height:5rem; background:#6656ff; border-radius:0.5rem; color:#ffffff;}

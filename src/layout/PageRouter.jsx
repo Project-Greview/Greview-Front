@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 
 import { setPageTitleState } from "../states/commonState";
 
 import { Common } from "../resources/style/common/commonStyle";
 import Navigater from "../components/include/view/Navigater";
-import Home from "../components/main/view/Home";
-import SearchBar from "../components/main/view/searchBar/SearchBar";
+import Home from "../pages/home/Home";
+import SearchBar from "../components/home/view/searchBar/SearchBar";
 import ReviewRouter from "./ReviewRouter";
 import MyPageRouter from "./MyPageRouter";
 

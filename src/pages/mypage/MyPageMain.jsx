@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 
@@ -16,6 +17,9 @@ const MyPageMain = () => {
 
   const tabIndex = useRecoilState(setMyPageTabState);
 
+  useEffect(() => {
+
+  },[]);
 
   console.log("탭메뉴 index", tabIndex);
   return (

@@ -1,8 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { HashTagSection } from "../../style/hashtagStyle";
+import { HashTagSection } from "../style/hashtagStyle";
 import { Pagination } from "swiper";
 
-import images from "../../../../resources/img/img";
+import images from "../../../resources/img/img";
 
 import "swiper/css";
 import "swiper/css/pagination";

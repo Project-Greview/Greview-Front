@@ -1,31 +1,27 @@
 import { useNavigate } from "react-router-dom";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 
-import images from "../../../resources/img/img";
-import { WelcomeSection } from "../style/welcomeStyle";
-import { Common } from "../../../resources/style/common/commonStyle";
+import images from "../../resources/img/img";
+import { SpalshSection } from "../../components/splash/style/splashStyle";
+import { Common } from "../../resources/style/common/commonStyle";
 
-import { hasAccountState } from "../../../states/commonState";
+import { hasAccountState } from "../../states/commonState";
 
-import Login from "../../../pages/login/Login";
+import Login from "../login/Login";
 
-
-const WelcomePage = () => {
+const Splash = () => {
   const [hasAccount, setHasAccount] = useRecoilState(hasAccountState);
-
   const moveLoginpage = () => {
     setHasAccount(true);
-  }
+  };
   const navigate = useNavigate();
 
   // PUSH Registration
   const onPushRegist = () => {
     navigate("/regist")
-  }
-
-  
+  };
   return(
-    <WelcomeSection.WelcomeFrame>
+    <SpalshSection.SpalshFrame>
       <img src={images.welcomeLogo} alt="" />
       {hasAccount === false ? 
         <div className="first_form flex flex_dir_c">
@@ -37,9 +33,8 @@ const WelcomePage = () => {
       :
         <Login/>
       }
-      
-    </WelcomeSection.WelcomeFrame>
+    </SpalshSection.SpalshFrame>
   )
-}
+};
 
-export default WelcomePage;
+export default Splash;
