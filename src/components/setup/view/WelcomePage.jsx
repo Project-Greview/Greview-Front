@@ -7,7 +7,7 @@ import { Common } from "../../../resources/style/common/commonStyle";
 
 import { hasAccountState } from "../../../states/recoilCounterState";
 
-import Login from "../../login/view/Login";
+import Login from "../../../pages/login/Login";
 
 
 const WelcomePage = () => {

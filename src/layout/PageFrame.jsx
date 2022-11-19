@@ -5,11 +5,11 @@ import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
 import { setPageTitleState } from "../states/recoilCounterState";
 
 import { Common } from "../resources/style/common/commonStyle";
-import Navigater from "./include/view/Navigater";
-import Home from "./main/view/Home";
-import SearchBar from "./main/view/searchBar/SearchBar";
-import ReviewRoute from "./review/ReviewRoute";
-import MyPageRoute from "./mypage/MyPageRoute";
+import Navigater from "../components/include/view/Navigater";
+import Home from "../components/main/view/Home";
+import SearchBar from "../components/main/view/searchBar/SearchBar";
+import ReviewRoute from "../components/review/ReviewRoute";
+import MyPageRoute from "../components/mypage/MyPageRoute";
 
 const PageFrame = () => {  
   const location = useLocation();

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import images from "../../../resources/img/img";
 import { ReviewDetailSection } from "../style/reviewStyle";
 import { Common } from "../../../resources/style/common/commonStyle";
-import HistoryBack from "../../../resources/style/common/Historyback";
+import HistoryBack from "../../include/view/HistorybackButton";
 
 const ReviewWrite = () => {
 

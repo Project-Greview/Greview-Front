@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import images from "../../img/img";
+import images from "../../../resources/img/img";
 
 const HistoryBack = () => {
   const navigate = useNavigate();

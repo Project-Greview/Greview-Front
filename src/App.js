@@ -3,9 +3,9 @@ import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
 
 import WelcomePage from "./components/setup/view/WelcomePage";
 
-import Login from "./components/login/view/Login";
+import Login from "./pages/login/Login";
 import Registration from "./components/register/view/Registration";
-import PageFrame from "./components/PageFrame";
+import PageFrame from "./layout/PageFrame";
 
 import { setPageTitleState } from "./states/recoilCounterState";
 import { useEffect } from "react";

@@ -9,7 +9,7 @@ export const MyPageSerction = {
   `,
   MyPageHeader: styled.div`
     display: flex; align-items: center; flex-flow: wrap;
-    .profile_img { flex-basis: 8rem; max-width: 8rem; height: 8rem; margin-right:2.2rem; border-radius: 50%; border: 1px solid #ededed;
+    .profile_img { flex-basis: 8rem; max-width: 8rem; height: 8rem; margin:2.1rem 2.2rem 0 0; border-radius: 50%; border: 1px solid #ededed;
       img {width: 5.5rem;}
     }
     .user_info {
@@ -23,5 +23,4 @@ export const MyPageSerction = {
       }
     }
   `,
-  
 };

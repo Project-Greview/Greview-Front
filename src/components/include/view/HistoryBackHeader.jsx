@@ -1,7 +1,7 @@
 import { useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
 import { HistoryBackSection } from "../style/historybackheaderStyle";
-import HistoryBack from "../../../resources/style/common/Historyback";
+import HistoryBack from "./HistorybackButton";
 
 import { setPageTitleState } from "../../../states/recoilCounterState";
 

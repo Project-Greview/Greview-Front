@@ -5,6 +5,7 @@ React_Project
 # Project Setup
 - 개발환경
   - Node.js : v16.13.2
+  - React : v18.2.0
 
 # 개발 환경 세팅
 - git clone https://github.com/Project-Greview/Greview-Front.git
@@ -15,10 +16,15 @@ React_Project
 - "@testing-library/jest-dom": "^5.14.1",
 - "@testing-library/react": "^13.0.0",
 - "@testing-library/user-event": "^13.2.1",
+- "axios": "^1.1.3",
 - "react": "^18.2.0",
 - "react-dom": "^18.2.0",
+- "react-kakao-maps-sdk": "^1.1.5",
 - "react-router-dom": "^6.4.2",
 - "react-scripts": "5.0.1",
+- "recoil": "^0.7.6",
+- "styled-components": "^5.3.6",
+- "swiper": "^8.4.4",
 - "web-vitals": "^2.1.0"
 
 # Front Source 간단 보는법!!!

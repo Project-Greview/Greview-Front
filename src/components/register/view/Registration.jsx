@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { RegistSection } from "../style/registrationStyle";
 import { Common } from "../../../resources/style/common/commonStyle";
 
-import HistoryBack from "../../../resources/style/common/Historyback";
+import HistoryBack from "../../include/view/HistorybackButton";
 import LocationSetting from "./LocationSetting";
 
 const Registration = () => {
