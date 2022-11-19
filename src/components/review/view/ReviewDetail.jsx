@@ -1,5 +1,6 @@
 import testImages from "../../../resources/img/review.jpg";
 
+import { useNavigate, useLocation } from "react-router-dom";
 import images from "../../../resources/img/img";
 import { ReviewDetailSection } from "../style/reviewStyle";
 import { Common } from "../../../resources/style/common/commonStyle";
@@ -7,6 +8,11 @@ import { Common } from "../../../resources/style/common/commonStyle";
 import HistoryBack from "../../include/view/HistorybackButton";
 
 const ReviewDetail = () => {
+
+  const navigate = useNavigate();
+  const onPushCmt = () => {
+    navigate("/review/reviewcmt", {state:"review",tit:"댓글"})
+  };
 
   return(
     <ReviewDetailSection.ListFrame>
@@ -46,8 +52,8 @@ const ReviewDetail = () => {
           </div>
       </div>
       <div className="cmt_wrap">
-          <span className="thumb">10</span>
-          <span className="cmt">2</span>
+          <span className="thumb" type="button">10</span>
+          <span className="cmt" type="button" onClick={onPushCmt}>2</span>
       </div>
     </ReviewDetailSection.ListFrame>
   )
