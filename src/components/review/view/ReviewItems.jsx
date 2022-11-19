@@ -1,12 +1,13 @@
 import { useNavigate, useLocation } from "react-router-dom";
 
 import testImages from "../../../resources/img/review.jpg";
+import HashTag from "./HashTag";
 const ReviewItems = () => {
   const navigate = useNavigate();
   const onPushDetail = () => {
     navigate("/review/reviewdetail", {state: {value: 6, tit: "리뷰상세"}})
   };
-  
+
   return(
     <div className="review_wrap">
       <div className="profile flex" onClick={onPushDetail}>
@@ -28,9 +29,9 @@ const ReviewItems = () => {
       </p>
       <div className="hashtag_wrap">
         <div className="overBox">
-          <span className="hashtag">맛집</span>
-          <span className="hashtag">친절해요</span>
-          <span className="hashtag">웨이팅필수</span>
+          <HashTag tag_name={"맛집"}/>
+          <HashTag tag_name={"친절해요"}/>
+          <HashTag tag_name={"웨이팅필수"}/>
         </div>
       </div>
       <div className="cmt_wrap">

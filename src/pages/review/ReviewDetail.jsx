@@ -3,6 +3,7 @@ import testImages from "../../resources/img/review.jpg";
 import { useNavigate } from "react-router-dom";
 import { ReviewDetailSection } from "../../components/review/style/reviewStyle";
 import { Common } from "../../resources/style/common/commonStyle";
+import HashTag from "../../components/review/view/HashTag";
 
 const ReviewDetail = () => {
 
@@ -34,9 +35,9 @@ const ReviewDetail = () => {
         </p>
         <div className="hashtag_wrap">
           <div className="overBox">
-            <span className="hashtag">맛집</span>
-            <span className="hashtag">친절해요</span>
-            <span className="hashtag">웨이팅필수</span>
+            <HashTag tag_name={"맛집"}/>
+            <HashTag tag_name={"친절해요"}/>
+            <HashTag tag_name={"웨이팅필수"}/>
           </div>
         </div>
         <div className="place_wrap flex">

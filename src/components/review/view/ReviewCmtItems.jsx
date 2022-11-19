@@ -22,8 +22,6 @@ const ReviewCmtItems = () => {
 
         <ReviewReCmtItems/>
 
-        <ReviewReCmtItems/>
-
       </div>
     </div>
   )
