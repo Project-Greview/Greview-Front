@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 
-import { setPageTitleState } from "../states/commonState";
+import { setPageInfoState } from "../states/commonState";
 
 import { Common } from "../resources/style/common/commonStyle";
 import Navigater from "../components/include/view/Navigater";
@@ -13,22 +13,23 @@ import MyPageRouter from "./MyPageRouter";
 
 const PageRouter = () => {  
   const location = useLocation();
-  const setPageTitle = useSetRecoilState(setPageTitleState);
+  
+  const pageState = useRecoilValue(setPageInfoState);
+  const setPageState = useSetRecoilState(setPageInfoState);
   useEffect(() => {
-    setPageTitle(location.state);
+    setPageState(location.state);
   }, [location.state.tit]);
   
-  const pageInfo = useRecoilValue(setPageTitleState);
-  console.log("페이지 정보", pageInfo);
+  console.log("페이지 정보", pageState);
   return (
     <Common.Frame>
-      {pageInfo.value === 0 ? <SearchBar /> : ""}
+      {pageState.value === 0 ? <SearchBar /> : ""}
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/review/*" element={<ReviewRouter />} />
         <Route path="/mypage/*" element={<MyPageRouter />}/>
       </Routes>
-      {pageInfo.naviView === true ? <Navigater /> : ""}
+      {pageState.naviView === true ? <Navigater /> : ""}
       
        {/* <Navigater /> */}
     </Common.Frame>

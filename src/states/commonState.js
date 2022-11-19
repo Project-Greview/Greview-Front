@@ -18,8 +18,8 @@ const onToggleSearchType = atom({
 });
 
 // Header Title
-const setPageTitleState = atom({
-  key: "setTitleState",
+const setPageInfoState = atom({
+  key: "setPageInfoState",
   default: {
     tit: "",
     value: 0,
@@ -31,5 +31,5 @@ export {
   recoilCountState,
   hasAccountState,
   onToggleSearchType,
-  setPageTitleState,
+  setPageInfoState,
 };

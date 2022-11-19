@@ -1,5 +1,5 @@
 import { useRecoilValue } from "recoil";
-import { setPageTitleState } from "../../../states/commonState";
+import { setPageInfoState } from "../../../states/commonState";
 import images from "../../../resources/img/img";
 
 const ProfileImage = () => {
@@ -12,7 +12,7 @@ const ProfileImage = () => {
     border: "1px solid #ededed",
   };
 
-  const pageInfo = useRecoilValue(setPageTitleState);
+  const pageInfo = useRecoilValue(setPageInfoState);
   console.log(pageInfo.value);
 
   return(

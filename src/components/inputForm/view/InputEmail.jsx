@@ -1,18 +1,19 @@
 import { useRecoilState } from "recoil";
 import { inputEmailValue } from "../../../states/inputValueState";
-import { setPageTitleState } from "../../../states/commonState";
+import { setPageInfoState } from "../../../states/commonState";
 import { Common } from "../../../resources/style/common/commonStyle";
 
 const InputEmail = () => {
   const [email, setEmail] = useRecoilState(inputEmailValue);
-  const setPageValue = useRecoilState(setPageTitleState);
+  const pageState = useRecoilState(setPageInfoState);
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
   };
+  
   return(
     <Common.Input>
       <label htmlFor="user_email">이메일</label>
-      {setPageValue[0].value === 7 ? 
+      {pageState[0].value === 7 ? 
         <input
           type="text"
           name="user_email"

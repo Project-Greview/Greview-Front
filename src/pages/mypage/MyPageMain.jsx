@@ -18,7 +18,7 @@ const MyPageMain = () => {
   const tabIndex = useRecoilState(setMyPageTabState);
 
   useEffect(() => {
-
+    
   },[]);
 
   console.log("탭메뉴 index", tabIndex);

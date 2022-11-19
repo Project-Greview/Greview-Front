@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 
-import { setPageTitleState } from "../states/commonState";
+import { setPageInfoState } from "../states/commonState";
 import { MyPageSection } from "../components/mypage/style/mypageStyle";
 
 import MyPageMain from "../pages/mypage/MyPageMain";
@@ -11,7 +11,7 @@ import MyPageModify from "../pages/mypage/MyProfileModify";
 import PrivateInfoModify from "../pages/mypage/PrivateInfoModify";
 
 const MyPageRouter = () => {
-  const pageInfo = useRecoilValue(setPageTitleState);
+  const pageInfo = useRecoilValue(setPageInfoState);
   const pageValue = pageInfo.value;
   return(
     <MyPageSection.MyPageFrame style={pageValue === 8 ? {background: "#f6f6f6"} : {}}>

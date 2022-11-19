@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { HistoryBackSection } from "../style/historybackheaderStyle";
 import HistoryBack from "./HistorybackButton";
 
-import { setPageTitleState } from "../../../states/commonState";
+import { setPageInfoState } from "../../../states/commonState";
 
 import images from "../../../resources/img/img";
 
 const HistoryBackHeader = () => {
   const navigate = useNavigate();
-  const pageInfo = useRecoilValue(setPageTitleState);
+  const pageInfo = useRecoilValue(setPageInfoState);
   return (
     <HistoryBackSection.HistoryBackFrame>
       <div className="history_back cursor_p">
