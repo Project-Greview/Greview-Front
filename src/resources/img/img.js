@@ -18,6 +18,12 @@ import camera_fill from "./icons/camera_ico_fill.svg";
 import gear from "./icons/gear_ico.svg";
 import btn_close from "./icons/close_ico.svg";
 import btn_remove from "./icons/remove_ico.svg";
+import btn_save from "./icons/save_ico.svg";
+import greview_tag from "./icons/zreview_tag.svg";
+import greview from "./icons/zreview.svg";
+import map from "./icons/map_ico.svg";
+import btn_arrow_top from "./icons/btn_arrow_top.svg";
+
 
 const images = {
   welcomeLogo,
@@ -40,6 +46,11 @@ const images = {
   gear,
   btn_close,
   btn_remove,
+  btn_save,
+  greview_tag,
+  greview,
+  map,
+  btn_arrow_top,
 };
 
 export default images;

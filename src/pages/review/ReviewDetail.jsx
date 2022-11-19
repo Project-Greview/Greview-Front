@@ -9,7 +9,8 @@ const ReviewDetail = () => {
 
   const navigate = useNavigate();
   const onPushCmt = () => {
-    navigate("/review/reviewcmt", {state:"review",tit:"댓글"})
+    // navigate("/review/reviewcmt", {state: {tit: "댓글"}})
+    navigate("/review/storereview", {state: {value: 10, tit: "가게리뷰"}})
   };
 
   return(
