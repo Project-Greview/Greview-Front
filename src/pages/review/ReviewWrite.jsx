@@ -47,7 +47,7 @@ const ReviewWrite = () => {
     if(counter < 2){
       imgRef.current.click();
     }else{
-      alert('사진을 더 이상 추가할 수 없습니다')
+      alert('사진을 더 이상 추가할 수 없습니다');
     }
   }
 

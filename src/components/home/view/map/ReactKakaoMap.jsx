@@ -49,17 +49,8 @@ const ReactKakaoMap = () => {
 
   const data = [
     {
-      latlng: { lat: 37.313674, lng: 126.825522 },
-    },
-    {
-      latlng: { lat: 33.450936, lng: 126.569477 },
-    },
-    {
-      latlng: { lat: 33.450879, lng: 126.56994 },
-    },
-    {
-      latlng: { lat: 33.451393, lng: 126.570738 },
-    },
+      latlng: { lat: state.center.lat, lng: state.center.lng },
+    }
   ];
 
   const EventMarkerContainer = ({ position }) => {

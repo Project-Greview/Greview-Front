@@ -17,14 +17,14 @@ const MyPageMain = () => {
 
   const tabIndex = useRecoilState(setMyPageTabState);
 
-  console.log(tabIndex[0]);
   const onToggleTabMenu = (e) => {
     const indexNum = e.currentTarget.getAttribute('data-tabindex');
     setTabMenuValue(indexNum);
   };
   
   useEffect(() => {
-  },[tabIndex]);
+    
+  },[]);
 
   return (
     <>

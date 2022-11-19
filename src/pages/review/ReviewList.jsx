@@ -12,13 +12,11 @@ const ReviewList = () => {
   
   return(
     <ReviewListSection.ListFrame>
-      <Common.Reveiw>
 
         <ReviewItems/>
         <ReviewItems/>
         <ReviewItems/>
         
-      </Common.Reveiw>
     </ReviewListSection.ListFrame>
   )
 }
