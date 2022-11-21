@@ -17,7 +17,7 @@ const MenuItems = ({menu}) => {
       }}
       className={menu.class}
     >
-      <div>{menu.name}</div>
+      <div className="menu_nm">{menu.name}</div>
       {menu.arrow === true ? (
         <div className="icon img_box">
           <img src={images.arrow_right} alt={`${menu.name} 으로 이동`} />

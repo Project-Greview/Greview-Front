@@ -6,7 +6,42 @@ import MenuItems from "../../include/view/MenuItems";
 import ProfileImage from "../../mypage/view/ProfileIImage";
  
 const ver = "1.1.1";
-const MenuList = [
+const TopMenuList = [
+  {
+    name: "내 동네 탐색",
+    path: "",
+    state: {
+      value: 1,
+      naviView: false,
+    },
+    arrow: true,
+    class:"",
+    sub_txt:"",
+  },
+  {
+    name: "리뷰 쓰기",
+    path: "/review/reviewrite",
+    state: {
+      value: 2,
+      naviView: false,
+    },
+    arrow: true,
+    class:"",
+    sub_txt:"",
+  },
+  {
+    name: "저장 목록",
+    path: "",
+    state: {
+      value: 3,
+      naviView: false,
+    },
+    arrow: true,
+    class:"",
+    sub_txt:"",
+  },
+];
+const BottomMenuList = [
   {
     name: "문의하기",
     path: "",
@@ -52,8 +87,13 @@ const LeftMenu = () => {
           </div>
           <ProfileImage />
         </div>
-        <ul>
-          {MenuList.map((menu, index) => (
+        <ul className="top_section">
+          {TopMenuList.map((menu, index) => (
+            <MenuItems menu={menu} key={index} />
+          ))}
+        </ul>
+        <ul className="bottom_section">
+          {BottomMenuList.map((menu, index) => (
             <MenuItems menu={menu} key={index} />
           ))}
         </ul>
