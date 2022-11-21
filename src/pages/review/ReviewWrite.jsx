@@ -23,7 +23,14 @@ const ReviewWrite = () => {
   const [counter, setCounter] = useState(0);
 
   const ReImg = () =>{
-    return <div className="review_img" id={Date.now()}><button className="btn_close" type="button" onClick={onRemove(Date.now())}><img src={icoClose} alt="" /></button><img src={image}></img></div>;
+    return (
+      <div className="review_img" id={Date.now()}>
+        <button className="btn_close" type="button" onClick={onRemove(Date.now())}>
+          <img src={icoClose} alt="" />
+        </button>
+        <img src={image} alt=""/>
+      </div>
+    );
   }
 
   const onUploadImage = () => {
@@ -44,9 +51,9 @@ const ReviewWrite = () => {
 
   const onUploadImageBtn = (e) => {
     console.log(counter);
-    if(counter < 2){
+    if(counter < 2) {
       imgRef.current.click();
-    }else{
+    } else {
       alert('사진을 더 이상 추가할 수 없습니다');
     }
   }
@@ -72,7 +79,7 @@ const ReviewWrite = () => {
     if(!state.contains('disabled')){
       slPopup.current.classList.toggle('hide');
       slideUp();
-    }else{
+    } else {
       searchBox.current.classList.add('disabled');
       placeInput.current.disabled = true;
       rmBtn.current.classList.remove('none');
@@ -92,9 +99,9 @@ const ReviewWrite = () => {
 
   const onInput = (e) => {
     setText(e.target.value);
-    if(e.target.value == ''){
+    if(e.target.value === ''){
       searchBtn.current.classList.add('disabled');
-    }else{
+    } else {
       searchBtn.current.classList.remove('disabled');
     }
   };

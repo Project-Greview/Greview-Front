@@ -27,9 +27,16 @@ const setPageInfoState = atom({
   },
 });
 
+// Left Menu
+const setLeftMenuState = atom({
+  key: "setLeftMenu",
+  default: false,
+})
+
 export {
   recoilCountState,
   hasAccountState,
   onToggleSearchType,
   setPageInfoState,
+  setLeftMenuState,
 };

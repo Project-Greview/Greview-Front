@@ -3,11 +3,7 @@ import styled from "styled-components";
 export const MyPageSection = {
   MyPageFrame: styled.div`
     height:calc(100vh - 5rem); padding:0 2.4rem; margin-top: 5rem; background: #ffffff;
-    .setting_menu {flex-basis:100%; margin:0 -2.4rem; padding-top: 1.2rem;
-      li {display:flex; justify-content:space-between; flex-basis:100%; padding:2rem 2.6rem; border-bottom:1px solid #EDEDED; background:#ffffff;
-        .icon {flex-basis:2rem;}
-        &.secession {color:#D05858;}
-      }
+      .setting_menu {flex-basis:100%; margin:0 -2.4rem; padding-top: 1.2rem;
     }
     .modify {
       .img_box {margin:2.1rem 0 0 0 !important;}

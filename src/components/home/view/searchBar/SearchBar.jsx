@@ -7,18 +7,24 @@ import images from "../../../../resources/img/img";
 
 import SearchBtn from "./SearchBtn";
 
-import { onToggleSearchType } from "../../../../states/commonState";
+import { onToggleSearchType, setLeftMenuState } from "../../../../states/commonState";
 
 const SearchBar = () => {
   const [searchType, setSearchType] = useRecoilState(onToggleSearchType);
 
+  const setLeftMenu = useSetRecoilState(setLeftMenuState);
+
   const onChangeSearchType = () => {
     searchType === "tag" ? setSearchType("location") : setSearchType("tag");
   };
+  
+  const onToggleLeftMenu = () => {
+    setLeftMenu(true)
+  }
 
   return (
     <SearchBarSection.SearchFrame>
-      <div className="bars_btn relative cursor_p">
+      <div className="bars_btn relative cursor_p" onClick={onToggleLeftMenu}>
         <div></div>
         <div></div>
         <div></div>

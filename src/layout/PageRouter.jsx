@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 
-import { setPageInfoState } from "../states/commonState";
+import { setPageInfoState, setLeftMenuState } from "../states/commonState";
 
 import { Common } from "../resources/style/common/commonStyle";
 import Navigater from "../components/include/view/Navigater";
@@ -16,11 +16,14 @@ const PageRouter = () => {
   
   const pageState = useRecoilValue(setPageInfoState);
   const setPageState = useSetRecoilState(setPageInfoState);
+
+  const leftMenuState = useRecoilValue(setLeftMenuState);
   useEffect(() => {
     setPageState(location.state);
   }, [location.state.tit]);
   
   console.log("페이지 정보", pageState);
+  console.log("Left Menu", leftMenuState);
   return (
     <Common.Frame>
       {pageState.value === 0 ? <SearchBar /> : ""}
