@@ -9,9 +9,10 @@ import { MyPageSection } from "../../components/mypage/style/mypageStyle";
 
 import ProfileImage from "../../components/mypage/view/ProfileIImage";
 import MyPageActivityList from "./MyPageActivityList";
+import { useMemo } from "react";
 
 const MyPageMain = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const setTabMenuValue = useSetRecoilState(setMyPageTabState);
 
@@ -23,7 +24,6 @@ const MyPageMain = () => {
   };
   
   useEffect(() => {
-    
   },[]);
 
   return (

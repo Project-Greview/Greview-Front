@@ -7,12 +7,12 @@ import { ReviewListSection } from "../../components/review/style/reviewStyle";
 
 const MyPageActivityList = () => {
   const tabIndex = useRecoilState(setMyPageTabState);
-  console.log(tabIndex[0]);
+
   return (
     <ReviewListSection.ListFrame
       style={{ margin: "0rem -2rem", padding: "0 2rem" }}
     >
-      <p className="tabmenu_tit flex">
+      <div className="tabmenu_tit flex">
         {tabIndex[0] === "1" ? (
           <>
             <div>
@@ -36,7 +36,7 @@ const MyPageActivityList = () => {
             </div>
           </div>
         )}
-      </p>
+      </div>
       {tabIndex[0] === "1" ? (
         <ReviewItems />
       ) : tabIndex[0] === "2" ? (
