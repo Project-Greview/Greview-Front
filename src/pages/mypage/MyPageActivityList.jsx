@@ -1,16 +1,24 @@
+import { useInView } from 'react-intersection-observer';
 import { useRecoilState } from "recoil";
+
 import ReviewItems from "../../components/review/view/ReviewItems";
 
 import { setMyPageTabState } from "../../states/tabMenuState";
 
 import { ReviewListSection } from "../../components/review/style/reviewStyle";
 
+
 const MyPageActivityList = () => {
   const tabIndex = useRecoilState(setMyPageTabState);
+  const { ref, inView, entry } = useInView({
+    threshold: 1.0,
+  });
 
+  console.log(inView)
   return (
     <ReviewListSection.ListFrame
       style={{ margin: "0rem -2rem", padding: "0 2rem" }}
+      
     >
       <div className="tabmenu_tit flex">
         {tabIndex[0] === "1" ? (
@@ -21,7 +29,7 @@ const MyPageActivityList = () => {
           </>
         ) : tabIndex[0] === "2" ? (
           <>
-            <div>
+            <div ref={ref}>
               내가 작성한 댓글<span>(00)</span>
             </div>
           </>
@@ -42,8 +50,12 @@ const MyPageActivityList = () => {
       ) : tabIndex[0] === "2" ? (
         <>
           <ReviewItems />
-          <ReviewItems />
-          <ReviewItems />
+          <ReviewItems className="wrapper"/>
+          <ReviewItems className="wrapper"/>
+          <ReviewItems className="wrapper"/>
+          <ReviewItems className="wrapper"/>
+          <ReviewItems className="wrapper"/>
+          <ReviewItems className="wrapper"/>
         </>
       ) : (
         ""
