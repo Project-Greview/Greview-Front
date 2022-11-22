@@ -16,5 +16,14 @@ export const SpalshSection = {
     .login_form {margin-top:5rem;
       button {margin-bottom:2.5rem;}
     }
+
+    @media screen and (min-width:550px) {
+      img {margin-top:30%;}
+    }
+    @media screen and (min-width:414px) {
+    }
+    @media screen and (min-width:375px) {
+      img {margin-top:30%;}
+    }
   `
 }

@@ -22,7 +22,7 @@ const Splash = () => {
   };
   return(
     <SpalshSection.SpalshFrame>
-      <img src={images.welcomeLogo} alt="" />
+      <img src={images.welcomeLogo} alt="" className="main_logo"/>
       {hasAccount === false ? 
         <div className="first_form flex flex_dir_c">
           <Common.Button onClick={moveLoginpage}>시작하기</Common.Button>

@@ -11,7 +11,17 @@ export const LeftMenuSection = {
     &.active {left:0%; transition: left 0.3s;}
     .profil_info {height:45%; background:#3a3a3a;
       .left_menu_header {padding:24px 15px 0px 21px;}
-      .img_box {flex-basis:9.6rem; max-width:9.6rem; width:9.6rem; height:9.6rem; margin:2.6rem auto 0 auto !important;}
+      .img_box {flex-basis:9.6rem; max-width:9.6rem; width:9.6rem; height:9.6rem; margin:2.6rem auto 0 auto !important; background:#ffffff;}
+      .short_info {margin-top:1.4rem;
+          .nickname {font-size:2rem; font-weight:500; color:#ffffff;}
+          .location {margin-top:0.4rem; font-weight:500; color:#ffffff;}
+        }
+      .short_review_info {align-items:flex-end; margin-bottom:2.5rem;
+        li {
+          .txt {font-size:1.5rem; font-weight:500; color:#959292;}
+          .counter {font-size:2rem; font-weight:600; color:#ffffff;}
+        }
+      }
     }
     ul {
       &.top_section {flex-grow:1;
