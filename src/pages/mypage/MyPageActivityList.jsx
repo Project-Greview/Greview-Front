@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
 import { useRecoilState, useSetRecoilState } from "recoil";
 
 import ReviewItems from "../../components/review/view/ReviewItems";
@@ -9,17 +8,39 @@ import { setMyPageFixed } from "../../states/commonState";
 
 import { ReviewListSection } from "../../components/review/style/reviewStyle";
 
-import { useScroll } from "../../hooks/scroll";
 
 
 const MyPageActivityList = () => {
   const tabIndex = useRecoilState(setMyPageTabState);
-  console.log(useScroll.scrollY)
+  // ========================
+  // const [myReview, setMyReview] = useState(3);
+  // const countMyReview = document.querySelector('.mypage_review').children;
+
+  // const options = {
+  //   root: null,
+  //   rootMargin: "0px",
+  //   threshold:0,
+  // }
+  // const observer = new IntersectionObserver(entries => {
+  //   entries.forEach(entry => {
+  //     if (entry.isIntersecting) {
+  //       entry.target.classList.add('active');
+  //     } else {
+  //       entry.target.classList.remove('active');
+  //     }
+  //   });
+  // }, options);
+
+  // const item_list = document.querySelectorAll('.review_wrap');
+  // item_list.forEach(el => observer.observe(el));
+  // ========================
+
   return (
     <ReviewListSection.ListFrame
-      style={{ margin: "0rem -2rem", padding: "0 2rem" }}
+      style={{  height:"70%", margin: "0rem -2rem", padding: "0 2rem" }}
+      className="mypage_review"
     >
-      <div className={`tabmenu_tit flex`}>
+      <li className={`tabmenu_tit flex`}>
         {tabIndex[0] === "1" ? (
           <>
             <div>
@@ -43,18 +64,18 @@ const MyPageActivityList = () => {
             </div>
           </div>
         )}
-      </div>
+      </li>
       {tabIndex[0] === "1" ? (
         <ReviewItems />
       ) : tabIndex[0] === "2" ? (
         <>
           <ReviewItems />
-          <ReviewItems className="wrapper" />
-          <ReviewItems className="wrapper" />
-          <ReviewItems className="wrapper" />
-          <ReviewItems className="wrapper" />
-          <ReviewItems className="wrapper" />
-          <ReviewItems className="wrapper" />
+          <ReviewItems />
+          <ReviewItems />
+          <ReviewItems />
+          <ReviewItems />
+          <ReviewItems />
+          <ReviewItems />
         </>
       ) : (
         ""

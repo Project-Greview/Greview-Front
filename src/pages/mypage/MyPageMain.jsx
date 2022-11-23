@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { useInView } from "react-intersection-observer";
 
 import { setMyPageTabState } from "../../states/tabMenuState";
+import { setMyPageFixed } from "../../states/commonState";
 
 import { Common } from "../../resources/style/common/commonStyle";
 import { MyPageSection } from "../../components/mypage/style/mypageStyle";
 
 import ProfileImage from "../../components/mypage/view/ProfileIImage";
 import MyPageActivityList from "./MyPageActivityList";
-import { useMemo } from "react";
 
 const MyPageMain = () => {
   const navigate = useNavigate();
@@ -24,6 +23,31 @@ const MyPageMain = () => {
     setTabMenuValue(indexNum);
   };      
 
+  const [scrollY, setScrollY] = useState(0);
+  const [ScrollActive, setScrollActive] = useState(false); 
+
+  const menufiexd = useRecoilState(setMyPageFixed);
+  const setMenufiexd = useSetRecoilState(setMyPageFixed);
+
+  function handleScroll() { 
+      if(scrollY > 250) {
+          setScrollY(window.pageYOffset);
+          setScrollActive(true);
+          setMenufiexd(true);
+      } else {
+          setScrollY(window.pageYOffset);
+          setScrollActive(false);
+      }
+  }
+  useEffect(() => {
+      const scrollListener = () => {  
+        window.addEventListener("scroll", handleScroll);
+      };
+      scrollListener();
+      return () => { 
+        window.removeEventListener("scroll", handleScroll); 
+      };
+  });
   return (
     <>
       <MyPageSection.MyPageHeader>
@@ -45,7 +69,7 @@ const MyPageMain = () => {
         >
           프로필 수정
         </Common.Button>
-        <ul className={` tab_menubox flex flex_ai_c`}>
+        <ul className={`${scrollY > 250 ? "fixed" : ""} tab_menubox flex flex_ai_c`}>
           <li
             className={tabIndex[0] === "1" ? "active" : ""}
             data-tabindex="1"

@@ -7,7 +7,7 @@ import icoMore from "../../../resources/img/icons/more_ico.svg";
 import icoMenu from "../../../resources/img/icons/kebap_menu.svg";
 
 export const ReviewListSection = {
-  ListFrame:styled.div`
+  ListFrame:styled.ul`
     padding:1.6rem 2rem; background-color:#F8F8F8;
     .store_header {position:relative;padding:1rem 2rem; width:100%; height:11.8rem;position: fixed;top:0;background:#D9D9D9;
       .history_back {flex-basis:2.4rem;}

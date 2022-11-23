@@ -28,13 +28,14 @@ export const MyPageSection = {
       .act_position {font-size: 1.4rem; font-weight: 500; color: #959292;}
     }
     button {flex-basis: 100%; margin-top:1.7rem;}
-    .tab_menubox {flex-basis: 100%; margin-top:26px;
+    .tab_menubox {position:static; flex-basis: 100%; margin-top:26px; transition: position 3s, width 3s, top 3s;
       li {position:relative; display:flex; justify-content:center; align-items:center; flex-basis:calc(100%/3); padding:1rem 0; border-bottom:1px solid #959292; font-size:1.4rem; font-weight: 500; transition: color 0.3s, border 0.3s;
         ::after {content:""; position:absolute; width:100%; height:2px; bottom:-1px; left:0; background:none; transition:background 0.3s;}  
       &.active {color:#6556FF;
           ::after {content:""; position:absolute; background:#6556ff;}
         }
       }
+      &.fixed {position:fixed; top:0; left:5%; width:90%; padding-bottom:0; margin:0 auto; background:#ffffff; z-index:3;}
     }
   `,
 };

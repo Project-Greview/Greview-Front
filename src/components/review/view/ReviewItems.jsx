@@ -9,7 +9,7 @@ const ReviewItems = () => {
   };
 
   return(
-    <div className="review_wrap">
+    <li className="review_wrap">
       <div className="profile flex" onClick={onPushDetail}>
         <div className="picture">
           <img src={testImages} alt="" />
@@ -38,7 +38,7 @@ const ReviewItems = () => {
         <span className="thumb">10</span>
         <span className="cmt">2</span>
       </div>
-    </div>
+    </li>
   )
 }
 
