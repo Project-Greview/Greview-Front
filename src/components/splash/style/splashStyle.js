@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SpalshSection = {
   SpalshFrame:styled.div`
     display:flex; flex-direction:column; justify-content:center; align-items: center;
-    img {margin-top:50%;}
+    img {margin-top:10%;}
     button {max-width:33.5rem; width:33.5rem; height:5rem; background:#6656ff; border-radius:0.5rem; color:#ffffff;}
     .has_acc {
     	.txt {font-size:1.2rem; font-weight:300; color:#959292;
@@ -17,12 +17,13 @@ export const SpalshSection = {
       button {margin-bottom:2.5rem;}
     }
 
-    @media screen and (min-width:550px) {
+    @media screen and (max-width:550px) {
       img {margin-top:30%;}
     }
-    @media screen and (min-width:414px) {
+    @media screen and (max-width:414px) {
+      img {margin-top:50%;}
     }
-    @media screen and (min-width:375px) {
+    @media screen and (max-width:375px) {
       img {margin-top:30%;}
     }
   `

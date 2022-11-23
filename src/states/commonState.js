@@ -31,6 +31,12 @@ const setPageInfoState = atom({
 const setLeftMenuState = atom({
   key: "setLeftMenu",
   default: false,
+});
+
+// MyPage Scroll Event
+const setMyPageFixed = atom({
+  key: "setFixedMenu",
+  default: false,
 })
 
 export {
@@ -39,4 +45,5 @@ export {
   onToggleSearchType,
   setPageInfoState,
   setLeftMenuState,
+  setMyPageFixed,
 };
