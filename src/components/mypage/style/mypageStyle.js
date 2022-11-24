@@ -29,7 +29,8 @@ export const MyPageSection = {
     }
     button {flex-basis: 100%; margin-top:1.7rem;}
     .tabmenu_box {position:static; flex-wrap:wrap; flex-basis: 100%; margin-top:26px; transition: position 3s, width 3s, top 3s;
-      li {position:relative; display:flex; justify-content:center; align-items:center; flex-basis:calc(100%/3); padding:1rem 0; border-bottom:1px solid #959292; font-size:1.4rem; font-weight: 500; transition: color 0.3s, border 0.3s;
+      &.active {position:fixed; top:0; left:5%; width:90%; padding-bottom:0; margin:0 auto; background:#ffffff; z-index:3;}
+      li {position:relative; display:flex; align-items:center; flex-basis:calc(100%/3); padding:1rem 0; border-bottom:1px solid #959292; font-size:1.4rem; font-weight: 500; transition: color 0.3s, border 0.3s;
         ::after {content:""; position:absolute; width:100%; height:2px; bottom:-1px; left:0; background:none; transition:background 0.3s;}  
         &.tabmenu_tit {
           position:relative; flex-basis: 100%; border-bottom: none; padding-top:15px; background: #f8f8f8; z-index: 2;
@@ -40,7 +41,7 @@ export const MyPageSection = {
           ::after {content:""; position:absolute; background:#6556ff;}
         }
       }
-      &.fixed {position:fixed; top:0; left:5%; width:90%; padding-bottom:0; margin:0 auto; background:#ffffff; z-index:3;}
+      
     }
   `,
 };

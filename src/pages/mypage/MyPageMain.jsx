@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 
@@ -23,52 +23,79 @@ const MyPageMain = () => {
     setTabMenuValue(indexNum);
   };
   // ========================
-  // const [scrollY, setScrollY] = useState(0);
-  // const [ScrollActive, setScrollActive] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [ScrollActive, setScrollActive] = useState(false);
 
-  // const menufiexd = useRecoilState(setMyPageFixed);
-  // const setMenufiexd = useSetRecoilState(setMyPageFixed);
+  const menufiexd = useRecoilState(setMyPageFixed);
+  const setMenufiexd = useSetRecoilState(setMyPageFixed);
 
-  // function handleScroll() {
-  //     if(scrollY > 250) {
-  //         setScrollY(window.pageYOffset);
-  //         setScrollActive(true);
-  //         setMenufiexd(true);
-  //     } else {
-  //         setScrollY(window.pageYOffset);
-  //         setScrollActive(false);
-  //     }
-  // }
-  // useEffect(() => {
-  //     const scrollListener = () => {
-  //       window.addEventListener("scroll", handleScroll);
-  //     };
-  //     scrollListener();
-  //     return () => {
-  //       window.removeEventListener("scroll", handleScroll);
-  //     };
-  // });
-  // ========================
+  function handleScroll() {
+      if(scrollY > 250) {
+          setScrollY(window.pageYOffset);
+          setScrollActive(true);
+          setMenufiexd(true);
+      } else {
+          setScrollY(window.pageYOffset);
+          setScrollActive(false);
+      }
+  }
   useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 1.0,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        } else {
-          entry.target.classList.remove("active");
-        }
-      });
-    }, options);
-
-    const boxList = document.querySelectorAll(".observer_target");
-    boxList.forEach((el) => observer.observe(el));
+      const scrollListener = () => {
+        window.addEventListener("scroll", handleScroll);
+      };
+      scrollListener();
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
   });
+  // ========================
+  // const getIndex = (selector) => {
+  //   var elem = document.querySelector(selector);
+  //   for(var i = 0; i < elem.parentNode.childNodes.length; i++) {
+  //     if (elem.parentNode.childNodes[i] === elem) {
+  //       console.log('elemIndex = ' + i);
+  //     }
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   const options = {
+  //     root: null,
+  //     rootMargin: "0px",
+  //     threshold: 1.0,
+  //   };
+
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         entry.target.classList.add("active");
+  //         // getIndex('.active');
+  //       } else {
+  //         entry.target.classList.remove("active");
+  //       }
+  //     });
+  //   }, options);
+
+  //   const boxList = document.querySelectorAll(".observer_target");
+  //   boxList.forEach((el) => observer.observe(el));
+  // },[]);
+
+  // const [hideElement, setHideElement] = useState(false);
+  // const scrollRef = useRef(null);
+  // useEffect(() => {
+  //   if (!scrollRef.current) return;
+  //   window.addEventListener("scroll", yScrollEvent);
+  //   return () => {
+  //     window.removeEventListener("scroll", yScrollEvent);
+  //   };
+  // }, [scrollRef.current]);
+
+  // const yScrollEvent = () => {
+  //   const scroll = scrollRef.current.getBoundingClientRect();
+  //   console.log(scroll);
+  //   setHideElement(scroll.top <= -100);
+  // };
+
   return (
     <>
       <MyPageSection.MyPageHeader>
@@ -90,29 +117,29 @@ const MyPageMain = () => {
         >
           프로필 수정
         </Common.Button>
-        <ul className={`tabmenu_box flex flex_ai_c`}>
+        <ul className={`${scrollY >= 250 ? "active" : ""} tabmenu_box flex flex_ai_c`}>
           <li
-            className={tabIndex[0] === "1" ? "active" : ""}
+            className={`${tabIndex[0] === "1" ? "active" : ""} flex_jc_c`}
             data-tabindex="1"
             onClick={onToggleTabMenu}
           >
             리뷰
           </li>
           <li
-            className={tabIndex[0] === "2" ? "active" : ""}
+            className={`${tabIndex[0] === "2" ? "active" : ""} flex_jc_c`}
             data-tabindex="2"
             onClick={onToggleTabMenu}
           >
             댓글
           </li>
           <li
-            className={tabIndex[0] === "3" ? "active" : ""}
+            className={`${tabIndex[0] === "3" ? "active" : ""} flex_jc_c`}
             data-tabindex="3"
             onClick={onToggleTabMenu}
           >
             좋아요
           </li>
-          <li className={`tabmenu_tit flex`}>
+          <li className={`tabmenu_tit flex flex_jc_s`}>
             {tabIndex[0] === "1" ? (
               <>
                 <div>

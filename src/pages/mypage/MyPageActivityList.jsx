@@ -13,7 +13,7 @@ const MyPageActivityList = () => {
 
   return (
     <ReviewListSection.ListFrame
-      style={{ height: "70%", margin: "0rem -2rem", padding: "0 2rem" }}
+      style={{  margin: "0rem -2rem", padding: "0 2rem" }}
       className="mypage_review"
     >
       {tabIndex[0] === "1" ? (
@@ -21,7 +21,7 @@ const MyPageActivityList = () => {
       ) : tabIndex[0] === "2" ? (
         <>
           <ReviewItems />
-          <ReviewItems />
+          <ReviewItems className="testss"/>
           <ReviewItems />
           <ReviewItems />
           <ReviewItems />
