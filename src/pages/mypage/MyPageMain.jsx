@@ -22,32 +22,53 @@ const MyPageMain = () => {
     const indexNum = e.currentTarget.getAttribute("data-tabindex");
     setTabMenuValue(indexNum);
   };      
+// ========================
+  // const [scrollY, setScrollY] = useState(0);
+  // const [ScrollActive, setScrollActive] = useState(false); 
 
-  const [scrollY, setScrollY] = useState(0);
-  const [ScrollActive, setScrollActive] = useState(false); 
+  // const menufiexd = useRecoilState(setMyPageFixed);
+  // const setMenufiexd = useSetRecoilState(setMyPageFixed);
 
-  const menufiexd = useRecoilState(setMyPageFixed);
-  const setMenufiexd = useSetRecoilState(setMyPageFixed);
-
-  function handleScroll() { 
-      if(scrollY > 250) {
-          setScrollY(window.pageYOffset);
-          setScrollActive(true);
-          setMenufiexd(true);
-      } else {
-          setScrollY(window.pageYOffset);
-          setScrollActive(false);
-      }
-  }
+  // function handleScroll() { 
+  //     if(scrollY > 250) {
+  //         setScrollY(window.pageYOffset);
+  //         setScrollActive(true);
+  //         setMenufiexd(true);
+  //     } else {
+  //         setScrollY(window.pageYOffset);
+  //         setScrollActive(false);
+  //     }
+  // }
+  // useEffect(() => {
+  //     const scrollListener = () => {  
+  //       window.addEventListener("scroll", handleScroll);
+  //     };
+  //     scrollListener();
+  //     return () => { 
+  //       window.removeEventListener("scroll", handleScroll); 
+  //     };
+  // });
+  // ========================
   useEffect(() => {
-      const scrollListener = () => {  
-        window.addEventListener("scroll", handleScroll);
-      };
-      scrollListener();
-      return () => { 
-        window.removeEventListener("scroll", handleScroll); 
-      };
-  });
+  const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1.0,
+      }
+      
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("classTest");
+          } else {
+            entry.target.classList.remove("classTest");
+          }
+        });
+      }, options);
+      
+      const boxList = document.querySelectorAll(".observer_target");
+      boxList.forEach(el => observer.observe(el));
+      });
   return (
     <>
       <MyPageSection.MyPageHeader>
@@ -69,7 +90,7 @@ const MyPageMain = () => {
         >
           프로필 수정
         </Common.Button>
-        <ul className={`${scrollY > 250 ? "fixed" : ""} tab_menubox flex flex_ai_c`}>
+        <ul className={`tab_menubox flex flex_ai_c`}>
           <li
             className={tabIndex[0] === "1" ? "active" : ""}
             data-tabindex="1"

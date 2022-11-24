@@ -9,7 +9,7 @@ const ReviewItems = () => {
   };
 
   return(
-    <li className="review_wrap">
+    <li className="review_wrap observer_target">
       <div className="profile flex" onClick={onPushDetail}>
         <div className="picture">
           <img src={testImages} alt="" />
