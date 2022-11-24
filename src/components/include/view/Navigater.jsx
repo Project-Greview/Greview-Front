@@ -75,7 +75,7 @@ const Navigater = () => {
           className={location.state.value === 3 ? "active" : ""}
           onClick={
           () => {navigate(
-            "/main/home", 
+            "/savelist", 
             {state: { 
               value: 3,
               tit: "저장목록",
