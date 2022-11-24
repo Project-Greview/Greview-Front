@@ -1,11 +1,14 @@
-import { BottomMenuSection } from "../style/bottommenuStyle";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { setLeftMenuState } from "../../../states/commonState";
+import { BottomMenuSection } from "../style/bottommenuStyle";
 
 const Navigater = () => {
+  const leftMenuState = useRecoilValue(setLeftMenuState);
   const navigate = useNavigate();
   const location = useLocation();
   return(
-    <BottomMenuSection.BottomMenuFrame>
+    <BottomMenuSection.BottomMenuFrame className={leftMenuState === true ? "disabled" : ""}>
       <ul className="flex flex_jc_sa flex_ai_c">
         <li
         className={location.state.value === 0 ? "active" : ""}
