@@ -10,6 +10,7 @@ import Home from "../pages/home/Home";
 import SearchBar from "../components/home/view/searchBar/SearchBar";
 import ReviewRouter from "./ReviewRouter";
 import MyPageRouter from "./MyPageRouter";
+import SaveList from "../components/save/view/SaveList";
 
 const PageRouter = () => {  
   const location = useLocation();
@@ -31,6 +32,7 @@ const PageRouter = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/review/*" element={<ReviewRouter />} />
         <Route path="/mypage/*" element={<MyPageRouter />}/>
+        <Route path="/savelist" element={<SaveList />}/>
       </Routes>
       {pageState.naviView === true ? <Navigater /> : ""}
       

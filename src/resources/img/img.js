@@ -23,6 +23,7 @@ import greview_tag from "./icons/zreview_tag.svg";
 import greview from "./icons/zreview.svg";
 import map from "./icons/map_ico.svg";
 import btn_arrow_top from "./icons/btn_arrow_top.svg";
+import save_on from "./icons/save_on.svg";
 
 
 const images = {
@@ -51,6 +52,7 @@ const images = {
   greview,
   map,
   btn_arrow_top,
+  save_on,
 };
 
 export default images;
