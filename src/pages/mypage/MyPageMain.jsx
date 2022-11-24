@@ -21,15 +21,15 @@ const MyPageMain = () => {
   const onToggleTabMenu = (e) => {
     const indexNum = e.currentTarget.getAttribute("data-tabindex");
     setTabMenuValue(indexNum);
-  };      
-// ========================
+  };
+  // ========================
   // const [scrollY, setScrollY] = useState(0);
-  // const [ScrollActive, setScrollActive] = useState(false); 
+  // const [ScrollActive, setScrollActive] = useState(false);
 
   // const menufiexd = useRecoilState(setMyPageFixed);
   // const setMenufiexd = useSetRecoilState(setMyPageFixed);
 
-  // function handleScroll() { 
+  // function handleScroll() {
   //     if(scrollY > 250) {
   //         setScrollY(window.pageYOffset);
   //         setScrollActive(true);
@@ -40,35 +40,35 @@ const MyPageMain = () => {
   //     }
   // }
   // useEffect(() => {
-  //     const scrollListener = () => {  
+  //     const scrollListener = () => {
   //       window.addEventListener("scroll", handleScroll);
   //     };
   //     scrollListener();
-  //     return () => { 
-  //       window.removeEventListener("scroll", handleScroll); 
+  //     return () => {
+  //       window.removeEventListener("scroll", handleScroll);
   //     };
   // });
   // ========================
   useEffect(() => {
-  const options = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 1.0,
-      }
-      
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("classTest");
-          } else {
-            entry.target.classList.remove("classTest");
-          }
-        });
-      }, options);
-      
-      const boxList = document.querySelectorAll(".observer_target");
-      boxList.forEach(el => observer.observe(el));
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1.0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
+        }
       });
+    }, options);
+
+    const boxList = document.querySelectorAll(".observer_target");
+    boxList.forEach((el) => observer.observe(el));
+  });
   return (
     <>
       <MyPageSection.MyPageHeader>
@@ -90,7 +90,7 @@ const MyPageMain = () => {
         >
           프로필 수정
         </Common.Button>
-        <ul className={`tab_menubox flex flex_ai_c`}>
+        <ul className={`tabmenu_box flex flex_ai_c`}>
           <li
             className={tabIndex[0] === "1" ? "active" : ""}
             data-tabindex="1"
@@ -111,6 +111,31 @@ const MyPageMain = () => {
             onClick={onToggleTabMenu}
           >
             좋아요
+          </li>
+          <li className={`tabmenu_tit flex`}>
+            {tabIndex[0] === "1" ? (
+              <>
+                <div>
+                  내가 작성한 리뷰<span>(00)</span>
+                </div>
+              </>
+            ) : tabIndex[0] === "2" ? (
+              <>
+                <div>
+                  내가 작성한 댓글<span>(00)</span>
+                </div>
+              </>
+            ) : (
+              <div className="sub_tabmenu flex">
+                <div>
+                  리뷰<span>(00)</span>
+                </div>
+                <span>|</span>
+                <div>
+                  댓글<span>(00)</span>
+                </div>
+              </div>
+            )}
           </li>
         </ul>
       </MyPageSection.MyPageHeader>

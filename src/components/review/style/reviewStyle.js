@@ -40,7 +40,7 @@ export const ReviewListSection = {
     }
     .greview{margin:0.2rem 0 1.7rem;}
     .review_wrap{background:#ffffff; padding:1.7rem 1.9rem;margin:0 0 1.2rem;border: 1px solid #EDEDED;border-radius:0.5rem;
-      :first-child{margin:5.5rem 0 1.2rem;}
+      /* :first-child{margin:5.5rem 0 1.2rem;} */
       .profile{width:100%;
         .picture{width:3.5rem;height:3.5rem;border-radius:50%;background:#D9D9D9;margin-right:0.9rem;
           img{width:3.5rem;height:3.5rem;border-radius:50%;object-fit: cover;}
