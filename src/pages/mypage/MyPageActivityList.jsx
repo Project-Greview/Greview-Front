@@ -21,7 +21,7 @@ const MyPageActivityList = () => {
       ) : tabIndex[0] === "2" ? (
         <>
           <ReviewItems />
-          <ReviewItems />
+          <ReviewItems className="testss"/>
           <ReviewItems />
           <ReviewItems />
           <ReviewItems />

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 
@@ -48,36 +48,54 @@ const MyPageMain = () => {
         window.removeEventListener("scroll", handleScroll);
       };
   });
-  // useEffect(() => {
-  //     const scrollListener = () => {
-  //       window.addEventListener("scroll", handleScroll);
-  //     };
-  //     scrollListener();
-  //     return () => {
-  //       window.removeEventListener("scroll", handleScroll);
-  //     };
-  // });
   // ========================
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 1.0,
-    };
+  // const getIndex = (selector) => {
+  //   var elem = document.querySelector(selector);
+  //   for(var i = 0; i < elem.parentNode.childNodes.length; i++) {
+  //     if (elem.parentNode.childNodes[i] === elem) {
+  //       console.log('elemIndex = ' + i);
+  //     }
+  //   }
+  // }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        } else {
-          entry.target.classList.remove("active");
-        }
-      });
-    }, options);
+  // useEffect(() => {
+  //   const options = {
+  //     root: null,
+  //     rootMargin: "0px",
+  //     threshold: 1.0,
+  //   };
 
-    const boxList = document.querySelectorAll(".observer_target");
-    boxList.forEach((el) => observer.observe(el));
-  },[]);
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         entry.target.classList.add("active");
+  //         // getIndex('.active');
+  //       } else {
+  //         entry.target.classList.remove("active");
+  //       }
+  //     });
+  //   }, options);
+
+  //   const boxList = document.querySelectorAll(".observer_target");
+  //   boxList.forEach((el) => observer.observe(el));
+  // },[]);
+
+  // const [hideElement, setHideElement] = useState(false);
+  // const scrollRef = useRef(null);
+  // useEffect(() => {
+  //   if (!scrollRef.current) return;
+  //   window.addEventListener("scroll", yScrollEvent);
+  //   return () => {
+  //     window.removeEventListener("scroll", yScrollEvent);
+  //   };
+  // }, [scrollRef.current]);
+
+  // const yScrollEvent = () => {
+  //   const scroll = scrollRef.current.getBoundingClientRect();
+  //   console.log(scroll);
+  //   setHideElement(scroll.top <= -100);
+  // };
+
   return (
     <>
       <MyPageSection.MyPageHeader>

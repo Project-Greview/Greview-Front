@@ -86,7 +86,10 @@ const ReactKakaoMap = () => {
   const EventMarkerContainer = ({ position }) => {
     const map = useMap();
     const [isVisible, setIsVisible] = useState(false);
-
+    const flag = false;
+    if(flag){
+      MapMarker.setMap(null);
+    }
     return (
       <MapMarker
         // 마커를 표시할 위치
