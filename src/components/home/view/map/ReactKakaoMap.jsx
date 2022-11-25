@@ -44,7 +44,7 @@ const ReactKakaoMap = () => {
         }
       );
     } else {
-      // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+      // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정
       setState((prev) => ({
         ...prev,
         errMsg: "geolocation을 사용할수 없어요..",
@@ -56,9 +56,9 @@ const ReactKakaoMap = () => {
     ps.keywordSearch(setPlace[0], (data, status, _pagination) => {
       if (status === window.kakao.maps.services.Status.OK) {
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-        // LatLngBounds 객체에 좌표를 추가합니다
+        // LatLngBounds 객체에 좌표를 추가
         const bounds = new window.kakao.maps.LatLngBounds()
-        let markers = []
+        let markers = [];
 
         for (var i = 0; i < data.length; i++) {
           // @ts-ignore
@@ -76,7 +76,6 @@ const ReactKakaoMap = () => {
       }
     })
     
-
   }, [setPlace[0]]);
   
   const data = [
@@ -114,6 +113,8 @@ const ReactKakaoMap = () => {
       ></MapMarker>
     );
   };
+  console.log(markers);
+
   return (
     <Map // 지도를 표시할 Container
       center={state.center}

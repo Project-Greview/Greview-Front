@@ -43,11 +43,11 @@ const SearchBar = () => {
   };
 
   const searchKeywordPush = () => {
-    getKeyword(place)
+    getKeyword(place);
   }
   useEffect(() => {
-    
-  })
+  },[getKeyword]);
+  
   return (
     <SearchBarSection.SearchFrame>
       <div className="bars_btn relative cursor_p" onClick={onToggleLeftMenu}>
