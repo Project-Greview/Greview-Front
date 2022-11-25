@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import { Map, useMap, MapMarker, Circle } from "react-kakao-maps-sdk";
+
+import { searchKeyword } from "../../../../states/commonState";
 
 import images from "../../../../resources/img/img";
 
 const ReactKakaoMap = () => {
-  const navigate = useNavigate();
+  const setPlace = useRecoilState(searchKeyword);
+  const [markers, setMarkers] = useState([]);
   const [map, setMap] = useState()
-  const [place, setPlace] = useState([]);
+  const navigate = useNavigate();
   const [state, setState] = useState({
     center: {
       lat: 33.450701,
@@ -16,7 +20,7 @@ const ReactKakaoMap = () => {
     errMsg: null,
     isLoading: true,
   });
-
+  console.log(setPlace[0])
   useEffect(() => {
     if (navigator.geolocation) {
       // GeoLocation을 이용해서 접속 위치를 얻어옵니다
@@ -46,37 +50,35 @@ const ReactKakaoMap = () => {
         errMsg: "geolocation을 사용할수 없어요..",
         isLoading: false,
       }));
-
-      const ps = new window.kakao.maps.services.Places();
-      ps.keywordSearch("이태원 맛집", (data, status, _pagination) => {
-        if (status === window.kakao.maps.services.Status.OK) {
-          // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-          // LatLngBounds 객체에 좌표를 추가합니다
-          const bounds = new window.kakao.maps.LatLngBounds()
-          let markers = []
-  
-          for (var i = 0; i < data.length; i++) {
-            // @ts-ignore
-            markers.push({
-              position: {
-                lat: data[i].y,
-                lng: data[i].x,
-              },
-              content: data[i].place_name,
-            })
-            // @ts-ignore
-            bounds.extend(new window.kakao.maps.LatLng(data[i].y, data[i].x))
-          }
-          setPlace(markers)
-  
-          // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-          map.setBounds(bounds)
-        }
-      })
-
     }
-  }, []);
+    const ps = new window.kakao.maps.services.Places();
 
+    ps.keywordSearch(setPlace[0], (data, status, _pagination) => {
+      if (status === window.kakao.maps.services.Status.OK) {
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+        // LatLngBounds 객체에 좌표를 추가합니다
+        const bounds = new window.kakao.maps.LatLngBounds()
+        let markers = []
+
+        for (var i = 0; i < data.length; i++) {
+          // @ts-ignore
+          markers.push({
+            position: {
+              lat: data[i].y,
+              lng: data[i].x,
+            },
+            content: data[i].place_name,
+          })
+          // @ts-ignore
+          bounds.extend(new window.kakao.maps.LatLng(data[i].y, data[i].x))
+        }
+        setMarkers(markers)
+      }
+    })
+    
+
+  }, [setPlace[0]]);
+  
   const data = [
     {
       latlng: { lat: state.center.lat, lng: state.center.lng },
@@ -86,10 +88,7 @@ const ReactKakaoMap = () => {
   const EventMarkerContainer = ({ position }) => {
     const map = useMap();
     const [isVisible, setIsVisible] = useState(false);
-    const flag = false;
-    if(flag){
-      MapMarker.setMap(null);
-    }
+
     return (
       <MapMarker
         // 마커를 표시할 위치
@@ -146,10 +145,10 @@ const ReactKakaoMap = () => {
           option: { offset: { x: 20, y: 20 } },
         }}
       />
-      {data.map((value) => (
+      {markers.map((point) => (
         <EventMarkerContainer
-          key={`EventMarkerContainer-${value.latlng.lat}-${value.latlng.lng}`}
-          position={value.latlng}
+          key={`EventMarkerContainer-${point.content}-${point.position.lat},${point.position.lng}`}
+          position={point.position}
         />
       ))}
     </Map>

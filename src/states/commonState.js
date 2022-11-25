@@ -11,11 +11,15 @@ const hasAccountState = atom({
   default: false,
 });
 
-// 검색타입
+// 검색관련
 const onToggleSearchType = atom({
   key: "searchTypeState",
   default: "tag",
 });
+const searchKeyword = atom({
+  key: "searchKeyword",
+  default: "",
+})
 
 // Header Title
 const setPageInfoState = atom({
@@ -37,7 +41,7 @@ const setLeftMenuState = atom({
 const setMyPageFixed = atom({
   key: "setFixedMenu",
   default: false,
-})
+});
 
 export {
   recoilCountState,
@@ -46,4 +50,5 @@ export {
   setPageInfoState,
   setLeftMenuState,
   setMyPageFixed,
+  searchKeyword,
 };
