@@ -3,15 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { Map, useMap, MapMarker, Circle } from "react-kakao-maps-sdk";
 
-import { searchKeyword, searchResult } from "../../../../states/commonState";
+import { searchKeyword, searchResult, setPageInfoState } from "../../../../states/commonState";
 
 import images from "../../../../resources/img/img";
 
-const ReactKakaoMap = () => {
+const ReactKakaoMap = ({width, height}) => {
   const setPlace = useRecoilState(searchKeyword);
   const setResult = useRecoilState(searchResult);
+
+  const pageState = useRecoilState(setPageInfoState);
+
   const [markers, setMarkers] = useState([]);
-  const [map, setMap] = useState()
+  const [map, setMap] = useState();
   const navigate = useNavigate();
   const [state, setState] = useState({
     center: {
@@ -21,7 +24,8 @@ const ReactKakaoMap = () => {
     errMsg: null,
     isLoading: true,
   });
-  console.log(setResult)
+  console.log(pageState[0].value);
+
   useEffect(() => {
     if (navigator.geolocation) {
       // GeoLocation을 이용해서 접속 위치를 얻어옵니다
@@ -53,8 +57,12 @@ const ReactKakaoMap = () => {
       }));
     }
     const ps = new window.kakao.maps.services.Places();
-
-    ps.keywordSearch(setPlace[0], (data, status, _pagination) => {
+    const searchOption = {
+      location: `${state.center}`,
+      radius: 6000,
+      size: 15
+    }
+    ps.keywordSearch(setPlace[0], searchOption, (data, status, _pagination) => {
       if (status === window.kakao.maps.services.Status.OK) {
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가
@@ -69,11 +77,10 @@ const ReactKakaoMap = () => {
               lng: data[i].x,
             },
             content: data[i].place_name,
-          })
-          // @ts-ignore
-          bounds.extend(new window.kakao.maps.LatLng(data[i].y, data[i].x))
+          });
+          bounds.extend(new window.kakao.maps.LatLng(data[i].y, data[i].x));
         }
-        setMarkers(markers)
+        setMarkers(markers);
       }
     })
     
@@ -121,8 +128,8 @@ const ReactKakaoMap = () => {
       center={state.center}
       style={{
         // 지도의 크기
-        width: "100%",
-        height: "100vh",
+        width:`${pageState[0].value === 0 ? "100%" : "100%"}`,
+        height: `${pageState[0].value === 0 ? "100vh" : "20vh"}`,
       }}
       level={4} // 지도의 확대 레벨
     >
@@ -131,7 +138,7 @@ const ReactKakaoMap = () => {
           lat: state.center.lat,
           lng: state.center.lng,
         }}
-        radius={3000}
+        radius={`${pageState[0].value === 0 ? 300 : 150}`}
         strokeWeight={1} // 선의 두께
         strokeColor={"#6556FF"} // 선의 색깔
         strokeOpacity={0.2} // 선의 불투명도
@@ -148,12 +155,12 @@ const ReactKakaoMap = () => {
         }}
       />
       {/* marker의 경우 검색 후 해당 결과를 마커로 표시 */}
-      {/* {markers.map((point) => ( */}
-        {data.map((point) => (
+      {markers.map((point) => (
+        // {data.map((point) => (
         <EventMarkerContainer
-          key={`EventMarkerContainer-lat_lng`}
-          // position={point.position} 
-          position={state.center}
+          key={`EventMarkerContainer-${point.content}-${point.position.lat},${point.position.lng}`}
+          position={point.position} 
+          // position={state.center}
         />
       ))}
     </Map>

@@ -10,7 +10,8 @@ import Home from "../pages/home/Home";
 import SearchBar from "../components/home/view/searchBar/SearchBar";
 import ReviewRouter from "./ReviewRouter";
 import MyPageRouter from "./MyPageRouter";
-import SaveList from "../components/save/view/SaveList";
+import SaveList from "../pages/save/SaveList";
+import SearchLoction from "../pages/searchlocation/SearchLocation";
 
 const PageRouter = () => {  
   const location = useLocation();
@@ -25,11 +26,13 @@ const PageRouter = () => {
   
   console.log("페이지 정보", pageState);
   console.log("Left Menu", leftMenuState);
+
   return (
     <Common.Frame>
-      {pageState.value === 0 ? <SearchBar /> : ""}
+      {pageState.value === 0 || pageState.value === 1 ? <SearchBar /> : ""}
       <Routes>
         <Route path="/home" element={<Home />} />
+        <Route path="/searchlocation" element={<SearchLoction/>}/>
         <Route path="/review/*" element={<ReviewRouter />} />
         <Route path="/mypage/*" element={<MyPageRouter />}/>
         <Route path="/savelist" element={<SaveList />}/>

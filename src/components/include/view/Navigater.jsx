@@ -34,11 +34,11 @@ const Navigater = () => {
           className={location.state.value === 1 ? "active" : ""}
           onClick={
           () => {navigate(
-            "/main/home", 
+            "/searchlocation", 
             {state: { 
               value: 1,
               tit: "동네탐색",
-              naviView: false
+              naviView: true
             }}
             )
           }

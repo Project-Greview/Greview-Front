@@ -31,7 +31,9 @@ const setPageInfoState = atom({
   default: {
     tit: "",
     value: 0,
-    naviView: true
+    naviView: true,
+    mapWidth: "",
+    mapHeight: "",
   },
 });
 
