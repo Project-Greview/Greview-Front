@@ -22,6 +22,7 @@ const MyPageMain = () => {
     const indexNum = e.currentTarget.getAttribute("data-tabindex");
     setTabMenuValue(indexNum);
   };
+  console.log(tabIndex)
   // ========================
   const [scrollY, setScrollY] = useState(0);
   const [ScrollActive, setScrollActive] = useState(false);

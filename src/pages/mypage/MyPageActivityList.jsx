@@ -7,6 +7,7 @@ import { setMyPageTabState } from "../../states/tabMenuState";
 import { setMyPageFixed } from "../../states/commonState";
 
 import { ReviewListSection } from "../../components/review/style/reviewStyle";
+import CmtReviewItem from "../../components/mypage/view/CmtReviewItem";
 
 const MyPageActivityList = () => {
   const tabIndex = useRecoilState(setMyPageTabState);
@@ -20,13 +21,15 @@ const MyPageActivityList = () => {
         <ReviewItems />
       ) : tabIndex[0] === "2" ? (
         <>
-          <ReviewItems />
-          <ReviewItems className="testss"/>
-          <ReviewItems />
-          <ReviewItems />
-          <ReviewItems />
-          <ReviewItems />
-          <ReviewItems />
+          <CmtReviewItem/>
+          <CmtReviewItem/>
+          <CmtReviewItem/>
+          <CmtReviewItem/>
+          <CmtReviewItem/>
+          <CmtReviewItem/>
+          <CmtReviewItem/>
+          <CmtReviewItem/>
+          <CmtReviewItem/>
         </>
       ) : (
         ""

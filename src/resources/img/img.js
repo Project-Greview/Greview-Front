@@ -24,6 +24,9 @@ import greview from "./icons/zreview.svg";
 import map from "./icons/map_ico.svg";
 import btn_arrow_top from "./icons/btn_arrow_top.svg";
 import save_on from "./icons/save_on.svg";
+import like_off from "./icons/thumb_ico_off.svg";
+import like_on from "./icons/thumb_ico.svg";
+import more_icon from "./icons/kebap_menu.svg";
 
 
 const images = {
@@ -53,6 +56,9 @@ const images = {
   map,
   btn_arrow_top,
   save_on,
+  like_off,
+  like_on,
+  more_icon
 };
 
 export default images;
