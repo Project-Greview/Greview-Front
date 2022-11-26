@@ -146,10 +146,13 @@ const ReactKakaoMap = () => {
           option: { offset: { x: 20, y: 20 } },
         }}
       />
-      {markers.map((point) => (
+      {/* marker의 경우 검색 후 해당 결과를 마커로 표시 */}
+      {/* {markers.map((point) => ( */}
+        {data.map((point) => (
         <EventMarkerContainer
-          key={`EventMarkerContainer-${point.content}-${point.position.lat},${point.position.lng}`}
-          position={point.position}
+          key={`EventMarkerContainer-lat_lng`}
+          // position={point.position} 
+          position={state.center}
         />
       ))}
     </Map>
