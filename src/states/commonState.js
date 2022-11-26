@@ -19,6 +19,10 @@ const onToggleSearchType = atom({
 const searchKeyword = atom({
   key: "searchKeyword",
   default: "",
+});
+const searchResult = atom({
+  key: "searchResultList",
+  default: [],
 })
 
 // Header Title
@@ -51,4 +55,5 @@ export {
   setLeftMenuState,
   setMyPageFixed,
   searchKeyword,
+  searchResult
 };

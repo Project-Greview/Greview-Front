@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { Map, useMap, MapMarker, Circle } from "react-kakao-maps-sdk";
 
-import { searchKeyword } from "../../../../states/commonState";
+import { searchKeyword, searchResult } from "../../../../states/commonState";
 
 import images from "../../../../resources/img/img";
 
 const ReactKakaoMap = () => {
   const setPlace = useRecoilState(searchKeyword);
+  const setResult = useRecoilState(searchResult);
   const [markers, setMarkers] = useState([]);
   const [map, setMap] = useState()
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const ReactKakaoMap = () => {
     errMsg: null,
     isLoading: true,
   });
-  console.log(setPlace[0])
+  console.log(setResult)
   useEffect(() => {
     if (navigator.geolocation) {
       // GeoLocation을 이용해서 접속 위치를 얻어옵니다
