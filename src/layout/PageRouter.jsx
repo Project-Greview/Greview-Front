@@ -37,7 +37,7 @@ const PageRouter = () => {
         <Route path="/mypage/*" element={<MyPageRouter />}/>
         <Route path="/savelist" element={<SaveList />}/>
       </Routes>
-      {pageState.naviView === true ? <Navigater /> : ""}
+      {pageState.value === 0 || pageState.value === 1 || pageState.value === 3 ? <Navigater /> : ""}
       
        {/* <Navigater /> */}
     </Common.Frame>

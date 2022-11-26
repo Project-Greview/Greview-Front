@@ -8,10 +8,12 @@ import images from "../../../../resources/img/img";
 
 import SearchBtn from "./SearchBtn";
 
-import { onToggleSearchType, setLeftMenuState, searchKeyword } from "../../../../states/commonState";
+import { onToggleSearchType, setLeftMenuState, searchKeyword, setPageInfoState } from "../../../../states/commonState";
+import HistoryBack from "../../../include/view/HistorybackButton";
 
 const SearchBar = () => {
   const [searchType, setSearchType] = useRecoilState(onToggleSearchType);
+  const pageState = useRecoilState(setPageInfoState);
   const [result, setResult] = useState("");
   const getKeyword = useSetRecoilState(searchKeyword);
   const [place, setPlace] = useState("");
@@ -50,11 +52,16 @@ const SearchBar = () => {
   
   return (
     <SearchBarSection.SearchFrame>
-      <div className="bars_btn relative cursor_p" onClick={onToggleLeftMenu}>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      {pageState[0].value === 0 ? 
+      
+        <div className="bars_btn relative cursor_p" onClick={onToggleLeftMenu}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        : 
+        <HistoryBack/>
+      }
       <Common.SearchInput onSubmit={handleSubmit}>
         <label htmlFor="" onClick={onChangeSearchType}>
           <img src={searchType === "location" ? images.marker_g : images.marker_c} alt=""/>
