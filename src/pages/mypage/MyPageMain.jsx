@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState,useRecoilValueLoadable  } from "recoil";
 
 import { setMyPageTabState } from "../../states/tabMenuState";
 import { setMyPageFixed } from "../../states/commonState";
@@ -12,6 +12,7 @@ import ProfileImage from "../../components/mypage/view/ProfileIImage";
 import MyPageActivityList from "./MyPageActivityList";
 
 import axios from "axios";
+import { getReviewSelector } from "../../states/reviewState";
 const MyPageMain = () => {
   const navigate = useNavigate();
 
@@ -30,6 +31,8 @@ const MyPageMain = () => {
   const menufiexd = useRecoilState(setMyPageFixed);
   const setMenufiexd = useSetRecoilState(setMyPageFixed);
 
+
+  const reviewTest = useRecoilValueLoadable(getReviewSelector);
   function handleScroll() {
       if(scrollY > 250) {
           setScrollY(window.pageYOffset);
@@ -50,21 +53,21 @@ const MyPageMain = () => {
       };
   });
   
-const tests = axios.get('http://localhost:3306/zreview')
-//성공시 then 실행
-.then(function (response) {
-	console.log(response);
-})
-//실패 시 catch 실행
-.catch(function (error) {
-	console.log(error);
-})
-//성공이던 실패던 항상 실행
-.then(function () {
-	// always executed
-});
+// const tests = axios.get('http://localhost:8080/v3/api-docs')
+// //성공시 then 실행
+// .then(function (response) {
+// 	console.log(response);
+// })
+// //실패 시 catch 실행
+// .catch(function (error) {
+// 	console.log(error);
+// })
+// //성공이던 실패던 항상 실행
+// .then(function () {
+// 	// always executed
+// });
 
-console.log(tests)
+console.log(reviewTest)
   return (
     <>
       <MyPageSection.MyPageHeader>
