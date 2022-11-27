@@ -8,14 +8,15 @@ import { searchKeyword, searchResult, setPageInfoState } from "../../../../state
 import images from "../../../../resources/img/img";
 
 const ReactKakaoMap = () => {
-  const setPlace = useRecoilState(searchKeyword);
-  const setResult = useRecoilState(searchResult);
+  const navigate = useNavigate();
 
   const pageState = useRecoilState(setPageInfoState);
+  const setPlace = useRecoilState(searchKeyword);
+
+  // const setResult = useRecoilState(searchResult);
+
 
   const [markers, setMarkers] = useState([]);
-  const [map, setMap] = useState();
-  const navigate = useNavigate();
   const [state, setState] = useState({
     center: {
       lat: 33.450701,
@@ -24,11 +25,10 @@ const ReactKakaoMap = () => {
     errMsg: null,
     isLoading: true,
   });
-  console.log(pageState[0].value);
+  console.log("입력받은 키워드는", setPlace[0]);
 
   useEffect(() => {
     if (navigator.geolocation) {
-      // GeoLocation을 이용해서 접속 위치를 얻어옵니다
       navigator.geolocation.watchPosition(
         (position) => {
           setState((prev) => ({
@@ -52,25 +52,23 @@ const ReactKakaoMap = () => {
       // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정
       setState((prev) => ({
         ...prev,
-        errMsg: "geolocation을 사용할수 없어요..",
+        errMsg: "사용자의 위치를 가져오는데 실패하였습니다.",
         isLoading: false,
       }));
     }
+    
     let ps = new window.kakao.maps.services.Places();
-    const searchOption = {
-      location: `${state.center}`,
-      radius: 6000,
-      size: 15
+    let searchOption =  {
+      location: state.center,
+      size: 15,
     }
-    ps.keywordSearch(setPlace[0], searchOption, (data, status, _pagination) => {
+    
+    ps.keywordSearch(setPlace[0] ,(data, status, _pagination) => {
       if (status === window.kakao.maps.services.Status.OK) {
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-        // LatLngBounds 객체에 좌표를 추가
-        const bounds = new window.kakao.maps.LatLngBounds()
+        const bounds = new window.kakao.maps.LatLngBounds();
         let markers = [];
 
-        for (var i = 0; i < data.length; i++) {
-          // @ts-ignore
+        for (let i = 0; i < data.length; i++) {
           markers.push({
             position: {
               lat: data[i].y,
@@ -82,9 +80,8 @@ const ReactKakaoMap = () => {
         }
         setMarkers(markers);
       }
-    })
-    
-  }, [setPlace[0]]);
+    });
+  }, []);
   
   const data = [
     {
@@ -159,8 +156,8 @@ const ReactKakaoMap = () => {
         // {data.map((point) => (
         <EventMarkerContainer
           key={`EventMarkerContainer-${point.content}-${point.position.lat},${point.position.lng}`}
-          position={point.position} 
-          // position={state.center}
+          // position={point.position} 
+          position={state.center}
         />
       ))}
     </Map>

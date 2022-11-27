@@ -12,7 +12,7 @@ export const getReviewSelector = selector({
       get(getReviewLisState);
       const searchParams = get(getReviewLisState);
 
-      const { data } = await instance.get('/api/v1/board', {
+      const { data } = await instance.get('/v3/api-docs', {
           params: searchParams
       });
 
