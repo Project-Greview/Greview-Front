@@ -11,6 +11,7 @@ import { MyPageSection } from "../../components/mypage/style/mypageStyle";
 import ProfileImage from "../../components/mypage/view/ProfileIImage";
 import MyPageActivityList from "./MyPageActivityList";
 
+import axios from "axios";
 const MyPageMain = () => {
   const navigate = useNavigate();
 
@@ -22,8 +23,7 @@ const MyPageMain = () => {
     const indexNum = e.currentTarget.getAttribute("data-tabindex");
     setTabMenuValue(indexNum);
   };
-  console.log(tabIndex)
-  // ========================
+
   const [scrollY, setScrollY] = useState(0);
   const [ScrollActive, setScrollActive] = useState(false);
 
@@ -49,54 +49,22 @@ const MyPageMain = () => {
         window.removeEventListener("scroll", handleScroll);
       };
   });
-  // ========================
-  // const getIndex = (selector) => {
-  //   var elem = document.querySelector(selector);
-  //   for(var i = 0; i < elem.parentNode.childNodes.length; i++) {
-  //     if (elem.parentNode.childNodes[i] === elem) {
-  //       console.log('elemIndex = ' + i);
-  //     }
-  //   }
-  // }
+  
+const tests = axios.get('http://localhost:3306/zreview')
+//성공시 then 실행
+.then(function (response) {
+	console.log(response);
+})
+//실패 시 catch 실행
+.catch(function (error) {
+	console.log(error);
+})
+//성공이던 실패던 항상 실행
+.then(function () {
+	// always executed
+});
 
-  // useEffect(() => {
-  //   const options = {
-  //     root: null,
-  //     rootMargin: "0px",
-  //     threshold: 1.0,
-  //   };
-
-  //   const observer = new IntersectionObserver((entries) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.isIntersecting) {
-  //         entry.target.classList.add("active");
-  //         // getIndex('.active');
-  //       } else {
-  //         entry.target.classList.remove("active");
-  //       }
-  //     });
-  //   }, options);
-
-  //   const boxList = document.querySelectorAll(".observer_target");
-  //   boxList.forEach((el) => observer.observe(el));
-  // },[]);
-
-  // const [hideElement, setHideElement] = useState(false);
-  // const scrollRef = useRef(null);
-  // useEffect(() => {
-  //   if (!scrollRef.current) return;
-  //   window.addEventListener("scroll", yScrollEvent);
-  //   return () => {
-  //     window.removeEventListener("scroll", yScrollEvent);
-  //   };
-  // }, [scrollRef.current]);
-
-  // const yScrollEvent = () => {
-  //   const scroll = scrollRef.current.getBoundingClientRect();
-  //   console.log(scroll);
-  //   setHideElement(scroll.top <= -100);
-  // };
-
+console.log(tests)
   return (
     <>
       <MyPageSection.MyPageHeader>

@@ -13,19 +13,20 @@ React_Project
 - yarn start
 
 # 프로젝트에 설치된 모듈
-- "@testing-library/jest-dom": "^5.14.1",
-- "@testing-library/react": "^13.0.0",
-- "@testing-library/user-event": "^13.2.1",
-- "axios": "^1.1.3",
-- "react": "^18.2.0",
-- "react-dom": "^18.2.0",
-- "react-kakao-maps-sdk": "^1.1.5",
-- "react-router-dom": "^6.4.2",
-- "react-scripts": "5.0.1",
-- "recoil": "^0.7.6",
-- "styled-components": "^5.3.6",
-- "swiper": "^8.4.4",
-- "web-vitals": "^2.1.0"
+  - "@testing-library/jest-dom": "^5.14.1",
+  - "@testing-library/react": "^13.0.0",
+  - "@testing-library/user-event": "^13.2.1",
+  - "axios": "^1.1.3",
+  - "react": "^18.2.0",
+  - "react-dom": "^18.2.0",
+  - "react-kakao-maps-sdk": "^1.1.5",
+  - "react-router-dom": "^6.4.2",
+  - "react-scripts": "5.0.1",
+  - "react-spring-bottom-sheet": "^3.4.1",
+  - "recoil": "^0.7.6",
+  - "styled-components": "^5.3.6",
+  - "swiper": "^8.4.4",
+  - "web-vitals": "^2.1.0"
 
 # Front Source 간단 보는법!!!
 - View Component : .jsx의 경우 실제 보여지는 부분

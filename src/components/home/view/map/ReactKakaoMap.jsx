@@ -7,7 +7,7 @@ import { searchKeyword, searchResult, setPageInfoState } from "../../../../state
 
 import images from "../../../../resources/img/img";
 
-const ReactKakaoMap = ({width, height}) => {
+const ReactKakaoMap = () => {
   const setPlace = useRecoilState(searchKeyword);
   const setResult = useRecoilState(searchResult);
 
@@ -56,7 +56,7 @@ const ReactKakaoMap = ({width, height}) => {
         isLoading: false,
       }));
     }
-    const ps = new window.kakao.maps.services.Places();
+    let ps = new window.kakao.maps.services.Places();
     const searchOption = {
       location: `${state.center}`,
       radius: 6000,
