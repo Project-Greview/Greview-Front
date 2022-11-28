@@ -12,6 +12,7 @@ import ReviewRouter from "./ReviewRouter";
 import MyPageRouter from "./MyPageRouter";
 import SaveList from "../pages/save/SaveList";
 import SearchLoction from "../pages/searchlocation/SearchLocation";
+import ResultList from "../components/home/view/ResultList";
 
 const PageRouter = () => {  
   const location = useLocation();
@@ -38,6 +39,7 @@ const PageRouter = () => {
         <Route path="/savelist" element={<SaveList />}/>
       </Routes>
       {pageState.value === 0 || pageState.value === 1 || pageState.value === 3 ? <Navigater /> : ""}
+      {pageState.value === 0 ? <ResultList /> : ""}
       
        {/* <Navigater /> */}
     </Common.Frame>
