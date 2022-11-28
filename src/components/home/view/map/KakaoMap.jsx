@@ -13,18 +13,42 @@ const KakaoMap = () => {
   const setPlace = useRecoilState(searchKeyword);
   const [map, setMap] = useState();
   const container = useRef(null);
+  const [userLat, setUserLat] = useState(Number);
+  const [userLng, setUserLng] = useState(Number);
   useEffect(() => {
+    // const getLocation = () => {
+    //   if (navigator.geolocation) { // GPS를 지원하면
+    //     navigator.geolocation.getCurrentPosition(function(position) {
+    //       console.log(position.coords.latitude + ' ' + position.coords.longitude);
+    //       setLat(position.coords.latitude);
+    //       setLng(position.coords.longitude);
+    //     }, function(error) {
+    //       console.error(error);
+    //     }, {
+    //       enableHighAccuracy: false,
+    //       maximumAge: 0,
+    //       timeout: Infinity
+    //     });
+    //   } else {
+    //     console.log('GPS를 지원하지 않습니다');
+    //   }
+    // }
+    // getLocation();
+
+
     const locOption = {
       enableHighAccuracy: false,
       maximumAge: 30000,
       timeout: 15000,
     };
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position, locOption) {
+      navigator.geolocation.getCurrentPosition(function (position) {
         // watchPosition, getCurrentPosition
         let lat = position.coords.latitude, // 위도
           lon = position.coords.longitude; // 경도
         let locPosition = new window.kakao.maps.LatLng(lat, lon);
+        setUserLat(position.coords.latitude);
+        setUserLng(position.coords.longitude);
         currentUserMarker(locPosition);
       });
     } else {
@@ -35,12 +59,13 @@ const KakaoMap = () => {
 
     let mapContainer = document.getElementById("map"),
       mapOption = {
-        center: new window.kakao.maps.LatLng(33.450701, 126.570667),
+        center: new window.kakao.maps.LatLng(userLat, userLng),
         level: 4, // 지도의 확대 레벨, 1~14
       };
     let map = new window.kakao.maps.Map(mapContainer, mapOption);
 
-    // 검색시 범위를 위한 center 지정
+    // 검색시 범위를 위한 center 지정]
+    const center = window.kakao.maps.LatLng(userLat, userLng);
     // dummy
     const positions = [
       {
@@ -120,13 +145,10 @@ const KakaoMap = () => {
     const ps = new window.kakao.maps.services.Places();
     // 검색옵션
     const searchOption = {
-      // location: center,
-      useMapCenter: true,
-      radius: 300,
+      location: new window.kakao.maps.LatLng(userLat, userLng),
+      radius: 3000,
       size: 15,
-      sort: window.kakao.maps.services.SortBy.ACCURACY,
     };
-
     ps.keywordSearch(setPlace[0], palceSearchDB, searchOption);
     function palceSearchDB(data, status, _pagination) {
       if (status === window.kakao.maps.services.Status.OK) {
