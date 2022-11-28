@@ -11,6 +11,7 @@ const KakaoMap = () => {
   const navigate = useNavigate();
   // 검색어 키워드 받아오기
   const setPlace = useRecoilState(searchKeyword);
+  const [result, setResult] = useRecoilState(searchResult);
   const [map, setMap] = useState();
   const container = useRef(null);
   const [userLat, setUserLat] = useState(Number);
@@ -148,6 +149,7 @@ const KakaoMap = () => {
       location: new window.kakao.maps.LatLng(userLat, userLng),
       radius: 3000,
       size: 15,
+      page: 15
     };
     ps.keywordSearch(setPlace[0], palceSearchDB, searchOption);
     function palceSearchDB(data, status, _pagination) {
@@ -164,9 +166,10 @@ const KakaoMap = () => {
         alert("검색 결과 중 오류가 발생했습니다.");
         return;
       }
-      console.log("검색결과", data);
+      setResult(data);
+      // console.log("검색결과", data);
+      console.log(result);
     }
-
     function displayPlacesOnSidebar(places) {
       const listEl = document.getElementById("placesList"),
         menuEl = document.getElementsByClassName("result-list"),
