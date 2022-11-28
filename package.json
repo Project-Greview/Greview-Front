@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
     "axios": "^1.1.3",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-kakao-maps-sdk": "^1.1.5",
@@ -14,6 +15,7 @@
     "react-scripts": "5.0.1",
     "react-spring-bottom-sheet": "^3.4.1",
     "recoil": "^0.7.6",
+    "resize-observer": "^1.0.4",
     "styled-components": "^5.3.6",
     "swiper": "^8.4.4",
     "web-vitals": "^2.1.0"
@@ -41,5 +43,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:8080"
 }

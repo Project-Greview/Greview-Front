@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState, useRecoilState } from "recoil";
 
 import { 
   inputEmailValue,
@@ -33,13 +33,16 @@ import InputTel from "../../components/inputForm/view/InputTel";
 import InputName from "../../components/inputForm/view/InputName";
 import InputNickname from "../../components/inputForm/view/InputNickname";
 
+
+import axios from "axios";
+
 const Registration = () => {
-  const valEmail = useSetRecoilState(inputEmailValue);
-  const valPW = useSetRecoilState(inputPWValue);
-  const valPWCK = useSetRecoilState(inputPWCKValue);
-  const valTel = useSetRecoilState(inputTelValue);
-  const valName = useSetRecoilState(inputNameValue);
-  const valNickname = useSetRecoilState(inputNicknameValue);
+  const valEmail = useRecoilState(inputEmailValue);
+  const valPW = useRecoilState(inputPWValue);
+  const valPWCK = useRecoilState(inputPWCKValue);
+  const valTel = useRecoilState(inputTelValue);
+  const valName = useRecoilState(inputNameValue);
+  const valNickname = useRecoilState(inputNicknameValue);
 
   const checkEmail = useRecoilValue(inputEmailValueState);
   const checkPW = useRecoilValue(inputPWValueState);
@@ -49,7 +52,35 @@ const Registration = () => {
   const checkNickname = useRecoilValue(inputNicknameValueState);
 
   const navigate = useNavigate();
-  
+  const posts = () => {
+    const data = {
+      email: valEmail[0],
+      password: valPW[0],
+      phone: valTel[0],
+      name: valName[0],
+      nickname: valNickname[0]
+    };
+  axios.post('/members/join', 
+  {headers: 
+    {
+      accept: '*/*',
+      'Content-Type': 'application/json',
+    },
+    data:
+    {
+      email: valEmail[0],
+      password: valPW[0],
+      phone: valTel[0],
+      name: valName[0],
+      nickname: valNickname[0]
+    }},
+  ).then ((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+}
   return (
     <RegistSection.RegistFrame>
       <div className="regsit_header flex flex_ai_c">
@@ -76,6 +107,7 @@ const Registration = () => {
           ? "active" : ""
         }
         style={{ width: "86%" }}
+        onClick={posts}
       >
         가입하기
       </Common.Button>
