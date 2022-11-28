@@ -120,6 +120,7 @@ const KakaoMap = () => {
     const ps = new window.kakao.maps.services.Places();
     // 검색옵션
     const searchOption = {
+      // location: center,
       useMapCenter: true,
       radius: 300,
       size: 15,
