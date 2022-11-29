@@ -25,7 +25,8 @@ const Splash = () => {
       <img src={images.welcomeLogo} alt="" className="main_logo"/>
       {hasAccount === false ? 
         <div className="first_form flex flex_dir_c">
-          <Common.Button onClick={moveLoginpage}>시작하기</Common.Button>
+          {/* <Common.Button onClick={moveLoginpage}>시작하기</Common.Button> */}
+          <Common.Button onClick={() => {navigate("/login")}}>시작하기</Common.Button>
           <div className="has_acc flex flex_jc_c">
             <div className="txt flex">처음이신가요?<div onClick={onPushRegist} className="cursor_p">회원가입</div></div>
           </div>

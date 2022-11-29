@@ -5,6 +5,7 @@ import { Common } from "../../../resources/style/common/commonStyle";
 const InputName = () => {
   const [name, setName] = useRecoilState(inputNameValue);
   const onChangeName = (e) => {
+    e.preventDefault();
     setName(e.target.value);
   };
   return(

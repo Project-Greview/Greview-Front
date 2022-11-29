@@ -5,6 +5,7 @@ import { Common } from "../../../resources/style/common/commonStyle";
 const InputPWCK = () => {
   const [passwordCK, setPasswordCK] = useRecoilState(inputPWCKValue);
   const onChangePasswordCK = (e) => {
+    e.preventDefault();
     setPasswordCK(e.target.value);
   };
   return(

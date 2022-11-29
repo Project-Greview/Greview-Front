@@ -5,9 +5,9 @@ import { Common } from "../../../resources/style/common/commonStyle";
 const LoginPW = () => {
   const [LoginPW, setLoginPW] = useRecoilState(loginPWInputValue);
   const onChangeLoginPW = (e) => {
+    e.preventDefault();
     setLoginPW(e.target.value);
   };
-  console.log(LoginPW)
   return(
     <Common.Input className="login_pw">
       <input 

@@ -7,6 +7,7 @@ const InputEmail = () => {
   const [email, setEmail] = useRecoilState(inputEmailValue);
   const pageState = useRecoilState(setPageInfoState);
   const onChangeEmail = (e) => {
+    e.preventDefault();
     setEmail(e.target.value);
   };
   

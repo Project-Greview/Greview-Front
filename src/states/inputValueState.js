@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom, atomFamily, selector } from "recoil";
 
 // Login ID
 const loginIDInputValue = atom({
@@ -110,7 +110,8 @@ const inputNicknameValueState = selector({
 const actionLocationvalue = atom({
   key: "location",
   defalut:"",
-})
+});
+
 export {
   loginIDInputValue,
   loginIDInputValueState,

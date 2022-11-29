@@ -5,6 +5,7 @@ import { Common } from "../../../resources/style/common/commonStyle";
 const InputTel = () => {
   const [telNum, setTelNum] = useRecoilState(inputTelValue);
   const onChangeTelNum = (e) => {
+    e.preventDefault();
     setTelNum(e.target.value);
   };
   return(

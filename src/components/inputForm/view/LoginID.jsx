@@ -5,6 +5,7 @@ import { Common } from "../../../resources/style/common/commonStyle";
 const LoginID = () => {
   const [LoginID, setLoginID] = useRecoilState(loginIDInputValue);
   const onChangeLoginID = (e) => {
+    e.preventDefault();
     setLoginID(e.target.value);
   };
   return(

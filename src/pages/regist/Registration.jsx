@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState, useRecoilState } from "recoil";
 
@@ -33,8 +34,8 @@ import InputTel from "../../components/inputForm/view/InputTel";
 import InputName from "../../components/inputForm/view/InputName";
 import InputNickname from "../../components/inputForm/view/InputNickname";
 
+import * as RegistAction from "../../actions/memberAction";
 
-import axios from "axios";
 
 const Registration = () => {
   const valEmail = useRecoilState(inputEmailValue);
@@ -51,36 +52,20 @@ const Registration = () => {
   const checkName = useRecoilValue(inputNameValueState);
   const checkNickname = useRecoilValue(inputNicknameValueState);
 
-  const navigate = useNavigate();
-  const posts = () => {
-    const data = {
+  const onRegist = () => {
+    RegistAction.RegistPost({
       email: valEmail[0],
       password: valPW[0],
       phone: valTel[0],
       name: valName[0],
       nickname: valNickname[0]
-    };
-  axios.post('/members/join', 
-  {headers: 
-    {
-      accept: '*/*',
-      'Content-Type': 'application/json',
-    },
-    data:
-    {
-      email: valEmail[0],
-      password: valPW[0],
-      phone: valTel[0],
-      name: valName[0],
-      nickname: valNickname[0]
-    }},
-  ).then ((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-}
+    })
+  };
+
+  useEffect(() => {
+
+  },[])
+  
   return (
     <RegistSection.RegistFrame>
       <div className="regsit_header flex flex_ai_c">
@@ -107,7 +92,7 @@ const Registration = () => {
           ? "active" : ""
         }
         style={{ width: "86%" }}
-        onClick={posts}
+        onClick={onRegist}
       >
         가입하기
       </Common.Button>

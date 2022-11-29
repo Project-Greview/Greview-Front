@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 
 import { setPageInfoState, setLeftMenuState } from "../states/commonState";
+import { loginState } from "../states/memberState";
 
 import { Common } from "../resources/style/common/commonStyle";
 import Navigater from "../components/include/view/Navigater";
@@ -20,13 +21,15 @@ const PageRouter = () => {
   const pageState = useRecoilValue(setPageInfoState);
   const setPageState = useSetRecoilState(setPageInfoState);
 
+  const isLogin = useRecoilValue(loginState)
+
   const leftMenuState = useRecoilValue(setLeftMenuState);
   useEffect(() => {
     setPageState(location.state);
   }, [location.state.tit]);
   
   console.log("페이지 정보", pageState);
-  console.log("Left Menu", leftMenuState);
+  console.log("로그인", isLogin);
 
   return (
     <Common.Frame>

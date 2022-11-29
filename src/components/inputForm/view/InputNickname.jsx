@@ -7,6 +7,7 @@ const InputNickname = () => {
   const [nickname, setNickname] = useRecoilState(inputNicknameValue);
   const pageState = useRecoilState(setPageInfoState);
   const onChangeNickName = (e) => {
+    e.preventDefault();
     setNickname(e.target.value);
   };
   
