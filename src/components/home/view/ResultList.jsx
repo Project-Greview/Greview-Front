@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { ResultListSection } from "../style/resultListStyle";
 import { BottomSheet, BottomSheetRef } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
-import "../../../resources/style/css/style.css";
+// import "../../../resources/style/css/style.css";
 import "../style/bottomSheet.css";
 
 
