@@ -1,12 +1,11 @@
 import { atom, atomFamily, selector } from "recoil";
 import { recoilPersist } from 'recoil-persist';
-import axios from "axios";
 
 const { persistAtom } = recoilPersist();
 
 export const registPostState = atom({
   key: "registPostState",
-  default: false
+  default: false,
 })
 
 export const loginState = atom({

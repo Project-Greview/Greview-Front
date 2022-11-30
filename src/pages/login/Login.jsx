@@ -39,7 +39,7 @@ const Login = () => {
         password: valPW[0],
     }).then ((res) => {
       if (res.status === 200) {
-        sessionStorage.setItem("session_token",res.data);
+        sessionStorage.setItem("session_token", res.data);
         setIsLogin(true);
         navigate("/main/home",{state: { value: 0, tit: "지도", naviView: true }});
       }

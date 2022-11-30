@@ -1,18 +1,20 @@
 import { Common } from "../../../resources/style/common/commonStyle";
 
 import { useState, useRef } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+
+import { searchResult } from "../../../states/commonState";
 import { ResultListSection } from "../style/resultListStyle";
 import { BottomSheet, BottomSheetRef } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
 // import "../../../resources/style/css/style.css";
 import "../style/bottomSheet.css";
 
-
-const ResultList = (props) => {
+const ResultList = ({props}) => {
   const [open, setOpen] = useState(false);
   const bottomSheetRef = useRef();
   var scroll_top = 0;
-
+  const resultItem = useRecoilValue(searchResult);
   return (
     <ResultListSection.ListFrame>
       <button onClick={() => setOpen(true)}>Open</button>
@@ -36,7 +38,22 @@ const ResultList = (props) => {
           <p>이 주변의 리뷰 전체보기</p>
         </div>
         <ul className="list">
-            <li>
+          {resultItem.map((item, index) => 
+            <li key={index}>
+              <div className="list on"></div>
+              <div className="detail">
+                <p className="name">{item.place_name}</p>
+                <p className="address">{item.road_address_name}</p>
+                <p className="distance">250m 
+                  <span className="line">|</span> 
+                  <span className="review">리뷰 </span>
+                  <span className="num">1</span>
+                </p>
+              </div>
+              <button className="save" type="button">저장</button>
+            </li>
+          )}
+            {/* <li>
               <div className="list on"></div>
               <div className="detail">
                 <p className="name">은행나무 포토존</p>
@@ -61,7 +78,7 @@ const ResultList = (props) => {
                 </p>
               </div>
               <button className="save on" type="button">저장</button>
-            </li>
+            </li> */}
           </ul>
       </BottomSheet>
     </ResultListSection.ListFrame>

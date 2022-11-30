@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 import {searchKeyword, searchResult, setPageInfoState,} from "../../../../states/commonState";
 
@@ -10,7 +10,7 @@ import images from "../../../../resources/img/img";
 const KakaoMap = () => {
   const navigate = useNavigate();
   // 검색어 키워드 받아오기
-  const setPlace = useRecoilState(searchKeyword);
+  const setPlace = useRecoilValue(searchKeyword);
   const [result, setResult] = useRecoilState(searchResult);
   const [map, setMap] = useState();
   const container = useRef(null);
@@ -39,7 +39,7 @@ const KakaoMap = () => {
 
     const locOption = {
       enableHighAccuracy: false,
-      maximumAge: 30000,
+      maximumAge: Infinity,
       timeout: 15000,
     };
     if (navigator.geolocation) {
@@ -156,7 +156,7 @@ const KakaoMap = () => {
       if (status === window.kakao.maps.services.Status.OK) {
         // 정상적으로 검색이 완료됐으면
         // 검색 목록과 마커를 표출합니다
-        displayPlacesOnSidebar(data);
+        // displayPlacesOnSidebar(data);
         // 페이지 번호를 표출합니다
         // displayPagination(_pagination);
       } else if (status === window.kakao.maps.services.Status.ZERO_RESULT) {
@@ -168,17 +168,16 @@ const KakaoMap = () => {
       }
       setResult(data);
       // console.log("검색결과", data);
-      console.log(result);
     }
-    function displayPlacesOnSidebar(places) {
-      const listEl = document.getElementById("placesList"),
-        menuEl = document.getElementsByClassName("result-list"),
-        fragment = document.createDocumentFragment(),
-        bounds = new window.kakao.maps.LatLngBounds(),
-        listStr = "";
+    // function displayPlacesOnSidebar(places) {
+    //   const listEl = document.getElementById("placesList"),
+    //     menuEl = document.getElementsByClassName("result-list"),
+    //     fragment = document.createDocumentFragment(),
+    //     bounds = new window.kakao.maps.LatLngBounds(),
+    //     listStr = "";
 
       // 검색 결과 목록에 추가된 항목들을 제거합니다
-      removeAllChildNods(listEl);
+      // removeAllChildNods(listEl);
 
       // 지도에 표시되고 있는 마커를 제거합니다
       // removeMarker();
@@ -200,24 +199,24 @@ const KakaoMap = () => {
       //   console.log("마커생성용 검색결과",places);
       // };
 
-      function getListItem(index, places) {
-        var el = document.createElement("li"),
-          itemStr =
-            '<span class="markerbg marker_' +
-            (index + 1) +
-            '"></span>' +
-            '<div class="info">' +
-            "   <h5>" +
-            places.place_name +
-            "</h5>";
+      // function getListItem(index, places) {
+      //   var el = document.createElement("li"),
+      //     itemStr =
+      //       '<span class="markerbg marker_' +
+      //       (index + 1) +
+      //       '"></span>' +
+      //       '<div class="info">' +
+      //       "   <h5>" +
+      //       places.place_name +
+      //       "</h5>";
 
-        itemStr += '  <span class="tel">' + places.phone + "</span>" + "</div>";
+      //   itemStr += '  <span class="tel">' + places.phone + "</span>" + "</div>";
 
-        el.innerHTML = itemStr;
-        el.className = "item";
+      //   el.innerHTML = itemStr;
+      //   el.className = "item";
 
-        return el;
-      }
+      //   return el;
+      // }
 
       // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
       // function addMarker(position, idx, title) {
@@ -249,35 +248,35 @@ const KakaoMap = () => {
       // };
 
       // 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
-      function displayPagination(_pagination) {
-        var paginationEl = document.getElementById("pagination"),
-          fragment = document.createDocumentFragment(),
-          i;
+      // function displayPagination(_pagination) {
+      //   var paginationEl = document.getElementById("pagination"),
+      //     fragment = document.createDocumentFragment(),
+      //     i;
 
-        // 기존에 추가된 페이지번호를 삭제합니다
-        while (paginationEl.hasChildNodes()) {
-          paginationEl.removeChild(paginationEl.lastChild);
-        }
+      //   // 기존에 추가된 페이지번호를 삭제합니다
+      //   while (paginationEl.hasChildNodes()) {
+      //     paginationEl.removeChild(paginationEl.lastChild);
+      //   }
 
-        for (i = 1; i <= _pagination.last; i++) {
-          var el = document.createElement("a");
-          el.href = "#";
-          el.innerHTML = i;
+      //   for (i = 1; i <= _pagination.last; i++) {
+      //     var el = document.createElement("a");
+      //     el.href = "#";
+      //     el.innerHTML = i;
 
-          if (i === _pagination.current) {
-            el.className = "on";
-          } else {
-            el.onclick = (function (i) {
-              return function () {
-                _pagination.gotoPage(i);
-              };
-            })(i);
-          }
+      //     if (i === _pagination.current) {
+      //       el.className = "on";
+      //     } else {
+      //       el.onclick = (function (i) {
+      //         return function () {
+      //           _pagination.gotoPage(i);
+      //         };
+      //       })(i);
+      //     }
 
-          fragment.appendChild(el);
-        }
-        paginationEl.appendChild(fragment);
-      }
+      //     fragment.appendChild(el);
+      //   }
+      //   paginationEl.appendChild(fragment);
+      // }
 
       // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
       // 인포윈도우에 장소명을 표시합니다
@@ -289,12 +288,14 @@ const KakaoMap = () => {
       // };
 
       // 검색결과 목록의 자식 Element를 제거하는 함수입니다
-      function removeAllChildNods(el) {
-        while (el.hasChildNodes()) {
-          el.removeChild(el.lastChild);
-        }
-      }
-    }
+    //   function removeAllChildNods(el) {
+    //     while (el.hasChildNodes()) {
+    //       el.removeChild(el.lastChild);
+    //     }
+    //   }
+    // }
+    console.log(map)
+    setMap(map);
   }, [setPlace[0]]);
 
   return (
@@ -304,8 +305,8 @@ const KakaoMap = () => {
         style={{ width: "100%", height: "100vh" }}
         ref={container}
       ></div>
-      <div id="placesList"></div>
-      <div className="result-list"></div>
+      {/* <div id="placesList"></div>
+      <div className="result-list"></div> */}
     </>
   );
 };

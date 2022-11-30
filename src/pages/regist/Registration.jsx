@@ -19,6 +19,7 @@ import {
   inputNameValueState,
   inputNicknameValueState 
 } from "../../states/inputValueState";
+import { registPostState } from "../../states/memberState";
 
 import { RegistSection } from "../../components/register/style/registrationStyle";
 import { Common } from "../../resources/style/common/commonStyle";
@@ -35,9 +36,11 @@ import InputName from "../../components/inputForm/view/InputName";
 import InputNickname from "../../components/inputForm/view/InputNickname";
 
 import * as RegistAction from "../../actions/memberAction";
-
+import axios from "axios";
+import RegistSuccess from "../../components/register/view/modal/RegistSuccess";
 
 const Registration = () => {
+  const navigate = useNavigate();
   const valEmail = useRecoilState(inputEmailValue);
   const valPW = useRecoilState(inputPWValue);
   const valPWCK = useRecoilState(inputPWCKValue);
@@ -52,14 +55,26 @@ const Registration = () => {
   const checkName = useRecoilValue(inputNameValueState);
   const checkNickname = useRecoilValue(inputNicknameValueState);
 
-  const onRegist = () => {
-    RegistAction.RegistPost({
-      email: valEmail[0],
-      password: valPW[0],
-      phone: valTel[0],
-      name: valName[0],
-      nickname: valNickname[0]
-    })
+  const [isRegist, setIsRegist] = useRecoilState(registPostState);
+  const onRegistPost = () => {
+    axios.post("members/join",
+    {headers:
+      {
+        accept: "*/*",
+        "Content-Type": "application/json",
+      },
+        email: valEmail[0],
+        password: valPW[0],
+        phone:valTel[0],
+        name:valName[0],
+        nickname:valNickname[0],
+    }).then ((res) => {
+      if (res.status === 200) {
+        setIsRegist(true);
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
   };
 
   useEffect(() => {
@@ -92,10 +107,16 @@ const Registration = () => {
           ? "active" : ""
         }
         style={{ width: "86%" }}
-        onClick={onRegist}
+        onClick={onRegistPost}
       >
         가입하기
       </Common.Button>
+      {isRegist === false ?
+        "" 
+      : 
+        <RegistSuccess/>
+      }
+      
     </RegistSection.RegistFrame>
   );
 };

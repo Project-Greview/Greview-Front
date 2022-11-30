@@ -1,4 +1,4 @@
-import ReactKakaoMap from "../../components/home/view/map/ReactKakaoMap";
+import KakaoMap from "../../components/home/view/map/KakaoMap";
 import ListHashTag from "../../components/include/view/ListHashTag";
 import HashTag from "../../components/review/view/HashTag";
 import { SaveListSection } from "../../components/save/style/saveListStyle";
@@ -10,7 +10,7 @@ const SearchLoction = () => {
     <SearchLocationSection.SearchLocationFrame>
       <SearchLocationSection.TopSection>
         <p className="location_name">현재 접속한 동네 이름 표시</p>
-        <ReactKakaoMap/>
+        <KakaoMap/>
       </SearchLocationSection.TopSection>
       <SearchLocationSection.BottomSection>
         <p className="section_tit">우리동네 Best 태그</p>
