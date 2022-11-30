@@ -16,7 +16,7 @@ export const Common = {
     width:100%;
       &.login_id {margin-bottom:1.5rem;}
       &.login_pw {margin-bottom:2.5rem;}
-      input[type="text"],input[type="password"],input[type="tel"] {width:${props => props.width}; padding:1.3rem 2rem; font-size:1.6rem; border-radius:0.5rem; border:0.1rem solid #EBEBEB; outline:none;
+      input[type="text"],input[type="password"],input[type="tel"],input[type="email"] {width:${props => props.width}; padding:1.3rem 2rem; font-size:1.6rem; border-radius:0.5rem; border:0.1rem solid #EBEBEB; outline:none;
         ::placeholder {color:#a9a9a9;}
         &:read-only {padding:10px; margin-top:9px; margin-bottom:21px; background:#f6f6f6; border-radius:5px; border:none; font-weight:600; color:#3a3a3a;}
       }

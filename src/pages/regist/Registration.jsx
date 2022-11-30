@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
+import axios from "axios";
 
 import { registPostState } from "../../states/memberState";
 
@@ -11,8 +12,8 @@ import HistoryBack from "../../components/include/view/HistorybackButton";
 import LocationSetting from "../../components/register/view/LocationSetting";
 
 // input components
-import axios from "axios";
 import RegistSuccess from "../../components/register/view/modal/RegistSuccess";
+import * as Util from "../../util/text/textUtil";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const Registration = () => {
 
   const [email, setEmail] = useState("");
   const onChangeEmail = (e) => {
+    Util.OnlyEngNumUnderbar(e);
     e.preventDefault();
     setEmail(e.target.value);
   };
@@ -85,7 +87,7 @@ const Registration = () => {
         <Common.Input>
           <label htmlFor="user_email">이메일</label>
             <input
-              type="text"
+              type="email"
               name="user_email"
               value={email}
               onChange={onChangeEmail}
@@ -133,6 +135,7 @@ const Registration = () => {
           />
         </Common.Input>
         <Common.Input>
+          <label htmlFor="user_nickname">닉네임</label>
           <input
             type="text"
             name="user_nickname"
@@ -141,6 +144,7 @@ const Registration = () => {
             style={{ width: "100%" }}
           />
         </Common.Input>
+        <span></span>
       </RegistSection.RegistForm>
       <Common.Button
         className={
