@@ -1,24 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState, useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 
-import { 
-  inputEmailValue,
-  inputPWValue,
-  inputPWCKValue,
-  inputTelValue,
-  inputNameValue,
-  inputNicknameValue 
-} from "../../states/inputValueState";
-// Value Check
-import {
-  inputEmailValueState,
-  inputPWValueState,
-  inputPWCKValueState,
-  inputTelValueState,
-  inputNameValueState,
-  inputNicknameValueState 
-} from "../../states/inputValueState";
 import { registPostState } from "../../states/memberState";
 
 import { RegistSection } from "../../components/register/style/registrationStyle";
@@ -28,33 +11,43 @@ import HistoryBack from "../../components/include/view/HistorybackButton";
 import LocationSetting from "../../components/register/view/LocationSetting";
 
 // input components
-import InputEmail from "../../components/inputForm/view/InputEmail";
-import InputPW from "../../components/inputForm/view/InputPW";
-import InputPWCK from "../../components/inputForm/view/InputPWCK";
-import InputTel from "../../components/inputForm/view/InputTel";
-import InputName from "../../components/inputForm/view/InputName";
-import InputNickname from "../../components/inputForm/view/InputNickname";
-
-import * as RegistAction from "../../actions/memberAction";
 import axios from "axios";
 import RegistSuccess from "../../components/register/view/modal/RegistSuccess";
 
 const Registration = () => {
   const navigate = useNavigate();
-  const valEmail = useRecoilState(inputEmailValue);
-  const valPW = useRecoilState(inputPWValue);
-  const valPWCK = useRecoilState(inputPWCKValue);
-  const valTel = useRecoilState(inputTelValue);
-  const valName = useRecoilState(inputNameValue);
-  const valNickname = useRecoilState(inputNicknameValue);
 
-  const checkEmail = useRecoilValue(inputEmailValueState);
-  const checkPW = useRecoilValue(inputPWValueState);
-  const checkPWCK = useRecoilValue(inputPWCKValueState);
-  const checkTel = useRecoilValue(inputTelValueState);
-  const checkName = useRecoilValue(inputNameValueState);
-  const checkNickname = useRecoilValue(inputNicknameValueState);
 
+  const [email, setEmail] = useState("");
+  const onChangeEmail = (e) => {
+    e.preventDefault();
+    setEmail(e.target.value);
+  };
+  const [password, setPassword] = useState("");
+  const onChangePassword = (e) => {
+    e.preventDefault();
+    setPassword(e.target.value);
+  };
+  const [passwordCK, setPasswordCK] = useState("");
+  const onChangePasswordCK = (e) => {
+    e.preventDefault();
+    setPasswordCK(e.target.value);
+  };
+  const [telNum, setTelNum] = useState("");
+  const onChangeTelNum = (e) => {
+    e.preventDefault();
+    setTelNum(e.target.value);
+  };
+  const [name, setName] = useState("");
+  const onChangeName = (e) => {
+    e.preventDefault();
+    setName(e.target.value);
+  };
+  const [nickname, setNickname] = useState("");
+  const onChangeNickName = (e) => {
+    e.preventDefault();
+    setNickname(e.target.value);
+  };
   const [isRegist, setIsRegist] = useRecoilState(registPostState);
   const onRegistPost = () => {
     axios.post("members/join",
@@ -63,11 +56,11 @@ const Registration = () => {
         accept: "*/*",
         "Content-Type": "application/json",
       },
-        email: valEmail[0],
-        password: valPW[0],
-        phone:valTel[0],
-        name:valName[0],
-        nickname:valNickname[0],
+        email: email,
+        password: password,
+        phone: telNum,
+        name: name,
+        nickname: nickname,
     }).then ((res) => {
       if (res.status === 200) {
         setIsRegist(true);
@@ -76,9 +69,9 @@ const Registration = () => {
       console.log(err);
     });
   };
-
+  
   useEffect(() => {
-
+    onRegistPost()
   },[])
   
   return (
@@ -89,25 +82,88 @@ const Registration = () => {
       </div>
       <RegistSection.RegistForm>
         <LocationSetting />
-        <InputEmail/>
-        <InputPW/>
-        <InputPWCK/>
-        <InputTel/>
-        <InputName/>
-        <InputNickname/>
+        <Common.Input>
+          <label htmlFor="user_email">이메일</label>
+            <input
+              type="text"
+              name="user_email"
+              value={email}
+              onChange={onChangeEmail}
+              style={{ width: "100%" }}
+            />
+        </Common.Input>
+        <Common.Input>
+          <label htmlFor="pw">비밀번호</label>
+          <input
+            type="password"
+            name="pw"
+            value={password}
+            onChange={onChangePassword}
+            style={{ width: "100%" }}
+          />
+        </Common.Input>
+        <Common.Input>
+          <label htmlFor="pwck">비밀번호 확인</label>
+          <input
+            type="password"
+            name="pwck"
+            value={passwordCK}
+            onChange={onChangePasswordCK}
+            style={{ width: "100%" }}
+          />
+        </Common.Input>
+        <Common.Input>
+          <label htmlFor="user_tel">핸드폰 번호</label>
+          <input
+            type="tel"
+            name="user_tel"
+            value={telNum}
+            onChange={onChangeTelNum}
+            style={{ width: "100%" }}
+          />
+        </Common.Input>
+        <Common.Input>
+          <label htmlFor="user_name">이름</label>
+          <input
+            type="text"
+            name="user_name"
+            value={name}
+            onChange={onChangeName}
+            style={{ width: "100%" }}
+          />
+        </Common.Input>
+        <Common.Input>
+          <input
+            type="text"
+            name="user_nickname"
+            value={nickname}
+            onChange={onChangeNickName}
+            style={{ width: "100%" }}
+          />
+        </Common.Input>
       </RegistSection.RegistForm>
       <Common.Button
         className={
-          checkEmail !== 0 &&
-          checkPW !== 0 &&
-          checkPWCK !== 0 &&
-          checkTel !== 0 &&
-          checkName !== 0 &&
-          checkNickname !== 0
+          email.length !== 0 &&
+          password.length !== 0 &&
+          passwordCK.length !== 0 &&
+          telNum.length !== 0 &&
+          name.length !== 0 &&
+          nickname.length !== 0
           ? "active" : ""
         }
         style={{ width: "86%" }}
         onClick={onRegistPost}
+        disabled={
+          email.length !== 0 &&
+          password.length !== 0 &&
+          passwordCK.length !== 0 &&
+          telNum.length !== 0 &&
+          name.length !== 0 &&
+          nickname.length !== 0
+          ? false : true
+        }
+        
       >
         가입하기
       </Common.Button>
