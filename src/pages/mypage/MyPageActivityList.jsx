@@ -14,7 +14,7 @@ const MyPageActivityList = () => {
 
   return (
     <ReviewListSection.ListFrame
-      style={{ margin: "0rem -2rem", padding: "0 2rem" }}
+      style={{ margin: "0rem -2rem", padding: "0 2rem 2rem 2rem" }}
       className="mypage_review"
     >
       {tabIndex[0] === "1" ? (
