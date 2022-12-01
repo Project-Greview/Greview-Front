@@ -290,7 +290,7 @@ const KakaoMap = () => {
         el.removeChild(el.lastChild);
       }
     }
-  }, [setPlace[0]]);
+  }, [setPlace]);
 
   return (
     <>

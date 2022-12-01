@@ -10,18 +10,19 @@ import ResultList from "../../components/home/view/ResultList";
 
 const Home = () => {
   const Result = useRecoilValue(searchResult);
-  console.log(Result)
   return (
-    <HomeSection.HomeFrame>
-      <LeftMenu />
-      <HashTag />
-      <KakaoMap />
+    <>
+      <HomeSection.HomeFrame>
+        <LeftMenu />
+        <HashTag />
+        <KakaoMap />
+      </HomeSection.HomeFrame>
       {Result !== "ERROR" ?
-        <ResultList />
-          :
-        null
-      }
-    </HomeSection.HomeFrame>
+          <ResultList />
+            :
+          null
+        }
+    </>
   );
 };
 

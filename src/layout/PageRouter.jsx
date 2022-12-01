@@ -30,16 +30,15 @@ const PageRouter = () => {
 
   const leftMenuState = useRecoilValue(setLeftMenuState);
 
-  const result = useRecoilState(searchResult);
-  const resultItem = useRecoilValue(searchResult);
+  const Result = useRecoilValue(searchResult);
   useEffect(() => {
     setPageState(location.state);
-  }, [location.state.tit, result[0]]);
+  }, [location.state.tit, pageState]);
 
   // console.log("페이지 정보", pageState);
   // console.log("로그인", isLogin);
   // console.log(result.length);
-  console.log(result);
+  console.log(Result);
   return (
     <Common.Frame>
       {pageState.value === 0 || pageState.value === 1 ? <SearchBar /> : ""}
@@ -52,14 +51,11 @@ const PageRouter = () => {
       </Routes>
       {pageState.value === 0 ||
       pageState.value === 1 ||
-      pageState.value === 3 ? (
+      pageState.value === 3 ? 
         <Navigater />
-      ) : (
+      : 
         ""
-      )}
-      {/* {pageState.value === 0 && result[0] !== null ? <ResultList /> : ""} */}
-      {/* {pageState.value === 0 ? <ResultList /> : ""} */}
-      {/* <Navigater /> */}
+      }
     </Common.Frame>
   );
 };
