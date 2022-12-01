@@ -308,12 +308,16 @@ const ReviewWrite = () => {
                 <button className="btn_close" type="button"><img src={images.btn_close} alt=""/></button>
               </div>
               <ul className="search_list">
-                {resultItem.map((item, index) => 
-                  <li className="active" key={index}>
-                    <p className="name">{item.place_name}</p>
-                    <p className="address">{item.road_address_name}</p>
-                  </li>
-                )}
+                {resultItem !== "ERROR" ? 
+                  resultItem.map((item, index) => 
+                    <li className="active" key={index}>
+                      <p className="name">{item.place_name}</p>
+                      <p className="address">{item.road_address_name}</p>
+                    </li>
+                  )
+                  :
+                  null
+                }
               </ul>
             </ReviewDetailSection.PlaceSearch>
 

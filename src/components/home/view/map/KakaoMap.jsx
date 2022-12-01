@@ -22,7 +22,7 @@ const KakaoMap = () => {
   useEffect(() => {
     const locOption = {
       enableHighAccuracy: false,
-      maximumAge: Infinity,
+      maximumAge: 30000,
       timeout: 15000,
     };
     if (navigator.geolocation) {

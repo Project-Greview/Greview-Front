@@ -79,15 +79,6 @@ const Login = () => {
           />
           <label htmlFor=""></label>
         </Common.Input>
-        <Common.Button
-          onClick={() =>
-            navigate("/main/home", {
-              state: { value: 0, tit: "지도", naviView: true },
-            })
-          }
-        >
-          로그인
-        </Common.Button>
         <Common.Button onClick={LoginPost}>로그인</Common.Button>
         <div className="has_acc flex flex_jc_c">
           <div className="txt flex">

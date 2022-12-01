@@ -16,7 +16,7 @@ const loginUserInfoState = atom({
     location: "",
     locationConfirm: false
   }
-})
+});
 export {
   isLoginState,
   loginUserInfoState,
