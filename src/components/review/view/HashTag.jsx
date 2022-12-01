@@ -8,9 +8,9 @@ const HashTagStyle = {
   `
 };
 
-const HashTag = ({tag_name}) => {
+const HashTag = ({tagName}) => {
   return(
-    <HashTagStyle.TagItem>{tag_name}</HashTagStyle.TagItem>
+    <HashTagStyle.TagItem>{tagName}</HashTagStyle.TagItem>
   )
 }
 

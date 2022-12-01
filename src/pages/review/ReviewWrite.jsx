@@ -12,6 +12,7 @@ import { Common } from "../../resources/style/common/commonStyle";
 import HistoryBack from "../../components/include/view/HistorybackButton";
 import icoClose from "../../resources/img/icons/close_ico_2.svg";
 import HashTag from "../../components/review/view/HashTag";
+import { useCallback } from "react";
 
 const ReviewWrite = () => {
   const [result, setResult] = useState("");
@@ -136,14 +137,14 @@ const ReviewWrite = () => {
   // 장소
   const [ title, setTitle ] = useState("");
   const onChangeTitle = (e) => {
-    e.defaultValue();
+    e.preventDefault();
     setTitle(e.target.value);
   };
   
   // 내용
   const [ content, setContent ] = useState("");
   const onChangeContent = (e) => {
-    e.defaultValue();
+    e.preventDefault();
     setContent(e.target.value);
   };
 
@@ -154,6 +155,27 @@ const ReviewWrite = () => {
     setScore(sltScore);
   } ;
   
+  // 해시태그
+  const [hashTag, setHashTag] = useState([]);
+  const [hashTagValue, setHashTagValue] = useState("");
+
+  const onChangeHashTagValue = (e) => {
+    e.preventDefault();
+    setHashTagValue(e.target.value);
+  };
+
+  const addIndex = useRef(1);
+  const addHashTag = useCallback(
+    text => {
+      const hashTagName = {
+        hashTagString: hashTagValue
+      };
+      setHashTag(hashTag.concat(hashTagName));
+      addIndex.current +=1;
+      setHashTagValue("");
+    },
+    [hashTagValue]
+  );
   // 글쓰기 POST
   const onRegistPost = () => {
     axios.post("review",
@@ -196,7 +218,6 @@ const ReviewWrite = () => {
     });
   };
   const handleSubmit = (e) => {
-    // e.preventDefault();
     setResult(place);
     setPlace("");
   };
@@ -262,16 +283,16 @@ const ReviewWrite = () => {
               <label htmlFor="">
                 <img src={images.marker_c} alt=""/>
               </label>
-              <input type="text" placeholder={"해시태그를 입력해주세요"} style={{ width: "100%" }} />
+              <input type="text" placeholder={"해시태그를 입력해주세요"} value={hashTagValue} onChange={onChangeHashTagValue} style={{ width: "100%" }} />
             </div>
-            <Common.Button style={{ width: "24%",height:"4.1rem" }}>추가</Common.Button>
+            <Common.ButtonDiv style={{ width: "24%", height:"4.1rem" }} onClick={addHashTag}>추가</Common.ButtonDiv>
           </div>
           
           <div className="hashtag_wrap">
             <div className="overBox">
-              <HashTag tag_name={"맛집"}/>
-              <HashTag tag_name={"친절해요"}/>
-              <HashTag tag_name={"웨이팅필수"}/>
+              {hashTag.map((item, index) =>
+                <HashTag key={index} tagName={item.hashTagString}/>
+              )}
             </div>
           </div>
 
