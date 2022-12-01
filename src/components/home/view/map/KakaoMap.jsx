@@ -17,31 +17,11 @@ const KakaoMap = () => {
   const [userLat, setUserLat] = useState(Number);
   const [userLng, setUserLng] = useState(Number);
   useEffect(() => {
-    // const getLocation = () => {
-    //   if (navigator.geolocation) { // GPS를 지원하면
-    //     navigator.geolocation.getCurrentPosition(function(position) {
-    //       console.log(position.coords.latitude + ' ' + position.coords.longitude);
-    //       setLat(position.coords.latitude);
-    //       setLng(position.coords.longitude);
-    //     }, function(error) {
-    //       console.error(error);
-    //     }, {
-    //       enableHighAccuracy: false,
-    //       maximumAge: 0,
-    //       timeout: Infinity
-    //     });
-    //   } else {
-    //     console.log('GPS를 지원하지 않습니다');
-    //   }
-    // }
-    // getLocation();
-
     const locOption = {
       enableHighAccuracy: false,
       maximumAge: Infinity,
       timeout: 15000,
     };
-    console.log(setPlace)
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
         // watchPosition, getCurrentPosition

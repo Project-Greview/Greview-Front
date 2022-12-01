@@ -1,4 +1,5 @@
 import testImages from "../../resources/img/review.jpg";
+import axios from "axios";
 
 import { useState, useRef } from "react";
 import images from "../../resources/img/img";
@@ -105,13 +106,84 @@ const ReviewWrite = () => {
       searchBtn.current.classList.remove('disabled');
     }
   };
+  // 글쓰는 현재 좌표 받아오기
+  const [userLat, setUserLat] = useState(Number);
+  const [userLon, setUserLng] = useState(Number);
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        // watchPosition, getCurrentPosition
+        let lat = position.coords.latitude, // 위도
+            lon = position.coords.longitude; // 경도
+        let locPosition = {userLat, userLon}
+        setUserLat(position.coords.latitude);
+        setUserLng(position.coords.longitude);
+      });
+    } else {
+      let locPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
+    }
 
+  // 장소
+  const [ title, setTitle ] = useState("");
+  const onChangeTitle = (e) => {
+    e.defaultValue();
+    setTitle(e.target.value);
+  }
+  
+  // 내용
+  const [ content, setContent ] = useState("");
+  const onChangeContent = (e) => {
+    e.defaultValue();
+    setContent(e.target.value);
+  }
+
+  // 평점
   const [score, setScore] = useState(1);
   const storeScoreToggle = (e) => {
     const sltScore = e.target.value;
     setScore(sltScore);
   } 
   
+  // 글쓰기 POST
+  const onRegistPost = () => {
+    axios.post("review",
+    {headers:
+      {
+        accept: "*/*",
+        "Content-Type": "application/json",
+      },
+        postReviewRequest: {
+        "title": "string",
+        content: content,
+        rating: score,
+        "hashtags": [
+          "string"
+        ],
+        locationId: userLat,userLon
+      },
+      "member": {
+        "email": "string",
+        "password": "string",
+        "roles": [
+          "string"
+        ],
+        "enabled": true,
+        "username": "string",
+        "authorities": [
+          {
+            "authority": "string"
+          }
+        ],
+        "accountNonLocked": true,
+        "credentialsNonExpired": true,
+        "accountNonExpired": true
+      }
+    }).then ((res) => {
+      if (res.status === 200) {
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
   return(
     <ReviewDetailSection.ListFrame>
       <ReviewDetailSection.WriteForm>
@@ -164,7 +236,7 @@ const ReviewWrite = () => {
           </div>
           
           <div className="line"></div>
-          <textarea className="review_txt" type="text" name="review" maxLength={100} placeholder="리뷰를 작성해주세요 (100자 이내)"/>
+          <textarea className="review_txt" type="text" name="review" value={content} onChange={onChangeContent} maxLength={100} placeholder="리뷰를 작성해주세요 (100자 이내)"/>
 
           <div className="tag_wrap">
             <div className="input_box">
@@ -193,7 +265,7 @@ const ReviewWrite = () => {
             {imgList}
 
           </div>
-          <Common.Button style={{ width: "100%"}}>등록하기</Common.Button>
+          <Common.Button style={{ width: "100%"}} onClick={onRegistPost}>등록하기</Common.Button>
         </div>
       </ReviewDetailSection.WriteForm>
 
