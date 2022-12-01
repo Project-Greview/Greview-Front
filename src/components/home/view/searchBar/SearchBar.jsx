@@ -50,7 +50,7 @@ const SearchBar = () => {
   useEffect(() => {
   },[getKeyword]);
   
-  console.log(pageState)
+  console.log(pageState);
   return (
     <SearchBarSection.SearchFrame>
       {pageState[0].value === 0 ? 

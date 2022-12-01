@@ -2,6 +2,10 @@ import testImages from "../../resources/img/review.jpg";
 import axios from "axios";
 
 import { useState, useRef } from "react";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+
+import { searchResult, searchKeyword } from "../../states/commonState";
+
 import images from "../../resources/img/img";
 import { ReviewDetailSection } from "../../components/review/style/reviewStyle";
 import { Common } from "../../resources/style/common/commonStyle";
@@ -10,6 +14,10 @@ import icoClose from "../../resources/img/icons/close_ico_2.svg";
 import HashTag from "../../components/review/view/HashTag";
 
 const ReviewWrite = () => {
+  const [result, setResult] = useState("");
+  const [place, setPlace] = useState("");
+  const getKeyword = useSetRecoilState(searchKeyword);
+
 
   const [text, setText] = useState('');
   const placeInput = useRef();
@@ -22,7 +30,8 @@ const ReviewWrite = () => {
   let image = null;
   const [imgList, setImgList] = useState([]);
   const [counter, setCounter] = useState(0);
-
+  const resultItem = useRecoilValue(searchResult);
+  
   const ReImg = () =>{
     return (
       <div className="review_img" id={Date.now()}>
@@ -120,26 +129,30 @@ const ReviewWrite = () => {
       let locPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
     }
 
+  // 장소검색
+  const searchKeywordPush = () => {
+    getKeyword(text);
+  }
   // 장소
   const [ title, setTitle ] = useState("");
   const onChangeTitle = (e) => {
     e.defaultValue();
     setTitle(e.target.value);
-  }
+  };
   
   // 내용
   const [ content, setContent ] = useState("");
   const onChangeContent = (e) => {
     e.defaultValue();
     setContent(e.target.value);
-  }
+  };
 
   // 평점
   const [score, setScore] = useState(1);
   const storeScoreToggle = (e) => {
     const sltScore = e.target.value;
     setScore(sltScore);
-  } 
+  } ;
   
   // 글쓰기 POST
   const onRegistPost = () => {
@@ -182,6 +195,11 @@ const ReviewWrite = () => {
       console.log(err);
     });
   };
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+    setResult(place);
+    setPlace("");
+  };
   return(
     <ReviewDetailSection.ListFrame>
       <ReviewDetailSection.WriteForm>
@@ -191,17 +209,20 @@ const ReviewWrite = () => {
             <button type="button" className="select place" onClick={btnActive}>장소 검색</button>
             <button type="button" className="select custom" onClick={btnActive}>직접 입력</button>
             <div className="mg flex flex_jc_sb flex_dir_c flex_flow_w">
-              <div className="search_box" ref={searchBox}>
+              <div className="search_box" ref={searchBox}  onSubmit={handleSubmit}>
                 <label htmlFor="">
                   <img src={images.search_btn} alt=""/>
                 </label>
                 <input className="search" type="text" name="place" placeholder="장소명을 입력하세요"
-                  onChange={onInput} defaultValue={text} ref={placeInput}
+                  onChange={onInput} value={text} ref={placeInput}
                   style={{ width: "100%" }}
                 />
               </div>
               <Common.Button style={{ width: "24%",height:"3.3rem" }} type="button" className="disabled" ref={searchBtn}
-                onClick={onPopup}>확인</Common.Button>
+                onClick={(e) => {
+                  onPopup(e) 
+                  searchKeywordPush()
+                }}>확인</Common.Button>
               <button className="none" ref={rmBtn} style={{ width: "10%" }} type="button"><img src={images.btn_remove} alt=""/></button>
             </div>
           </div>
@@ -287,14 +308,12 @@ const ReviewWrite = () => {
                 <button className="btn_close" type="button"><img src={images.btn_close} alt=""/></button>
               </div>
               <ul className="search_list">
-                <li className="active">
-                  <p className="name">제일곱창</p>
-                  <p className="address">서울특별시 성동구 고산자로 281</p>
-                </li>
-                <li>
-                  <p className="name">제일곱창</p>
-                  <p className="address">서울특별시 성동구 고산자로 281</p>
-                </li>
+                {resultItem.map((item, index) => 
+                  <li className="active" key={index}>
+                    <p className="name">{item.place_name}</p>
+                    <p className="address">{item.road_address_name}</p>
+                  </li>
+                )}
               </ul>
             </ReviewDetailSection.PlaceSearch>
 

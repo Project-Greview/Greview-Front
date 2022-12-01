@@ -20,7 +20,6 @@ const KakaoMap = () => {
   
   
   useEffect(() => {
-    
     const locOption = {
       enableHighAccuracy: false,
       maximumAge: Infinity,
@@ -83,7 +82,6 @@ const KakaoMap = () => {
     );
     
     function currentUserMarker(locPosition) {
-      
       let marker = new window.kakao.maps.Marker({
         map: map,
         image: markerImage,
