@@ -10,14 +10,15 @@ import Registration from "./pages/regist/Registration";
 import PageRouter from "./layout/PageRouter";
 
 const App = () => {
-  const UserToken = sessionStorage.getItem("session_token")
+  const UserToken = sessionStorage.getItem("session_token");
   
   return (
     <Routes>
       <Route path="/" element={<Splash />} />
       <Route path="/login" element={<Login />} />
       <Route path="/regist" element={<Registration />} />
-      <Route path="/*" element={UserToken === null ? <Navigate to="/login"/> : <PageRouter />} />
+      {/* <Route path="/*" element={UserToken === null ? <Navigate to="/login"/> : <PageRouter />} /> */}
+      <Route path="/*" element={<PageRouter />} />
       <Route path="/main/*" element={<PageRouter />} />
     </Routes>
   );

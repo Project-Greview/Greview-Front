@@ -6,7 +6,7 @@ import ReviewCmt from "../pages/review/ReviewCmt";
 
 import StoreReview from "../components/review/view/StoreReview";
 import HistoryBackHeader from "../components/include/view/HistoryBackHeader";
-import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import { setPageInfoState } from "../states/commonState";
 
 const ReviewRouter = () => {
@@ -14,7 +14,6 @@ const ReviewRouter = () => {
   return(
     <>
       {pageInfo.value === 10 ? "" : <HistoryBackHeader/>}
-      {/* <HistoryBackHeader/> */}
       <Routes>
         <Route path="/reviewrite" element={<ReviewWrite/>}/>
         <Route path="/reviewlist" element={<ReviewList/>}/>
