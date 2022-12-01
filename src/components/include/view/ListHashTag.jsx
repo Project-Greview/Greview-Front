@@ -3,6 +3,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import HashTag from "../../review/view/HashTag";
 import { Pagination } from "swiper";
 
+const HashTagList = [
+  {
+    tag: "맛집"
+  },
+  {
+    tag: "웨이팅필수"
+  },
+  {
+    tag: "친절해요"
+  }
+  
+]
+
 const ListHashTag = () => {
   return(
     <div className="hashtag_wrap">
@@ -13,21 +26,13 @@ const ListHashTag = () => {
         modules={[Pagination]}
         className="mySwiper flex_ai_c"
       >
-        <SwiperSlide className="active">
-          <HashTag tag_name="맛집"/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <HashTag tag_name="맛집"/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <HashTag/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <HashTag/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <HashTag/>
-        </SwiperSlide>
+        {HashTagList.map((tag, index) => 
+          <>
+            <SwiperSlide key={index}>
+              <HashTag tag_name={tag.tag}/>
+            </SwiperSlide>
+          </>
+        )}
       </Swiper>
       </div>
     </div>
