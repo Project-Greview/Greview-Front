@@ -8,9 +8,9 @@ const HashTagStyle = {
   `
 };
 
-const HashTag = ({tagName}) => {
+const HashTag = ({tagName, remove}) => {
   return(
-    <HashTagStyle.TagItem>{tagName}</HashTagStyle.TagItem>
+    <HashTagStyle.TagItem onClick={remove}>{tagName}</HashTagStyle.TagItem>
   )
 }
 

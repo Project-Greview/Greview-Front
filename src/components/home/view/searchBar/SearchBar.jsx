@@ -49,22 +49,23 @@ const SearchBar = () => {
 
   const searchKeywordPush = () => {
     getKeyword(place);
-    navigate(
-      "/seachresult", 
-      {state: { 
-        value: 1,
-        tit: "검색결과",
-        naviView: false
-      }});
+    // navigate(
+    //   "/home/seachresult", 
+    //   {state: 
+    //     { 
+    //       value: 0,
+    //       tit: "검색결과",
+    //       naviView: false,
+    //     }
+    //   }
+    // );
   }
   useEffect(() => {
   },[getKeyword]);
   
-  console.log(pageState);
   return (
     <SearchBarSection.SearchFrame>
       {pageState[0].value === 0 ? 
-      
         <div className="bars_btn relative cursor_p" onClick={onToggleLeftMenu}>
           <div></div>
           <div></div>

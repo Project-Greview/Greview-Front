@@ -1,7 +1,7 @@
 import { Common } from "../../../resources/style/common/commonStyle";
 
 import { useState, useRef } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 
 import { searchResult } from "../../../states/commonState";
 import { ResultListSection } from "../style/resultListStyle";

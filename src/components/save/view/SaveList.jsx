@@ -19,9 +19,9 @@ const SaveItem = () => {
         
         <div className="hashtag_wrap">
           <div className="overBox">
-            <HashTag tag_name={"맛집"}/>
-            <HashTag tag_name={"친절해요"}/>
-            <HashTag tag_name={"웨이팅필수"}/>
+            <HashTag tagName={"맛집"}/>
+            <HashTag tagName={"친절해요"}/>
+            <HashTag tagName={"웨이팅필수"}/>
           </div>
         </div>
       </div>

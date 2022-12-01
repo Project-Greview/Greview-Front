@@ -167,6 +167,7 @@ const ReviewWrite = () => {
     text => {
       if (addIndex.current < 3) {
         const hashTagName = {
+          id: addIndex.current,
           hashTagString: hashTagValue
         };
         setHashTag(hashTag.concat(hashTagName));
@@ -178,7 +179,12 @@ const ReviewWrite = () => {
     },
     [hashTagValue]
   );
-  console.log(hashTag)
+  const removeHashTag = useCallback(
+    id => {
+      setHashTag(hashTag.filter(text => text.id !== id));
+    },
+    [hashTagValue]
+  );
   // 글쓰기 POST
   const onRegistPost = () => {
     axios.post("review",
@@ -188,7 +194,7 @@ const ReviewWrite = () => {
         "Content-Type": "application/json",
       },
         postReviewRequest: {
-        "title": "string",
+        title: text,
         content: content,
         rating: score,
         hashtags: [
@@ -196,22 +202,22 @@ const ReviewWrite = () => {
         ],
         locationId: userLat,userLon
       },
-      "member": {
-        "email": "string",
-        "password": "string",
-        "roles": [
+      member: {
+        email: "string",
+        password: "string",
+        roles: [
           "string"
         ],
-        "enabled": true,
-        "username": "string",
-        "authorities": [
+        enabled: true,
+        username: "string",
+        authorities: [
           {
-            "authority": "string"
+            authority: "string"
           }
         ],
-        "accountNonLocked": true,
-        "credentialsNonExpired": true,
-        "accountNonExpired": true
+        accountNonLocked: true,
+        credentialsNonExpired: true,
+        accountNonExpired: true
       }
     }).then ((res) => {
       if (res.status === 200) {
@@ -224,6 +230,7 @@ const ReviewWrite = () => {
     setResult(place);
     setPlace("");
   };
+
   return(
     <ReviewDetailSection.ListFrame>
       <ReviewDetailSection.WriteForm>
@@ -294,7 +301,7 @@ const ReviewWrite = () => {
           <div className="hashtag_wrap">
             <div className="overBox">
               {hashTag.map((item, index) =>
-                <HashTag key={index} tagName={item.hashTagString}/>
+                <HashTag key={index} remove={removeHashTag} tagName={item.hashTagString}/>
               )}
             </div>
           </div>
