@@ -95,8 +95,6 @@ const ReviewWrite = () => {
       placeInput.current.disabled = true;
       rmBtn.current.classList.remove('none');
       searchBtn.current.classList.add('none_im');
-
-      console.log('disabled');
     }
   };
 
@@ -164,18 +162,23 @@ const ReviewWrite = () => {
     setHashTagValue(e.target.value);
   };
 
-  const addIndex = useRef(1);
+  const addIndex = useRef(0);
   const addHashTag = useCallback(
     text => {
-      const hashTagName = {
-        hashTagString: hashTagValue
-      };
-      setHashTag(hashTag.concat(hashTagName));
-      addIndex.current +=1;
-      setHashTagValue("");
+      if (addIndex.current < 3) {
+        const hashTagName = {
+          hashTagString: hashTagValue
+        };
+        setHashTag(hashTag.concat(hashTagName));
+        addIndex.current +=1;
+        setHashTagValue("");
+      } else {
+        
+      }
     },
     [hashTagValue]
   );
+  console.log(hashTag)
   // 글쓰기 POST
   const onRegistPost = () => {
     axios.post("review",
@@ -188,8 +191,8 @@ const ReviewWrite = () => {
         "title": "string",
         content: content,
         rating: score,
-        "hashtags": [
-          "string"
+        hashtags: [
+          hashTag.hashTagString
         ],
         locationId: userLat,userLon
       },
@@ -285,7 +288,7 @@ const ReviewWrite = () => {
               </label>
               <input type="text" placeholder={"해시태그를 입력해주세요"} value={hashTagValue} onChange={onChangeHashTagValue} style={{ width: "100%" }} />
             </div>
-            <Common.ButtonDiv style={{ width: "24%", height:"4.1rem" }} onClick={addHashTag}>추가</Common.ButtonDiv>
+            <Common.ButtonDiv style={{ width: "24%", height:"4.1rem" }} onClick={addHashTag} className={addIndex.current >= 3 ? "disabled" : ""}>추가</Common.ButtonDiv>
           </div>
           
           <div className="hashtag_wrap">
