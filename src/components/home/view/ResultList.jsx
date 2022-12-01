@@ -45,7 +45,7 @@ const ResultList = ({ props }) => {
             <p className="name">사용자명 <span>3km</span></p>
             <p>이 주변의 리뷰 전체보기</p>
           </div>
-          <ul className="list" style={{marginBottom:"6rem"}}>
+          <ul className="list" style={{marginBottom:"11rem"}}>
               {resultItem.map((item, index) => 
               <li key={index}>
                 <div className="list on"></div>
