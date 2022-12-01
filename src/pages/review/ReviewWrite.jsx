@@ -105,6 +105,12 @@ const ReviewWrite = () => {
       searchBtn.current.classList.remove('disabled');
     }
   };
+
+  const [score, setScore] = useState(1);
+  const storeScoreToggle = (e) => {
+    const sltScore = e.target.value;
+    setScore(sltScore);
+  } 
   
   return(
     <ReviewDetailSection.ListFrame>
@@ -133,11 +139,28 @@ const ReviewWrite = () => {
 
           <div className="star_wrap">
             <p>별점을 선택해주세요.</p>
-            <button className="star mt" type="button"><img src={images.star_on} alt="" /></button>
-            <button className="star" type="button"><img src={images.star_on} alt="" /></button>
-            <button className="star" type="button"><img src={images.star_off} alt="" /></button>
-            <button className="star" type="button"><img src={images.star_off} alt="" /></button>
-            <button className="star" type="button"><img src={images.star_off} alt="" /></button>
+            <div className="flex stars">
+              <div>
+                <input onClick={storeScoreToggle} type="checkbox" name="store_score" id="score_1" className={score >= 1 ? "active" : ""} defaultChecked value={1}/>
+                <label htmlFor="score_1"></label>
+              </div>
+              <div>
+                <input onClick={storeScoreToggle} type="checkbox" name="store_score" id="score_2" className={score >= 2 ? "active" : ""} value={2}/>
+                <label htmlFor="score_2"></label>
+              </div>
+              <div>
+                <input onClick={storeScoreToggle} type="checkbox" name="store_score" id="score_3" className={score >= 3 ? "active" : ""} value={3}/>
+                <label htmlFor="score_3"></label>
+              </div>
+              <div>
+                <input onClick={storeScoreToggle} type="checkbox" name="store_score" id="score_4" className={score >= 4 ? "active" : ""} value={4}/>
+                <label htmlFor="score_4"></label>
+              </div>
+              <div>
+                <input onClick={storeScoreToggle} type="checkbox" name="store_score" id="score_5" className={score >= 5 ? "active" : ""} value={5}/>
+                <label htmlFor="score_5"></label>
+              </div>
+            </div>
           </div>
           
           <div className="line"></div>

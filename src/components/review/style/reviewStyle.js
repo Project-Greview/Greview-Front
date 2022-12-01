@@ -168,8 +168,20 @@ export const ReviewDetailSection = {
         }
         &.disabled{background:#fff}
       }
-      .star_wrap{margin:1.5rem 0 0.7rem;width: 100%;
-        .star{margin-right:0.88rem;}
+      .star_wrap{margin:1.5rem 0 0.7rem; width: 100%;
+        .stars{margin-top:1rem; margin-right:0.88rem;
+          > div {margin:0 0.88rem 0 0;
+            input {width:0; padding:0;margin:0;  opacity:0;
+              ~ label {position:relative; width:24px; height:23px; padding:0; border:none; outline:none;
+              ::after {content:url("${images.star_off}");}
+              }
+              /* :checked ~ label { */
+              &.active ~ label {
+                ::after {content:url("${images.star_on}");}
+              }
+            }
+          }
+        }
         .mt{margin-top:1.3rem;}
         p{margin:0}
       }
