@@ -1,13 +1,8 @@
 import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
+import { useSetRecoilState, useRecoilValue, useResetRecoilState } from "recoil";
 
-import {
-  setPageInfoState,
-  setLeftMenuState,
-  searchResult,
-  searchKeyword,
-} from "../states/commonState";
+import { setPageInfoState, setLeftMenuState, searchKeyword, searchResult } from "../states/commonState";
 import { loginState } from "../states/memberState";
 
 import { Common } from "../resources/style/common/commonStyle";
@@ -18,7 +13,6 @@ import ReviewRouter from "./ReviewRouter";
 import MyPageRouter from "./MyPageRouter";
 import SaveList from "../pages/save/SaveList";
 import SearchLoction from "../pages/searchlocation/SearchLocation";
-import ResultList from "../components/home/view/ResultList";
 
 const PageRouter = () => {
   const location = useLocation();
@@ -31,14 +25,18 @@ const PageRouter = () => {
   const leftMenuState = useRecoilValue(setLeftMenuState);
 
   const Result = useRecoilValue(searchResult);
+
+  const resetState = useResetRecoilState(searchKeyword,searchResult);
+
+  console.log(Result);
+
   useEffect(() => {
     setPageState(location.state);
-  }, [location.state.tit, pageState]);
+    resetState();
+  }, [location.state, pageState.value]);
 
-  // console.log("페이지 정보", pageState);
+  console.log("페이지 정보", pageState);
   // console.log("로그인", isLogin);
-  // console.log(result.length);
-  console.log(Result);
   return (
     <Common.Frame>
       {pageState.value === 0 || pageState.value === 1 ? <SearchBar /> : ""}

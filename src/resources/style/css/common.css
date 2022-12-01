@@ -2,6 +2,8 @@
 @import "../../font/pretendard.css";
 @import "../../font/Roboto.css";
 
+#map {min-height: 91vh;}
+#map.sub {min-height: 20vh}
 /* normalize */
 body,ul,ol,li,p,strong,h1,h2,h3,h4,h5,h6 { margin:0; padding:0; list-style:none;}
 a { color:inherit; text-decoration:none;}

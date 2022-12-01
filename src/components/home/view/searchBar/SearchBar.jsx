@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useRecoilState, useSetRecoilState} from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 
 import { Common } from "../../../../resources/style/common/commonStyle";
 import { SearchBarSection } from "../../style/searchbarStyle";
@@ -50,6 +50,7 @@ const SearchBar = () => {
   useEffect(() => {
   },[getKeyword]);
   
+  console.log(pageState)
   return (
     <SearchBarSection.SearchFrame>
       {pageState[0].value === 0 ? 
@@ -63,21 +64,37 @@ const SearchBar = () => {
         <HistoryBack/>
       }
       <Common.SearchInput onSubmit={handleSubmit}>
-        <label htmlFor="" onClick={onChangeSearchType}>
-          <img src={searchType === "location" ? images.marker_g : images.marker_c} alt=""/>
-        </label>
-        <input
-          type="text"
-          placeholder={
-            searchType === "location"
-              ? "장소명을 입력해주세요"
-              : "해시태그를 입력해주세요"
+        {pageState[0].value === 0 ?
+          <label htmlFor="" onClick={onChangeSearchType}>
+            <img src={searchType === "location" ? images.marker_g : images.marker_c} alt=""/>
+          </label>
+          :
+          <label htmlFor="">
+            <img src={images.marker_c} alt=""/>
+          </label>
+        }
+          {pageState[0].value === 0 ?
+              <input
+                type="text"
+                placeholder={
+                  searchType === "location"
+                    ? "장소명을 입력해주세요"
+                    : "해시태그를 입력해주세요"
+                }
+                onChange={searchType === "location" ? onChangePlaceKeyword : onChangeHashTagKeyword}
+                style={{ width: "100%" }}
+                value={searchType === "location" ? place : hashTag}
+              />
+            :
+              <input
+                type="text"
+                placeholder="해시태그를 입력해주세요"
+                onChange={onChangeHashTagKeyword}
+                style={{ width: "100%" }}
+                value={hashTag}
+              />
           }
-          onChange={searchType === "location" ? onChangePlaceKeyword : onChangeHashTagKeyword}
-          style={{ width: "100%" }}
-          value={searchType === "location" ? place : hashTag}
-        />
-        <Common.Button className={searchType} type={'submit'} onClick={searchKeywordPush}>
+        <Common.Button className={`${pageState[0].value === 0 ? `${searchType}` : "tag"}`} type={'submit'} onClick={searchKeywordPush}>
           <SearchBtn />
         </Common.Button>
       </Common.SearchInput>

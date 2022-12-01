@@ -111,12 +111,10 @@ const ReviewWrite = () => {
   const [userLon, setUserLng] = useState(Number);
   if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        // watchPosition, getCurrentPosition
         let lat = position.coords.latitude, // 위도
             lon = position.coords.longitude; // 경도
-        let locPosition = {userLat, userLon}
-        setUserLat(position.coords.latitude);
-        setUserLng(position.coords.longitude);
+        setUserLat(lat);
+        setUserLng(lon);
       });
     } else {
       let locPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
