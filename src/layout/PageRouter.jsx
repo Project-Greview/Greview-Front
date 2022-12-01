@@ -13,6 +13,7 @@ import ReviewRouter from "./ReviewRouter";
 import MyPageRouter from "./MyPageRouter";
 import SaveList from "../pages/save/SaveList";
 import SearchLoction from "../pages/searchlocation/SearchLocation";
+import SearchResult from "../components/home/view/SearchResult";
 
 const PageRouter = () => {
   const location = useLocation();
@@ -46,6 +47,7 @@ const PageRouter = () => {
         <Route path="/review/*" element={<ReviewRouter />} />
         <Route path="/mypage/*" element={<MyPageRouter />} />
         <Route path="/savelist" element={<SaveList />} />
+        <Route path="/seachresult" element={<SearchResult />}/>
       </Routes>
       {pageState.value === 0 ||
       pageState.value === 1 ||
