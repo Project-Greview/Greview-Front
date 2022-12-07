@@ -17,7 +17,6 @@ const App = () => {
       <Route path="/" element={<Splash />} />
       <Route path="/login" element={<Login />} />
       <Route path="/regist" element={<Registration />} />
-      {/* 로그인 우회용 */}
       {/* <Route path="/*" element={UserToken === null ? <Navigate to="/login"/> : <PageRouter />} /> */}
       <Route path="/*" element={<PageRouter />} />
       <Route path="/main/*" element={<PageRouter />} />
