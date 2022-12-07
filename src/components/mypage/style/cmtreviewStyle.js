@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 export const CmtReviewSection = {
   CmtReviewFrame:styled.li`
-    background:#ffffff; padding:1.7rem 1.9rem;margin:0 0 1.2rem;border: 1px solid #EDEDED;border-radius:0.5rem;
+    background:#ffffff; padding:1.7rem 1.9rem; margin:0 0 1.2rem; border: 1px solid #EDEDED; border-radius:0.5rem;
     .cmt_box {
       .profile {flex-basis:15%;
         .picture {width:3.5rem;height:3.5rem;border-radius:50%;background:#D9D9D9;margin-right:0.9rem;

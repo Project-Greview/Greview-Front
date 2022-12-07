@@ -10,6 +10,7 @@ import SearchBtn from "./SearchBtn";
 
 import { onToggleSearchType, setLeftMenuState, searchKeyword, setPageInfoState } from "../../../../states/commonState";
 import HistoryBack from "../../../include/view/HistorybackButton";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const [searchType, setSearchType] = useRecoilState(onToggleSearchType);
@@ -18,6 +19,8 @@ const SearchBar = () => {
   const getKeyword = useSetRecoilState(searchKeyword);
   const [place, setPlace] = useState("");
   const [hashTag, setHashTag] = useState("");
+  const navigate = useNavigate();
+
 
   const onChangePlaceKeyword = (e) => {
     e.preventDefault();
@@ -46,15 +49,23 @@ const SearchBar = () => {
 
   const searchKeywordPush = () => {
     getKeyword(place);
+    // navigate(
+    //   "/home/seachresult", 
+    //   {state: 
+    //     { 
+    //       value: 0,
+    //       tit: "검색결과",
+    //       naviView: false,
+    //     }
+    //   }
+    // );
   }
   useEffect(() => {
   },[getKeyword]);
   
-  console.log(pageState);
   return (
     <SearchBarSection.SearchFrame>
       {pageState[0].value === 0 ? 
-      
         <div className="bars_btn relative cursor_p" onClick={onToggleLeftMenu}>
           <div></div>
           <div></div>

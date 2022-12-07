@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import "../../font/pretendard.css";
 @import "../../font/Roboto.css";
-
+[data-rsbs-overlay] {bottom:-4.9rem;}
 #map {min-height: 91vh;}
 #map.sub {min-height: 20vh}
 /* normalize */

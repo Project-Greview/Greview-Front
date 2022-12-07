@@ -52,22 +52,8 @@ const MyPageMain = () => {
         window.removeEventListener("scroll", handleScroll);
       };
   });
-  
-// const tests = axios.get('http://localhost:8080/v3/api-docs')
-// //성공시 then 실행
-// .then(function (response) {
-// 	console.log(response);
-// })
-// //실패 시 catch 실행
-// .catch(function (error) {
-// 	console.log(error);
-// })
-// //성공이던 실패던 항상 실행
-// .then(function () {
-// 	// always executed
-// });
 
-console.log(reviewTest)
+
   return (
     <>
       <MyPageSection.MyPageHeader>

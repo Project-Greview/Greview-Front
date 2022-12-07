@@ -29,7 +29,7 @@ const ListHashTag = () => {
         {HashTagList.map((tag, index) => 
           <>
             <SwiperSlide key={index}>
-              <HashTag tag_name={tag.tag}/>
+              <HashTag tagName={tag.tag}/>
             </SwiperSlide>
           </>
         )}

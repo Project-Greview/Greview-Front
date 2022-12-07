@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SaveListSection = {
   ListFrame:styled.ul`
-    padding:1.6rem 2rem; background-color:#F8F8F8;margin:4.7rem 0 5.8rem;
+    min-height:85vh; padding:1.6rem 2rem; background-color:#F8F8F8; margin:4.7rem 0 6.5rem;
     .list_wrap{background:#ffffff;margin:0 0 1.2rem;border: 1px solid #EDEDED;border-radius:1rem;position: relative;
       .save_mark{position:absolute;right:1.6rem;top:1.4rem;}
       .thumbnail {margin:0rem 0 0.9rem;height:9.8rem;

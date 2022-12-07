@@ -5,4 +5,9 @@ const setMyPageTabState = atom({
   default: "1",
 });
 
-export {setMyPageTabState};
+const setSearchTabState = atom({
+  key: "searchTabMenuState",
+  default: "1",
+})
+
+export {setMyPageTabState, setSearchTabState};

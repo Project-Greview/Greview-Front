@@ -12,6 +12,7 @@ import { Common } from "../../resources/style/common/commonStyle";
 import HistoryBack from "../../components/include/view/HistorybackButton";
 import icoClose from "../../resources/img/icons/close_ico_2.svg";
 import HashTag from "../../components/review/view/HashTag";
+import { useCallback } from "react";
 
 const ReviewWrite = () => {
   const [result, setResult] = useState("");
@@ -94,8 +95,6 @@ const ReviewWrite = () => {
       placeInput.current.disabled = true;
       rmBtn.current.classList.remove('none');
       searchBtn.current.classList.add('none_im');
-
-      console.log('disabled');
     }
   };
 
@@ -136,14 +135,14 @@ const ReviewWrite = () => {
   // 장소
   const [ title, setTitle ] = useState("");
   const onChangeTitle = (e) => {
-    e.defaultValue();
+    e.preventDefault();
     setTitle(e.target.value);
   };
   
   // 내용
   const [ content, setContent ] = useState("");
   const onChangeContent = (e) => {
-    e.defaultValue();
+    e.preventDefault();
     setContent(e.target.value);
   };
 
@@ -154,6 +153,38 @@ const ReviewWrite = () => {
     setScore(sltScore);
   } ;
   
+  // 해시태그
+  const [hashTag, setHashTag] = useState([]);
+  const [hashTagValue, setHashTagValue] = useState("");
+
+  const onChangeHashTagValue = (e) => {
+    e.preventDefault();
+    setHashTagValue(e.target.value);
+  };
+
+  const addIndex = useRef(0);
+  const addHashTag = useCallback(
+    text => {
+      if (addIndex.current < 3) {
+        const hashTagName = {
+          id: addIndex.current,
+          hashTagString: hashTagValue
+        };
+        setHashTag(hashTag.concat(hashTagName));
+        addIndex.current +=1;
+        setHashTagValue("");
+      } else {
+        
+      }
+    },
+    [hashTagValue]
+  );
+  const removeHashTag = useCallback(
+    id => {
+      setHashTag(hashTag.filter(text => text.id !== id));
+    },
+    [hashTagValue]
+  );
   // 글쓰기 POST
   const onRegistPost = () => {
     axios.post("review",
@@ -163,30 +194,30 @@ const ReviewWrite = () => {
         "Content-Type": "application/json",
       },
         postReviewRequest: {
-        "title": "string",
+        title: text,
         content: content,
         rating: score,
-        "hashtags": [
-          "string"
+        hashtags: [
+          hashTag.hashTagString
         ],
         locationId: userLat,userLon
       },
-      "member": {
-        "email": "string",
-        "password": "string",
-        "roles": [
+      member: {
+        email: "string",
+        password: "string",
+        roles: [
           "string"
         ],
-        "enabled": true,
-        "username": "string",
-        "authorities": [
+        enabled: true,
+        username: "string",
+        authorities: [
           {
-            "authority": "string"
+            authority: "string"
           }
         ],
-        "accountNonLocked": true,
-        "credentialsNonExpired": true,
-        "accountNonExpired": true
+        accountNonLocked: true,
+        credentialsNonExpired: true,
+        accountNonExpired: true
       }
     }).then ((res) => {
       if (res.status === 200) {
@@ -196,10 +227,10 @@ const ReviewWrite = () => {
     });
   };
   const handleSubmit = (e) => {
-    // e.preventDefault();
     setResult(place);
     setPlace("");
   };
+
   return(
     <ReviewDetailSection.ListFrame>
       <ReviewDetailSection.WriteForm>
@@ -262,16 +293,16 @@ const ReviewWrite = () => {
               <label htmlFor="">
                 <img src={images.marker_c} alt=""/>
               </label>
-              <input type="text" placeholder={"해시태그를 입력해주세요"} style={{ width: "100%" }} />
+              <input type="text" placeholder={"해시태그를 입력해주세요"} value={hashTagValue} onChange={onChangeHashTagValue} style={{ width: "100%" }} />
             </div>
-            <Common.Button style={{ width: "24%",height:"4.1rem" }}>추가</Common.Button>
+            <Common.ButtonDiv style={{ width: "24%", height:"4.1rem" }} onClick={addHashTag} className={addIndex.current >= 3 ? "disabled" : ""}>추가</Common.ButtonDiv>
           </div>
           
           <div className="hashtag_wrap">
             <div className="overBox">
-              <HashTag tag_name={"맛집"}/>
-              <HashTag tag_name={"친절해요"}/>
-              <HashTag tag_name={"웨이팅필수"}/>
+              {hashTag.map((item, index) =>
+                <HashTag key={index} remove={removeHashTag} tagName={item.hashTagString}/>
+              )}
             </div>
           </div>
 
@@ -308,12 +339,16 @@ const ReviewWrite = () => {
                 <button className="btn_close" type="button"><img src={images.btn_close} alt=""/></button>
               </div>
               <ul className="search_list">
-                {resultItem.map((item, index) => 
-                  <li className="active" key={index}>
-                    <p className="name">{item.place_name}</p>
-                    <p className="address">{item.road_address_name}</p>
-                  </li>
-                )}
+                {resultItem !== "ERROR" ? 
+                  resultItem.map((item, index) => 
+                    <li className="active" key={index}>
+                      <p className="name">{item.place_name}</p>
+                      <p className="address">{item.road_address_name}</p>
+                    </li>
+                  )
+                  :
+                  null
+                }
               </ul>
             </ReviewDetailSection.PlaceSearch>
 
