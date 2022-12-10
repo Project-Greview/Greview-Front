@@ -1,8 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 import { searchKeyword, searchResult, setPageInfoState} from "../../../../states/commonState";
+import { setSearchTabState } from "../../../../states/tabMenuState";
 
 import images from "../../../../resources/img/img";
 
@@ -12,11 +13,13 @@ const KakaoMap = () => {
   const Keyword = useRecoilValue(searchKeyword);
   const pageState = useRecoilState(setPageInfoState);
   const [result, setResult] = useRecoilState(searchResult);
+  const [tabIndex, setTabIndex] = useRecoilState(setSearchTabState);
   const [map, setMap] = useState(null);
   const container = useRef(null);
   const [userLat, setUserLat] = useState(Number);
   const [userLng, setUserLng] = useState(Number);
 
+  console.log("탭인덱스",tabIndex);
   
   
   useEffect(() => {
@@ -156,8 +159,9 @@ const KakaoMap = () => {
         } else if (status === window.kakao.maps.services.Status.ERROR) {
           return;
         }
+        setTabIndex("2");
         setResult(data);
-        // console.log("검색결과", data);
+        // console.log(data)
       }
     }
     
@@ -175,4 +179,4 @@ const KakaoMap = () => {
   );
 };
 
-export default KakaoMap;
+export default React.memo(KakaoMap);
