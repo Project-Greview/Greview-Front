@@ -32,26 +32,30 @@ const Login = () => {
   };
 
   const LoginPost = () => {
-    axios
-      .post("members/login", {
-        headers: {
-          accept: "*/*",
-          "Content-Type": "application/json",
-        },
-        email: LoginID,
-        password: LoginPW,
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          sessionStorage.setItem("session_token", res.data);
-          setIsLogin(true);
-          navigate("/main/home", {
-            state: { value: 0, tit: "지도", naviView: true },
-          });
-        }
-      })
-      .catch((err) => {
-        console.log(err);
+    // axios
+    //   .post("members/login", {
+    //     headers: {
+    //       accept: "*/*",
+    //       "Content-Type": "application/json",
+    //     },
+    //     email: LoginID,
+    //     password: LoginPW,
+    //   })
+    //   .then((res) => {
+    //     if (res.status === 200) {
+    //       sessionStorage.setItem("session_token", res.data);
+    //       setIsLogin(true);
+    //       navigate("/main/home", {
+    //         state: { value: 0, tit: "지도", naviView: true },
+    //       });
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+
+      navigate("/main/home", {
+        state: { value: 0, tit: "지도", naviView: true },
       });
   };
 

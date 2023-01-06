@@ -19,6 +19,10 @@ const ReviewWrite = () => {
   const [place, setPlace] = useState("");
   const getKeyword = useSetRecoilState(searchKeyword);
 
+  const onChangePlaceKeyword = (e) => {
+    e.preventDefault();
+    setPlace(e.target.value);
+  }
 
   const [text, setText] = useState('');
   const placeInput = useRef();
@@ -334,7 +338,7 @@ const ReviewWrite = () => {
                   <img src={images.search_btn} alt=""/>
                 </label>
                 <input type="text" placeholder={ "지번, 도로명, 건물명으로 검색"} style={{ width: "100%" }} 
-                  defaultValue={"제일곱창"}
+                  onChange={onChangePlaceKeyword} value={place}
                 />
                 <button className="btn_close" type="button"><img src={images.btn_close} alt=""/></button>
               </div>

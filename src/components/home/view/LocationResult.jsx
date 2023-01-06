@@ -6,13 +6,15 @@ const LocationResult = ({resultItem}) => {
           <div className="img"></div>
           <div className="info">
             <p><strong>{item.place_name}</strong>5km</p>
+            <p className="review">{item.road_address_name}</p>
             <p className="review">
-              곱창이 맛없을 수 없지만 여긴 정말 맛있습니다. 2시간 반 <strong>웨이팅</strong>을 했지만 먹으니
+              {/* 곱창이 맛없을 수 없지만 여긴 정말 맛있습니다. 2시간 반 <strong>웨이팅</strong>을 했지만 먹으니 */}
+              {item.address_name}
             </p>
-            <div className="profile">
+            {/* <div className="profile">
               <div className="pro_img"></div>
               <p>먹짱</p>
-            </div>
+            </div> */}
           </div>
         </li>
       )}

@@ -16,6 +16,7 @@ const SearchResult = () => {
   };
   const keywordResultItem = useRecoilValue(searchResult);
 
+  console.log(keywordResultItem)
   return(
     <SearchResultSection.ListFrame>
       <div className="tab">
@@ -27,10 +28,8 @@ const SearchResult = () => {
       <div className="result_list">
         <div className="result_num flex">
           <p>
-            <strong>{tabIndex[0] === "1" ? 
-            "" 
-            : 
-            keywordResultItem.length}개</strong>의 검색결과가 있습니다.
+            <strong>
+              {tabIndex[0] === "1" ? "0" : keywordResultItem.length}개</strong>의 검색결과가 있습니다.
           </p>
           <select name="" id="">
             <option value="">최신순</option>
@@ -39,7 +38,7 @@ const SearchResult = () => {
         </div>
         <ul>
           {tabIndex[0] === "1" ? 
-            "on" 
+            <li className="no_result">등록된 리뷰가 없습니다.</li>
           : 
             <LocationResult resultItem={keywordResultItem}/>
           }

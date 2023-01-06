@@ -11,6 +11,7 @@ export const SearchResultSection = {
     }
     .result_list{padding-top: 5rem;
       .result_num {justify-content:space-between;padding: 0 2.5rem;
+       
         p{line-height: 2rem;font-size: 1.2rem;color: #959292;
           strong{color:#3A3A3A;font-size: 1.2rem;font-weight:bold}
         }
@@ -19,6 +20,7 @@ export const SearchResultSection = {
         }
       }
       ul{
+        .no_result {margin:0 auto;}
         li{display:flex;padding: 2rem 2rem 0.9rem;border-bottom:1px solid #EDEDED;
           .img{width : 9rem;height: 9rem;background: #d9d9d9;border-radius: 0.5rem;}
           .profile{display:flex;
@@ -26,7 +28,7 @@ export const SearchResultSection = {
             p{margin-left: 0.5rem;line-height:2.5rem;color: #3A3A3A;font-size: 1.4rem;}
           }
           
-          .info{width:22rem; padding: 0.5rem 0 2rem 2.5rem ;
+          .info{width:75%; padding: 0.5rem 0 2rem 2.5rem ; //width:22rem;
             .review{margin: 0.8rem 0;overflow: hidden;text-overflow: ellipsis; display: -webkit-box;-webkit-line-clamp: 2;  -webkit-box-orient: vertical;
               strong{color:#6556FF;font-size:1.2rem;margin:0}
             }
