@@ -17,8 +17,11 @@ const App = () => {
       <Route path="/" element={<Splash />} />
       <Route path="/login" element={<Login />} />
       <Route path="/regist" element={<Registration />} />
+      {/* 액션 완성 후 주석 해제 */}
       {/* <Route path="/*" element={UserToken === null ? <Navigate to="/login"/> : <PageRouter />} /> */}
+      {/* 로그인 없이 이동 */}
       <Route path="/*" element={<PageRouter />} />
+      
       <Route path="/main/*" element={<PageRouter />} />
     </Routes>
   );

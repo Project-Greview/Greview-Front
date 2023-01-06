@@ -72,9 +72,9 @@ const Registration = () => {
     });
   };
   
-  useEffect(() => {
-    onRegistPost()
-  },[])
+  // useEffect(() => {
+  //   onRegistPost()
+  // },[])
   
   return (
     <RegistSection.RegistFrame>
@@ -148,23 +148,23 @@ const Registration = () => {
       </RegistSection.RegistForm>
       <Common.Button
         className={
-          email.value !== 0 &&
-          password.value !== 0 &&
-          passwordCK.value !== 0 &&
-          telNum.value !== 0 &&
-          name.value !== 0 &&
-          nickname.value !== 0
+          email.length !== 0 &&
+          password.length !== 0 &&
+          passwordCK.length !== 0 &&
+          telNum.length !== 0 &&
+          name.length !== 0 &&
+          nickname.length !== 0
           ? "active" : ""
         }
         style={{ width: "86%" }}
         onClick={onRegistPost}
         disabled={
-          email.value !== 0 &&
-          password.value !== 0 &&
-          passwordCK.value !== 0 &&
-          telNum.value !== 0 &&
-          name.value !== 0 &&
-          nickname.value !== 0
+          email.length !== 0 &&
+          password.length !== 0 &&
+          passwordCK.length !== 0 &&
+          telNum.length !== 0 &&
+          name.length !== 0 &&
+          nickname.length !== 0
           ? false : true
         }
         

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 
@@ -15,6 +16,8 @@ const Splash = () => {
     setHasAccount(true);
   };
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(null);
 
   // PUSH Registration
   const onPushRegist = () => {

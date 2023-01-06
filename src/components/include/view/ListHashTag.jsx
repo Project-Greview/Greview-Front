@@ -27,11 +27,9 @@ const ListHashTag = () => {
         className="mySwiper flex_ai_c"
       >
         {HashTagList.map((tag, index) => 
-          <>
-            <SwiperSlide key={index}>
-              <HashTag tagName={tag.tag}/>
-            </SwiperSlide>
-          </>
+          <SwiperSlide key={index}>
+            <HashTag tagName={tag.tag}/>
+          </SwiperSlide>
         )}
       </Swiper>
       </div>
